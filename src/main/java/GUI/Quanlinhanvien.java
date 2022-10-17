@@ -93,7 +93,7 @@ public class Quanlinhanvien extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Create.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("img/Create.png")); // NOI18N
         jButton1.setText("Thêm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ public class Quanlinhanvien extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Delete.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("img/Delete.png")); // NOI18N
         jButton2.setText("Nghỉ việc");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class Quanlinhanvien extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Edit.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("img/Edit.png")); // NOI18N
         jButton3.setText("Sửa");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ public class Quanlinhanvien extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("img/Refresh.png")); // NOI18N
         jButton4.setText("Làm mới");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class Quanlinhanvien extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Search.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("img/Search.png")); // NOI18N
         jButton5.setText("Tìm kiếm");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

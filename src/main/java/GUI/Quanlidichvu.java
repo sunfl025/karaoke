@@ -72,7 +72,7 @@ public class Quanlidichvu extends javax.swing.JPanel {
 
         lbl_tendichvu.setText("Tên dịch vụ : ");
 
-        btn_themdichvu.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Create.png")); // NOI18N
+        btn_themdichvu.setIcon(new javax.swing.ImageIcon("img/Create.png")); // NOI18N
         btn_themdichvu.setText("Tạo mới");
         btn_themdichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +80,7 @@ public class Quanlidichvu extends javax.swing.JPanel {
             }
         });
 
-        btn_capnhatdichvu.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Edit.png")); // NOI18N
+        btn_capnhatdichvu.setIcon(new javax.swing.ImageIcon("img/Edit.png")); // NOI18N
         btn_capnhatdichvu.setText("Cập nhật");
         btn_capnhatdichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,7 @@ public class Quanlidichvu extends javax.swing.JPanel {
             }
         });
 
-        btn_lamoidichvu.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
+        btn_lamoidichvu.setIcon(new javax.swing.ImageIcon("img/Refresh.png")); // NOI18N
         btn_lamoidichvu.setText("Làm mới");
         btn_lamoidichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class Quanlidichvu extends javax.swing.JPanel {
             }
         });
 
-        btn_timkiemdichvu.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Search.png")); // NOI18N
+        btn_timkiemdichvu.setIcon(new javax.swing.ImageIcon("img/Search.png")); // NOI18N
         btn_timkiemdichvu.setText("Tìm kiếm");
         btn_timkiemdichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
