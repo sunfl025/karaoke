@@ -79,7 +79,7 @@
                   <Component id="txt_tendichvu" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_tendichvu" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="364" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
@@ -150,9 +150,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_themdichvu">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Create.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="T&#x1ea1;o m&#x1edb;i"/>
       </Properties>
       <Events>
@@ -161,9 +158,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_capnhatdichvu">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Edit.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
       </Properties>
       <Events>
@@ -172,9 +166,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_lamoidichvu">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Refresh.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
       </Properties>
       <Events>
@@ -183,9 +174,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_timkiemdichvu">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Search.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
       </Properties>
       <Events>
