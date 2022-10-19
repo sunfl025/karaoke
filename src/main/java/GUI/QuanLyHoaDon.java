@@ -59,7 +59,7 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(323, 323, 323)
+                .addGap(334, 334, 334)
                 .addComponent(QuanLyHD, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -92,7 +92,6 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
             }
         });
 
-        btn_LamMoi.setIcon(new javax.swing.ImageIcon("img/Refresh.png")); // NOI18N
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setPreferredSize(new java.awt.Dimension(107, 30));
         btn_LamMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +100,6 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
             }
         });
 
-        btn_TimKiem.setIcon(new javax.swing.ImageIcon("img/Search.png")); // NOI18N
         btn_TimKiem.setText("Tìm kiếm");
         btn_TimKiem.setActionCommand("");
         btn_TimKiem.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +108,6 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
             }
         });
 
-        btn_ChiTiet.setIcon(new javax.swing.ImageIcon("img/Address book.png")); // NOI18N
         btn_ChiTiet.setText("Chi tiết");
         btn_ChiTiet.setPreferredSize(new java.awt.Dimension(107, 30));
 

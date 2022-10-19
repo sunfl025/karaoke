@@ -10,8 +10,8 @@ package GUI;
  */
 public class Menu extends javax.swing.JFrame {
 
-    private Quanlinhanvien panelquanlinhanvien;
-    private Quanlidichvu panelquanlidichvu;
+    private QuanLyNhanVien panelquanlinhanvien;
+    private QuanLyDichVu panelquanlidichvu;
     public Menu() {
         initComponents();
     }
@@ -210,7 +210,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nhanvienActionPerformed
        if(panelquanlinhanvien == null)
        {
-           panelquanlinhanvien = new Quanlinhanvien();
+           panelquanlinhanvien = new QuanLyNhanVien();
             jTabbedPaneMenuMain.addTab("Quản lí nhân viên", panelquanlinhanvien);
            
        }
@@ -236,7 +236,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem_dichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_dichvuActionPerformed
         if(panelquanlidichvu == null)
         {
-            panelquanlidichvu  = new Quanlidichvu();
+            panelquanlidichvu  = new QuanLyDichVu();
             jTabbedPaneMenuMain.addTab("Quản lí dịch vụ", panelquanlidichvu);
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelquanlidichvu );
