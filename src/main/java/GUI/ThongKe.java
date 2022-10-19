@@ -104,6 +104,11 @@ public class ThongKe extends javax.swing.JPanel {
 
         buttonGroup1.add(rdo_nam);
         rdo_nam.setText("Năm");
+        rdo_nam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_namActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -336,6 +341,10 @@ public class ThongKe extends javax.swing.JPanel {
     private void txt_tongTienPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tongTienPhongActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_tongTienPhongActionPerformed
+
+    private void rdo_namActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_namActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_namActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

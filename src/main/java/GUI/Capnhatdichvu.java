@@ -8,12 +8,12 @@ package GUI;
  *
  * @author Lenovo
  */
-public class Capnhatdichvu extends javax.swing.JFrame {
+public class CapNhatDichVu extends javax.swing.JFrame {
 
     /**
      * Creates new form capnhatdichvu
      */
-    public Capnhatdichvu() {
+    public CapNhatDichVu() {
         initComponents();
     }
 
@@ -85,10 +85,10 @@ public class Capnhatdichvu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Tên: ");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("img/Search.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Search.png")); // NOI18N
         jButton1.setText("Tìm");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("img/Refresh.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
         jButton2.setText("Làm mới");
 
         table_dichvu.setBackground(new java.awt.Color(199, 199, 231));
@@ -231,7 +231,7 @@ public class Capnhatdichvu extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        jButton3.setIcon(new javax.swing.ImageIcon("img/back-95-32.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\back-95-32.png")); // NOI18N
         jButton3.setText("Quay lại");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -281,21 +281,23 @@ public class Capnhatdichvu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Capnhatdichvu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapNhatDichVu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Capnhatdichvu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapNhatDichVu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Capnhatdichvu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapNhatDichVu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Capnhatdichvu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapNhatDichVu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Capnhatdichvu().setVisible(true);
+                new CapNhatDichVu().setVisible(true);
             }
         });
     }
