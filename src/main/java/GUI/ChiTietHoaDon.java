@@ -49,7 +49,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_TongTien = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
