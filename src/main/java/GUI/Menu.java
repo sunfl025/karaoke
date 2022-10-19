@@ -15,6 +15,9 @@ public class Menu extends javax.swing.JFrame {
     private QuanLyKhachHang panelquanlikhachhang;
     private QuanLyHoaDon panelquanlihoadon;
     private QuanLyDanhSachPhong panelquanlidsphong;
+    private ThongKe panelthongkedoanhthu;
+    private ThongKeKhachHang panelthongkekhachhang;
+    private QuanLyTimKiem paneltimkiem;
     public Menu() {
         initComponents();
     }
@@ -166,6 +169,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem_phieudatphong.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\bill-of-lading-32.png")); // NOI18N
         jMenuItem_phieudatphong.setText("phiếu đặt phòng");
+        jMenuItem_phieudatphong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_phieudatphongActionPerformed(evt);
+            }
+        });
         jMenu_timkiem.add(jMenuItem_phieudatphong);
 
         jMenuBarMain.add(jMenu_timkiem);
@@ -175,10 +183,20 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem_doanhthu.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\wallet-45-32.png")); // NOI18N
         jMenuItem_doanhthu.setText("Doanh thu");
+        jMenuItem_doanhthu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_doanhthuActionPerformed(evt);
+            }
+        });
         jMenu_thongke.add(jMenuItem_doanhthu);
 
         jMenuItem_tkKhachhang.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\cooperation-32.png")); // NOI18N
         jMenuItem_tkKhachhang.setText("Khách hàng");
+        jMenuItem_tkKhachhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_tkKhachhangActionPerformed(evt);
+            }
+        });
         jMenu_thongke.add(jMenuItem_tkKhachhang);
 
         jMenuBarMain.add(jMenu_thongke);
@@ -267,6 +285,33 @@ public class Menu extends javax.swing.JFrame {
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelquanlidsphong);
     }//GEN-LAST:event_jMenuItem_dsphongActionPerformed
+
+    private void jMenuItem_doanhthuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_doanhthuActionPerformed
+         if(panelthongkedoanhthu == null)
+        {
+            panelthongkedoanhthu = new ThongKe();
+            jTabbedPaneMenuMain.addTab("Thống kê doanh thu", panelthongkedoanhthu); 
+        }
+        jTabbedPaneMenuMain.setSelectedComponent(panelthongkedoanhthu);
+    }//GEN-LAST:event_jMenuItem_doanhthuActionPerformed
+
+    private void jMenuItem_tkKhachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_tkKhachhangActionPerformed
+        if(panelthongkekhachhang == null)
+        {
+            panelthongkekhachhang = new ThongKeKhachHang();
+            jTabbedPaneMenuMain.addTab("Thống kê khách hàng", panelthongkekhachhang);
+        }
+        jTabbedPaneMenuMain.setSelectedComponent(panelthongkekhachhang);
+    }//GEN-LAST:event_jMenuItem_tkKhachhangActionPerformed
+
+    private void jMenuItem_phieudatphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_phieudatphongActionPerformed
+        if(paneltimkiem == null)
+        {
+            paneltimkiem = new QuanLyTimKiem();
+            jTabbedPaneMenuMain.addTab("Tìm phiếu đặt phòng", paneltimkiem);
+        }
+        jTabbedPaneMenuMain.setSelectedComponent(paneltimkiem);
+    }//GEN-LAST:event_jMenuItem_phieudatphongActionPerformed
 
     /**
      * @param args the command line arguments

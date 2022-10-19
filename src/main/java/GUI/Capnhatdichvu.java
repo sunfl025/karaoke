@@ -85,10 +85,10 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Tên: ");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img/Search.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("img/Search.png")); // NOI18N
         jButton1.setText("Tìm");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("img/Refresh.png")); // NOI18N
         jButton2.setText("Làm mới");
 
         table_dichvu.setBackground(new java.awt.Color(199, 199, 231));
