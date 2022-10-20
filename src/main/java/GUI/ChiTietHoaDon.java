@@ -49,7 +49,8 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_TongTien = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -67,6 +68,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
         txt_NhanVien.setEditable(false);
         txt_NhanVien.setBackground(new java.awt.Color(204, 204, 255));
         txt_NhanVien.setText("...");
+        txt_NhanVien.setBorder(null);
         txt_NhanVien.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_NhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,17 +78,20 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
 
         txt_KhachHang.setBackground(new java.awt.Color(204, 204, 255));
         txt_KhachHang.setText("...");
+        txt_KhachHang.setBorder(null);
         txt_KhachHang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_KhachHang.setEnabled(false);
 
         txt_ThoiGianVao.setBackground(new java.awt.Color(204, 204, 255));
         txt_ThoiGianVao.setText("...");
+        txt_ThoiGianVao.setBorder(null);
         txt_ThoiGianVao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_ThoiGianVao.setDoubleBuffered(true);
         txt_ThoiGianVao.setEnabled(false);
 
         txt_ThoiGianRa.setBackground(new java.awt.Color(204, 204, 255));
         txt_ThoiGianRa.setText("...");
+        txt_ThoiGianRa.setBorder(null);
         txt_ThoiGianRa.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_ThoiGianRa.setEnabled(false);
 
@@ -120,6 +125,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
 
         txt_MaHoaDon.setBackground(new java.awt.Color(204, 204, 255));
         txt_MaHoaDon.setText("...");
+        txt_MaHoaDon.setBorder(null);
         txt_MaHoaDon.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_MaHoaDon.setEnabled(false);
         txt_MaHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -130,11 +136,13 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
 
         txt_TongTienTT.setBackground(new java.awt.Color(204, 204, 255));
         txt_TongTienTT.setText("...");
+        txt_TongTienTT.setBorder(null);
         txt_TongTienTT.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_TongTienTT.setEnabled(false);
 
         txt_VAT.setBackground(new java.awt.Color(204, 204, 255));
         txt_VAT.setText("10 %");
+        txt_VAT.setBorder(null);
         txt_VAT.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_VAT.setEnabled(false);
 
@@ -146,6 +154,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
 
         txt_TongTien.setBackground(new java.awt.Color(204, 204, 255));
         txt_TongTien.setText("...");
+        txt_TongTien.setBorder(null);
         txt_TongTien.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_TongTien.setEnabled(false);
 

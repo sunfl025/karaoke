@@ -64,6 +64,7 @@ public class ThemPhongCho extends javax.swing.JFrame {
         txt_SoPhong.setBackground(new java.awt.Color(204, 204, 255));
         txt_SoPhong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_SoPhong.setText("Phòng");
+        txt_SoPhong.setBorder(null);
         txt_SoPhong.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_SoPhong.setEnabled(false);
         txt_SoPhong.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +95,7 @@ public class ThemPhongCho extends javax.swing.JFrame {
 
         txt_LoaiPhong.setBackground(new java.awt.Color(204, 204, 255));
         txt_LoaiPhong.setText("...");
+        txt_LoaiPhong.setBorder(null);
         txt_LoaiPhong.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_LoaiPhong.setEnabled(false);
         txt_LoaiPhong.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +106,7 @@ public class ThemPhongCho extends javax.swing.JFrame {
 
         txt_GiaTien.setBackground(new java.awt.Color(204, 204, 255));
         txt_GiaTien.setText("...");
+        txt_GiaTien.setBorder(null);
         txt_GiaTien.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_GiaTien.setEnabled(false);
         txt_GiaTien.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +117,7 @@ public class ThemPhongCho extends javax.swing.JFrame {
 
         txt_TenKhachHang.setBackground(new java.awt.Color(204, 204, 255));
         txt_TenKhachHang.setText("...");
+        txt_TenKhachHang.setBorder(null);
         txt_TenKhachHang.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_TenKhachHang.setEnabled(false);
 
@@ -224,7 +228,7 @@ public class ThemPhongCho extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addComponent(cbo_Phut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)))
-                .addGap(18, 73, Short.MAX_VALUE)
+                .addGap(18, 97, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Huy)
                     .addComponent(btn_DatPhong)

@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: vanng
 Build-Jdk: 17.0.4
+=======
+Built-By: Admin
+Build-Jdk: 18.0.1
+>>>>>>> 4327ce5a8da31d9a0a14cd9221de7eabca1fb8e6
 Created-By: Maven Integration for Eclipse
 

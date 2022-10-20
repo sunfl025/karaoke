@@ -45,7 +45,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         btn_Them = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
