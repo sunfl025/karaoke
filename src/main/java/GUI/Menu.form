@@ -112,6 +112,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kh&#xe1;ch h&#xe0;ng"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_khachhangActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_nhanvien">
               <Properties>
@@ -148,13 +151,16 @@
             <Property name="text" type="java.lang.String" value="X&#x1eed; l&#xed;"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_datphong">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_dsphong">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="D:\PTUD\img\karaoke-32.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t ph&#xf2;ng h&#xe1;t"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_dsphongActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -184,31 +190,14 @@
             <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu_doanhthu">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_doanhthu">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="D:\PTUD\img\wallet-45-32.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Doanh thu"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_theongay">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Theo ng&#xe0;y"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_theothang">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Theo th&#xe1;ng"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_theonam">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Theo n&#x103;m"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_tkKhachhang">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
