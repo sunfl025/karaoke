@@ -110,6 +110,11 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
 
         btn_ChiTiet.setText("Chi tiết");
         btn_ChiTiet.setPreferredSize(new java.awt.Dimension(107, 30));
+        btn_ChiTiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ChiTietActionPerformed(evt);
+            }
+        });
 
         table.setBackground(new java.awt.Color(199, 199, 231));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -212,6 +217,12 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
     private void btn_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_TimKiemActionPerformed
+
+    private void btn_ChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChiTietActionPerformed
+        ChiTietHoaDon framecthd = new ChiTietHoaDon();
+        framecthd.setVisible(true);
+        
+    }//GEN-LAST:event_btn_ChiTietActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

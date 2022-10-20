@@ -44,9 +44,11 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         table_dichvu1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        txt_tenphong = new javax.swing.JTextField();
+        txt_tongtiendichvu = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -85,7 +87,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Tên: ");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img/Search.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Search.png")); // NOI18N
         jButton1.setText("Tìm");
 
         jButton2.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
@@ -196,6 +198,14 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Tổng tiền dịch vụ: ");
 
+        txt_tenphong.setBackground(new java.awt.Color(204, 204, 255));
+        txt_tenphong.setText("..................................................................");
+        txt_tenphong.setBorder(null);
+
+        txt_tongtiendichvu.setBackground(new java.awt.Color(204, 204, 255));
+        txt_tongtiendichvu.setText("......................................................");
+        txt_tongtiendichvu.setBorder(null);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -209,25 +219,33 @@ public class CapNhatDichVu extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(341, 341, 341))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_tenphong, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
                 .addComponent(jLabel7)
-                .addGap(101, 101, 101))
+                .addGap(18, 18, 18)
+                .addComponent(txt_tongtiendichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel6)
-                .addGap(33, 33, 33)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_tenphong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txt_tongtiendichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -322,5 +340,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTable table_dichvu;
     private javax.swing.JTable table_dichvu1;
+    private javax.swing.JTextField txt_tenphong;
+    private javax.swing.JTextField txt_tongtiendichvu;
     // End of variables declaration//GEN-END:variables
 }
