@@ -34,11 +34,11 @@
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="txt_MaHoaDon" pref="182" max="32767" attributes="0"/>
+                      <Component id="txt_MaHoaDon" pref="180" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="lb_SDTKhachHang" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_SDTKhach" pref="153" max="32767" attributes="0"/>
+                      <Component id="txt_SDTKhach" pref="151" max="32767" attributes="0"/>
                   </Group>
                   <Component id="txt_TenKhach" max="32767" attributes="0"/>
               </Group>
@@ -57,6 +57,11 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btn_dong" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -89,8 +94,11 @@
                   <Component id="btn_TimKiem" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_ChiTiet" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="399" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="350" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_dong" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -281,6 +289,14 @@
           <Dimension value="[68, 16]"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_dong">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x110;&#xf3;ng"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_dongActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

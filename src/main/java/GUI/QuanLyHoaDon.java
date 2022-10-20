@@ -43,6 +43,7 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
         table = new javax.swing.JTable();
         cb_NgayLap = new de.wannawork.jcalendar.JCalendarComboBox();
         lb_NgayLap = new javax.swing.JLabel();
+        btn_dong = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(900, 570));
@@ -141,6 +142,13 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
         lb_NgayLap.setText("Ngày lập :");
         lb_NgayLap.setPreferredSize(new java.awt.Dimension(68, 16));
 
+        btn_dong.setText("Đóng");
+        btn_dong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dongActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,11 +162,11 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_MaHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(txt_MaHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lb_SDTKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_SDTKhach, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
+                        .addComponent(txt_SDTKhach, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
                     .addComponent(txt_TenKhach))
                 .addGap(27, 27, 27)
                 .addComponent(lb_NgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,6 +180,10 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
                     .addComponent(btn_ChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
             .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_dong)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,8 +209,11 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
                     .addComponent(txt_SDTKhach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_TimKiem)
                     .addComponent(btn_ChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_dong)
+                .addGap(9, 9, 9))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,12 +239,17 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btn_ChiTietActionPerformed
 
+    private void btn_dongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dongActionPerformed
+         
+    }//GEN-LAST:event_btn_dongActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel QuanLyHD;
     private javax.swing.JButton btn_ChiTiet;
     private javax.swing.JButton btn_LamMoi;
     private javax.swing.JButton btn_TimKiem;
+    private javax.swing.JButton btn_dong;
     private de.wannawork.jcalendar.JCalendarComboBox cb_NgayLap;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

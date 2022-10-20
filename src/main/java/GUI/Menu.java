@@ -312,7 +312,7 @@ public class Menu extends javax.swing.JFrame {
         }
         jTabbedPaneMenuMain.setSelectedComponent(paneltimkiem);
     }//GEN-LAST:event_jMenuItem_phieudatphongActionPerformed
-
+     
     /**
      * @param args the command line arguments
      */
