@@ -38,7 +38,7 @@ values('nv3','nv3',N'Quản trị hệ thống')
 create table NhanVien(	
 	maNhanVien nvarchar(6) not null primary key,
 	tenNhanVien nvarchar(30) not null,
-	gioiTinh bit,
+	gioiTinh nvarchar(3),
 	sdt nvarchar(10) unique,
 	chucVu nvarchar(30),
 	luong money check (luong>0),
@@ -55,12 +55,13 @@ create table NhanVien(
 create table KhachHang(
 	maKhachHang nvarchar(6) not null primary key,
 	tenKhachHang nvarchar(50) not null,
-	gioiTinh bit,--0 là nam, 1 là nữ
+	gioiTinh nvarchar(3),--0 là nam, 1 là nữ
 	sdt nvarchar(10) unique,
 	diaChi nvarchar(150))
 	insert into KhachHang(maKhachHang,tenKhachHang,gioiTinh,sdt,diaChi)
 	values('KH0001',N'Lê Văn Ngọc',0,'0326392434',N'An Định, Mỏ Cày Nam, Bến Tre')
 	delete from KhachHang where maKhachHang='KH0001'
+	drop table KhachHang
 create table DichVu(
 	loaiDichVu nvarchar(50) not null,
 	maDichVu nvarchar(6) not null primary key,
@@ -102,19 +103,20 @@ create table ChiTietDatPhong(
 	select * from ChiTietDatPhong where [dbo].[ChiTietDatPhong].maPhong='PH0001'
 	drop table ChiTietDatPhong
 create table DatTruocPhong(
-	maDatTruocPhong nvarchar(6) not null primary key,
+	maDatTruocPhong nvarchar(7) not null primary key,
 	ngayDatPhong date,
 	gioDatPhong time,
 	gioNhanPhong time,
 	maPhong nvarchar(6) foreign key references Phong(maPhong),
-	maChiTietDichVu nvarchar(6) foreign key references ChiTietDichVu(maChiTietDichVu))
+	maChiTietDichVu nvarchar(8) foreign key references ChiTietDichVu(maChiTietDichVu))
+	drop table DatTruocPhong
 drop table DatTruocPhong
 create table ChiTietDatTruocPhong(
-	maChiTietDatTruocPhong nvarchar(6) not null primary key,
+	maChiTietDatTruocPhong nvarchar(8) not null primary key,
 	soLuongPhongDatTruoc int check(soLuongPhongDatTruoc>0),
 	thoiGianVao time,
 	thoiGianRa time,
-	maDatTruocPhong nvarchar(6) foreign key references DatTruocPhong(maDatTruocPhong))
+	maDatTruocPhong nvarchar(7) foreign key references DatTruocPhong(maDatTruocPhong))
 	drop table ChiTietDatTruocPhong
 create table HoaDon(
 	maHoaDon nvarchar(6) not null primary key,
@@ -122,6 +124,6 @@ create table HoaDon(
 	maNhanVien nvarchar(6) foreign key references NhanVien(maNhanVien),
 	maKhachHang nvarchar(6) foreign key references KhachHang(maKhachHang),
 	maChiTietDatPhong nvarchar(6) foreign key references ChiTietDatPhong(maChiTietDatPhong),
-	maChiTietDatTruocPhong nvarchar(6) foreign key references ChiTietDatTruocPhong(maChiTietDatTruocPhong))
+	maChiTietDatTruocPhong nvarchar(8) foreign key references ChiTietDatTruocPhong(maChiTietDatTruocPhong))
 	drop table HoaDon
 
