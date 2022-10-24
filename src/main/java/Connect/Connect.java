@@ -15,7 +15,7 @@ public class Connect {
 	}
 
 	public static void connect() {
-		String url = "jdbc:sqlserver://localhost:1433;databasename=FinalExam2";
+		String url = "jdbc:sqlserver://localhost:1433;databasename=QLKaraoke";
 		String user = "sa";
 		String password = "0123";
 		try {
