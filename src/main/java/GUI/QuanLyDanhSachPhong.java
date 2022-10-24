@@ -28,7 +28,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btn_datPhongCho = new javax.swing.JButton();
         btn_nhanPhongCho = new javax.swing.JButton();
@@ -111,20 +110,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 600));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 153, 153));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 942, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btn_datPhongCho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -195,20 +180,19 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_tinhTien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btn_dichVu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_xemPhong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_huyPhong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_nhanPhongCho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addComponent(btn_datPhongCho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_datPhong1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(39, 39, 39))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_dichVu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_xemPhong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_huyPhong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_nhanPhongCho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(btn_datPhongCho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_datPhong1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_tinhTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +295,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         pnl_p1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btn_ip1.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor.png")); // NOI18N
         btn_ip1.setBorder(null);
         btn_ip1.setPreferredSize(new java.awt.Dimension(140, 140));
         btn_ip1.addActionListener(new java.awt.event.ActionListener() {
@@ -351,7 +334,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         pnl_p2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton4.setBorder(null);
         jButton4.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -382,7 +364,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p3.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (2).png")); // NOI18N
         jButton6.setBorder(null);
         jButton6.setPreferredSize(new java.awt.Dimension(140, 140));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -418,7 +399,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p4.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton8.setBorder(null);
         jButton8.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -449,7 +429,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p5.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton10.setBorder(null);
         jButton10.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -480,7 +459,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p6.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (2).png")); // NOI18N
         jButton12.setBorder(null);
         jButton12.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -511,7 +489,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p7.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton14.setBorder(null);
         jButton14.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -542,7 +519,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p8.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton16.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor.png")); // NOI18N
         jButton16.setBorder(null);
         jButton16.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -575,7 +551,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p9.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton24.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton24.setBorder(null);
         jButton24.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -606,7 +581,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p10.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton22.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor.png")); // NOI18N
         jButton22.setBorder(null);
         jButton22.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -637,7 +611,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p11.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton20.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor.png")); // NOI18N
         jButton20.setBorder(null);
         jButton20.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -668,7 +641,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p12.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton18.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton18.setBorder(null);
         jButton18.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -699,7 +671,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p13.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton26.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (2).png")); // NOI18N
         jButton26.setBorder(null);
         jButton26.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -730,7 +701,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p14.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton32.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton32.setBorder(null);
         jButton32.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -761,7 +731,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p15.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton30.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (1).png")); // NOI18N
         jButton30.setBorder(null);
         jButton30.setPreferredSize(new java.awt.Dimension(140, 140));
         jButton30.addActionListener(new java.awt.event.ActionListener() {
@@ -797,7 +766,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p16.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton28.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (2).png")); // NOI18N
         jButton28.setBorder(null);
         jButton28.setPreferredSize(new java.awt.Dimension(140, 140));
 
@@ -933,15 +901,12 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (3).png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (4).png")); // NOI18N
         jButton3.setBorder(null);
         jButton3.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\vanng\\Downloads\\tv-monitor (5).png")); // NOI18N
         jButton5.setBorder(null);
         jButton5.setPreferredSize(new java.awt.Dimension(30, 30));
 
@@ -979,13 +944,10 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -998,31 +960,26 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(140, 140, 140))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7))))
+                        .addGap(53, 53, 53))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1114,7 +1071,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
