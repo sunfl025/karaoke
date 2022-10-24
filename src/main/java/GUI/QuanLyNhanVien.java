@@ -6,6 +6,7 @@ package GUI;
 
 import java.util.ArrayList;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.NhanVien_dao;
@@ -17,7 +18,8 @@ import Enitity.NhanVien;
  */
 public class QuanLyNhanVien extends javax.swing.JPanel {
 
-    /**
+    private DefaultTableModel tableModel;
+	/**
      * Creates new form Quanlinhanvien
      */
     public QuanLyNhanVien() {
@@ -162,29 +164,11 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
         buttonGroup1.add(rdo_nu);
         rdo_nu.setSelected(true);
         rdo_nu.setText("Nữ");
-
         table.setBackground(new java.awt.Color(199, 199, 231));
-      
-		table.setModel(new DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã NV", "Họ tên", "SĐT", "Giới tính", "Ngày sinh", "Địa chỉ", "Chức vụ"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(table);
+        String[] headers = "Mã NV;Tên nhân viên ;Giới Tính;Sdt;chức vụ".split(";");
+        tableModel = new DefaultTableModel(headers, 0);
+        table.setAutoCreateRowSorter(true);
+        jScrollPane1.setViewportView(table = new JTable(tableModel));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -274,31 +258,23 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
-//    private void fillDataIntoTable() {
-//		NhanVien_dao nhanviendao = new NhanVien_dao();
-//		list_nv.clear();
-//		if (tableModel.getRowCount() > 0) {
-//			for (int i = table.getRowCount() - 1; i > -1; i--) {
-//				
-//			}
-//		}
-//		orders = orderDAO.getAll();
-//		for (Order order : orders) {
-//			String status = "";
-//			if (order.getStatus().equalsIgnoreCase("done")) {
-//				status = "Hoàn thành";
-//			} else if (order.getStatus().equalsIgnoreCase("waiting")) {
-//				status = "Đang xử lý";
-//			} else {
-//				status = "Mới";
-//			}
-//			String[] rowData = { order.getCode_order(), order.getType(), order.getDescription(), order.getProductName(),
-//					order.getProvider(), order.getPrice() + "", order.getUser().getId()+ "", status,
-//					order.getCreat_at() + "" };
-//			tableModel.addRow(rowData);
-//		}
-//		table.setModel(tableModel);
-//	}
+    private void fillDataIntoTable() {
+		NhanVien_dao nhanviendao = new NhanVien_dao();
+		list_nv.clear();
+		if (tableModel.getRowCount() > 0) {
+			for (int i = table.getRowCount() - 1; i > -1; i--) {
+				
+			}
+		}
+		list_nv = nhanviendao.getAll();
+		for (NhanVien nhanvien : list_nv) {
+			
+			String[] rowData = { nhanvien.getMaNhanVien() ,nhanvien.getTenNhanVien(), nhanvien.getSdt(), nhanvien.getGioiTinh(),
+					nhanvien.getChucVu()};
+			tableModel.addRow(rowData);
+		}
+		table.setModel(tableModel);
+	}
     private void txt_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sdtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_sdtActionPerformed
@@ -317,7 +293,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_suaActionPerformed
 
     private void btn_lammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lammoiActionPerformed
-        // TODO add your handling code here:
+    	fillDataIntoTable();
     }//GEN-LAST:event_btn_lammoiActionPerformed
 
     private void btn_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timActionPerformed
