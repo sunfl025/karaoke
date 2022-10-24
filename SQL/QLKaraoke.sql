@@ -22,7 +22,7 @@ use QLKaraoke
 	values('PH0005',N'Phòng 5',N'Phòng thường',N'Phòng trống',10, 25,150000)
 	insert into Phong(maPhong,tenPhong,loaiPhong,trangThai,sucChua,dienTich,giaPhong)
 	values('PH0006',N'Phòng 6',N'Phòng VIP',N'Phòng trống',15, 30,180000)
-	delete from Phong where maPhong='PH0001'
+
 create table TaiKhoan(
 	tenDangNhap nvarchar(30) not null primary key,
 	matKhau nvarchar(30) not null,
@@ -38,30 +38,29 @@ values('nv3','nv3',N'Quản trị hệ thống')
 create table NhanVien(	
 	maNhanVien nvarchar(6) not null primary key,
 	tenNhanVien nvarchar(30) not null,
-	gioiTinh nvarchar(3),
+	gioiTinh nvarchar(4),
 	sdt nvarchar(10) unique,
 	chucVu nvarchar(30),
 	luong money check (luong>0),
 	tenDangNhap nvarchar(30) foreign key references TaiKhoan(tenDangNhap)
 	)
-	drop table NhanVien
+	
 	insert into NhanVien
-	values('NV0001',N'Đổ Thùy Trang',1,'0123456788',N'Nhân viên tiếp tân',7000000,'nv1')
+	values('NV0001',N'Đổ Thùy Trang',N'Nữ','0123456788',N'Nhân viên tiếp tân',7000000,'nv1')
 	insert into NhanVien
-	values('NV0002',N'Nguyển Thành Nhân',0,'0123456789',N'Quản lý thống kê',15000000,'nv2')
+	values('NV0002',N'Nguyển Thành Nhân',N'Nam','0123456789',N'Quản lý thống kê',15000000,'nv2')
 	insert into NhanVien
-	values('NV0003',N'Lê Vân Ngọc',0,'0123456779',N'Quản trị hệ thống',15000000,'nv3')
-	delete from NhanVien where maNhanVien='NV0002'
+	values('NV0003',N'Lê Vân Ngọc',N'Nam','0123456779',N'Quản trị hệ thống',15000000,'nv3')
+	
 create table KhachHang(
 	maKhachHang nvarchar(6) not null primary key,
 	tenKhachHang nvarchar(50) not null,
-	gioiTinh nvarchar(3),--0 là nam, 1 là nữ
+	gioiTinh nvarchar(4),--0 là nam, 1 là nữ
 	sdt nvarchar(10) unique,
 	diaChi nvarchar(150))
 	insert into KhachHang(maKhachHang,tenKhachHang,gioiTinh,sdt,diaChi)
-	values('KH0001',N'Lê Văn Ngọc',0,'0326392434',N'An Định, Mỏ Cày Nam, Bến Tre')
-	delete from KhachHang where maKhachHang='KH0001'
-	drop table KhachHang
+	values('KH0001',N'Lê Văn Ngọc',N'Nam','0326392434',N'An Định, Mỏ Cày Nam, Bến Tre')
+
 create table DichVu(
 	loaiDichVu nvarchar(50) not null,
 	maDichVu nvarchar(6) not null primary key,
@@ -77,13 +76,13 @@ insert into DichVu
 values(N'Đồ uống','DV0003',N'Pessi',20,20000)
 insert into DichVu 
 values(N'Tiệc sinh nhật','DV0004',N'Bánh kem',5,250000)
-delete from DichVu where maDichVu='DV0003'
+
 create table ChiTietDichVu(
 	maChiTietDichVu nvarchar(8) not null primary key,
 	soLuongSanPham int check(soLuongSanPham>0),
 	maDichVu nvarchar(6) foreign key references DichVu(maDichVu)
 	)
-	drop table ChiTietDichVu
+	
 	insert into ChiTietDichVu
 	values('CTDV0001',10,'DV0003')
 	insert into ChiTietDichVu
@@ -100,8 +99,7 @@ create table ChiTietDatPhong(
 	values('DP0001',2,'10:30','PH0001','CTDV0002')
 	insert into ChiTietDatPhong
 	values('DP0002',2,'10:31','PH0001','CTDV0003')
-	select * from ChiTietDatPhong where [dbo].[ChiTietDatPhong].maPhong='PH0001'
-	drop table ChiTietDatPhong
+
 create table DatTruocPhong(
 	maDatTruocPhong nvarchar(7) not null primary key,
 	ngayDatPhong date,
@@ -109,15 +107,15 @@ create table DatTruocPhong(
 	gioNhanPhong time,
 	maPhong nvarchar(6) foreign key references Phong(maPhong),
 	maChiTietDichVu nvarchar(8) foreign key references ChiTietDichVu(maChiTietDichVu))
-	drop table DatTruocPhong
-drop table DatTruocPhong
+	
+
 create table ChiTietDatTruocPhong(
 	maChiTietDatTruocPhong nvarchar(8) not null primary key,
 	soLuongPhongDatTruoc int check(soLuongPhongDatTruoc>0),
 	thoiGianVao time,
 	thoiGianRa time,
 	maDatTruocPhong nvarchar(7) foreign key references DatTruocPhong(maDatTruocPhong))
-	drop table ChiTietDatTruocPhong
+
 create table HoaDon(
 	maHoaDon nvarchar(6) not null primary key,
 	ngayLapHoaDon date,
@@ -125,5 +123,9 @@ create table HoaDon(
 	maKhachHang nvarchar(6) foreign key references KhachHang(maKhachHang),
 	maChiTietDatPhong nvarchar(6) foreign key references ChiTietDatPhong(maChiTietDatPhong),
 	maChiTietDatTruocPhong nvarchar(8) foreign key references ChiTietDatTruocPhong(maChiTietDatTruocPhong))
-	drop table HoaDon
 
+
+
+
+
+	

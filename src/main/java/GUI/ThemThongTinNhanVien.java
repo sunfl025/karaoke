@@ -88,6 +88,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         rdo_Nu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_NuActionPerformed(evt);
+                
             }
         });
 
