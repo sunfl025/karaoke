@@ -14,6 +14,12 @@ public class TaiKhoan {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public TaiKhoan(String tenDangNhap) {
+		super();
+		this.tenDangNhap = tenDangNhap;
+	}
 	public String getTenDangNhap() {
 		return tenDangNhap;
 	}
