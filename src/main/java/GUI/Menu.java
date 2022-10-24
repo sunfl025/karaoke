@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import Enitity.Authentication;
+
 /**
  *
  * @author Lenovo
@@ -19,8 +21,15 @@ public class Menu extends javax.swing.JFrame {
     private ThongKeKhachHang panelthongkekhachhang;
     private QuanLyTimKiem paneltimkiem;
 
-    public Menu() {
+    public Menu(Authentication authentication) {
+    	taikhoandangnhap = authentication;
+		auth = authentication;
+		Dangnhap dangnhap = new Dangnhap();
+		if (taikhoandangnhap.isLogin()) {
+			dangnhap.hiddenLogin();
+		}
         initComponents();
+        setTitle("Trang Chủ - " + authentication.getTaikhoan().getTenDangNhap());
     }
 
     /**
@@ -216,7 +225,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nhanvienActionPerformed
        if(panelquanlinhanvien == null)
        {
-           panelquanlinhanvien = new QuanLyNhanVien();
+           panelquanlinhanvien = new QuanLyNhanVien(taikhoandangnhap);
             jTabbedPaneMenuMain.addTab("Quản lí nhân viên", panelquanlinhanvien);
            
        }
@@ -327,7 +336,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu(auth).setVisible(true);
             }
         });
     }
@@ -353,5 +362,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_timkiem;
     private javax.swing.JMenu jMenu_xuli;
     private javax.swing.JTabbedPane jTabbedPaneMenuMain;
+	private Authentication taikhoandangnhap = null;
+	private static Authentication auth = null;
     // End of variables declaration//GEN-END:variables
 }

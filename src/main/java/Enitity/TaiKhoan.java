@@ -4,6 +4,12 @@ public class TaiKhoan {
 	private String tenDangNhap;
 	private String matKhau;
 	private String quyen;
+	
+	public TaiKhoan(String tenDangNhap, String matKhau) {
+		super();
+		this.tenDangNhap = tenDangNhap;
+		this.matKhau = matKhau;
+	}
 	public TaiKhoan(String tenDangNhap, String matKhau, String quyen) {
 		super();
 		this.tenDangNhap = tenDangNhap;

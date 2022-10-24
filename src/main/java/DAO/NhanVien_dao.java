@@ -31,27 +31,25 @@ public class NhanVien_dao {
 		}
 		return list_nv;
 	}
-//	public boolean save(NhanVien nhanvien) {
-//		Connection con = Connect.getInstance().getConnection();
-//		PreparedStatement preparedStatement = null;
-//		try {
-//			preparedStatement = con.prepareStatement(
-//					"insert orders(code,type,description,productName,provider,price,userId,status,created_at) values(?,?,?,?,?,?,?,?,?)");
-//			preparedStatement.setString(1, order.getCode_order());
-//			preparedStatement.setString(2, order.getType());
-//			preparedStatement.setString(3, order.getDescription());
-//			preparedStatement.setString(4, order.getProductName());
-//			preparedStatement.setString(5, order.getProvider());
-//			preparedStatement.setDouble(6, order.getPrice());
-//			preparedStatement.setInt(7, order.getUser().getId());
-//			preparedStatement.setString(8, order.getStatus());
-//			preparedStatement.setDate(9, order.getCreat_at());
-//			if (preparedStatement.executeUpdate() > 0) {
-//				return true;
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return false;
-//	}
+	public boolean save(NhanVien nhanvien) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = con.prepareStatement(
+					"insert NhanVien(maNhanVien,tenNhanVien,gioiTinh,sdt,chucVu,luong,tenDangNhap) values(?,?,?,?,?,?,?)");
+			preparedStatement.setString(1, nhanvien.getMaNhanVien());
+			preparedStatement.setString(2, nhanvien.getTenNhanVien());
+			preparedStatement.setString(3, nhanvien.getGioiTinh());
+			preparedStatement.setString(4, nhanvien.getSdt());
+			preparedStatement.setString(5, nhanvien.getChucVu());
+			preparedStatement.setDouble(6, nhanvien.getLuong());
+			preparedStatement.setString(7, nhanvien.getTenDangNhap().getTenDangNhap());
+			if (preparedStatement.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

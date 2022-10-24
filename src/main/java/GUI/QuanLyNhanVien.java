@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.NhanVien_dao;
+import Enitity.Authentication;
 import Enitity.NhanVien;
 
 /**
@@ -22,7 +23,8 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 	/**
      * Creates new form Quanlinhanvien
      */
-    public QuanLyNhanVien() {
+    public QuanLyNhanVien(Authentication authentication) {
+    	auth = authentication;
         initComponents();
     }
 
@@ -165,7 +167,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
         rdo_nu.setSelected(true);
         rdo_nu.setText("Nữ");
         table.setBackground(new java.awt.Color(199, 199, 231));
-        String[] headers = "Mã NV;Tên nhân viên ;Giới Tính;Sdt;chức vụ".split(";");
+        String[] headers = "Mã NV;Tên nhân viên ;Giới Tính;SĐT;chức vụ;Lương;Tên đăng nhập".split(";");
         tableModel = new DefaultTableModel(headers, 0);
         table.setAutoCreateRowSorter(true);
         jScrollPane1.setViewportView(table = new JTable(tableModel));
@@ -269,19 +271,23 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 		list_nv = nhanviendao.getAll();
 		for (NhanVien nhanvien : list_nv) {
 			
-			String[] rowData = { nhanvien.getMaNhanVien() ,nhanvien.getTenNhanVien(), nhanvien.getSdt(), nhanvien.getGioiTinh(),
-					nhanvien.getChucVu()};
+			String[] rowData = { nhanvien.getMaNhanVien() ,nhanvien.getTenNhanVien(), nhanvien.getGioiTinh(), nhanvien.getSdt(),
+					nhanvien.getChucVu(),nhanvien.getLuong() + "" ,nhanvien.getTenDangNhap().getTenDangNhap()};
 			tableModel.addRow(rowData);
 		}
 		table.setModel(tableModel);
 	}
+    
+    
+
     private void txt_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sdtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_sdtActionPerformed
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
-        ThemThongTinNhanVien framethemnv = new ThemThongTinNhanVien();
+        ThemThongTinNhanVien framethemnv = new ThemThongTinNhanVien(auth);
         framethemnv.setVisible(true);
+        
     }//GEN-LAST:event_btn_themActionPerformed
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
@@ -336,5 +342,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JTextField txt_manv;
     private javax.swing.JTextField txt_sdt;
 	private ArrayList<NhanVien>list_nv = new ArrayList<>();
+	private Authentication auth = null;
     // End of variables declaration//GEN-END:variables
+	
 }

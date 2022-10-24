@@ -4,6 +4,16 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import DAO.KhachHang;
+import DAO.NhanVien_dao;
+import Enitity.Authentication;
+import Enitity.NhanVien;
+import Enitity.TaiKhoan;
+
 /**
  *
  * @author Lenovo
@@ -13,7 +23,8 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
     /**
      * Creates new form themnhanvien
      */
-    public ThemThongTinNhanVien() {
+    public ThemThongTinNhanVien(Authentication authentication) {
+    	auth = authentication;
         initComponents();
     }
 
@@ -45,7 +56,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         btn_Them = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -88,7 +99,6 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         rdo_Nu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_NuActionPerformed(evt);
-                
             }
         });
 
@@ -102,12 +112,27 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
 
         btn_Huy.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\karaoke\\img\\Delete.png")); // NOI18N
         btn_Huy.setText("Hủy");
+        btn_Huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_HuyActionPerformed(evt);
+            }
+        });
 
         btn_Them.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\karaoke\\img\\Create.png")); // NOI18N
         btn_Them.setText("Thêm");
+        btn_Them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ThemActionPerformed(evt);
+            }
+        });
 
         btn_LamMoi.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\karaoke\\img\\Refresh.png")); // NOI18N
         btn_LamMoi.setText("Làm mới");
+        btn_LamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LamMoiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -206,7 +231,36 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void addNhanVien() {
+    	NhanVien_dao nhanviendao = new NhanVien_dao();
+    	ArrayList<NhanVien>  dsnv = new ArrayList<NhanVien>();
+    	String ex = "NV";
+    	int i = (int)dsnv.size() + 1;
+		String maNhanVien = ex+i;
+		String tenNhanVien = txt_TenNhanVien.getText();
+		String gioiTinh;
+		if(rdo_Nam.isSelected())
+		{
+			gioiTinh = rdo_Nam.getText().toString();
+		}
+		else
+			gioiTinh = rdo_Nu.getText().toString();
+		
+		String sdt = txt_SDT.getText();
+		String chucVu = cbo_ChucVu.getSelectedItem().toString();
+		double luong = Double.parseDouble(txt_Luong.getText());
+	    TaiKhoan taikhoan = new TaiKhoan(auth.getTaikhoan().getTenDangNhap());
+		NhanVien nhanvien = new NhanVien(maNhanVien, tenNhanVien, gioiTinh, sdt, chucVu, luong,taikhoan );
+		
+		
+		if (maNhanVien.equalsIgnoreCase("") || tenNhanVien.equalsIgnoreCase("") || gioiTinh.equalsIgnoreCase("")
+				|| sdt.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ){
+			JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ thông tin");
+			return;
+		} else {
+			nhanviendao.save(nhanvien);
+		}
+	}
     private void txt_SDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SDTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SDTActionPerformed
@@ -222,6 +276,18 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
     private void txt_LuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LuongActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_LuongActionPerformed
+
+    private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_LamMoiActionPerformed
+
+    private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemActionPerformed
+    	addNhanVien();
+    }//GEN-LAST:event_btn_ThemActionPerformed
+
+    private void btn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HuyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_HuyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,7 +320,12 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ThemThongTinNhanVien().setVisible(true);
+                try {
+					new ThemThongTinNhanVien(auth).setVisible(true);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
     }
@@ -278,5 +349,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Luong;
     private javax.swing.JTextField txt_SDT;
     private javax.swing.JTextField txt_TenNhanVien;
+    private static Authentication auth = null ;
+    
     // End of variables declaration//GEN-END:variables
 }
