@@ -1,6 +1,11 @@
 <<<<<<< HEAD
 /GUI/
 /META-INF/
+/Enitity/
+=======
+<<<<<<< HEAD
+/GUI/
+/META-INF/
 =======
 /META-INF/
 /DAO/
@@ -15,3 +20,4 @@
 >>>>>>> 504500166e08aa7b766760b69567abd663fe48ca
 /com/
 >>>>>>> 552ee6485df4ebc3365f62cc78437e219e55e02e
+>>>>>>> ea20ed2445f91d4aae2b1bffce7d3cbce9d89c8b

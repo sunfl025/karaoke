@@ -10,6 +10,8 @@ package GUI;
  */
 public class QuanLyKhachHang extends javax.swing.JPanel {
 
+    private ThemThongTinKhachHang themKhachHang;
+
     /**
      * Creates new form QuanLyKhachHang
      */
@@ -103,6 +105,11 @@ public class QuanLyKhachHang extends javax.swing.JPanel {
         btn_them.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Add.png")); // NOI18N
         btn_them.setText("Thêm");
         btn_them.setPreferredSize(new java.awt.Dimension(110, 30));
+        btn_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_themActionPerformed(evt);
+            }
+        });
 
         btn_xoa.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Search.png")); // NOI18N
         btn_xoa.setText("Tìm kiếm");
@@ -202,7 +209,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 958, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)))
@@ -226,6 +233,12 @@ public class QuanLyKhachHang extends javax.swing.JPanel {
     private void btn_lamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamMoiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_lamMoiActionPerformed
+
+    private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
+        // TODO add your handling code here:
+        ThemThongTinKhachHang themThongTinKhachHang = new ThemThongTinKhachHang();
+        themThongTinKhachHang.setVisible(true);
+    }//GEN-LAST:event_btn_themActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
