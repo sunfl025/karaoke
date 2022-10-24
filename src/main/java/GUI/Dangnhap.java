@@ -35,7 +35,7 @@ public class Dangnhap extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         btn_dangnhap = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setLocation(new java.awt.Point(500, 200));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));

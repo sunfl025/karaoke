@@ -18,6 +18,7 @@ public class Menu extends javax.swing.JFrame {
     private ThongKe panelthongkedoanhthu;
     private ThongKeKhachHang panelthongkekhachhang;
     private QuanLyTimKiem paneltimkiem;
+
     public Menu() {
         initComponents();
     }
