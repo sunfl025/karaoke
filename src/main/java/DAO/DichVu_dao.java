@@ -29,5 +29,25 @@ public class DichVu_dao {
 		}
            return dsDichVu;
 	}
+	
+	public ArrayList<DichVu> search(String maDichVu,String tenDichVu,String loaiDichVu){
+		ArrayList dsDichVu = new ArrayList<DichVu>();
+		try {
+       		Connection con = Connect.getInstance().getConnection();
+    		PreparedStatement preparedStatement = null;
+    		preparedStatement = con.prepareStatement("select * from DichVu where maDichVu like '%"
+    		+maDichVu+"%' and tenDichVu like '%"+tenDichVu+"%' and loaiDichVu like '%"+loaiDichVu+"%'");
+    		ResultSet result = preparedStatement.executeQuery();
+    		
+    		while (result.next()) {
+    		DichVu dichvu = new DichVu(result.getString(2),result.getString(1),result.getString(3),
+    				result.getInt(4),Double.parseDouble(result.getString(5)));
+    		dsDichVu.add(dichvu);
+    		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+           return dsDichVu;
+	}
 
 }

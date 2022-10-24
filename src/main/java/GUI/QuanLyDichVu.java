@@ -195,11 +195,11 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_capnhatdichvuActionPerformed
 
     private void btn_lamoidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamoidichvuActionPerformed
-        // TODO add your handling code here:
+        fillDataIntoTable();
     }//GEN-LAST:event_btn_lamoidichvuActionPerformed
 
     private void btn_timkiemdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timkiemdichvuActionPerformed
-        // TODO add your handling code here:
+       search();
     }//GEN-LAST:event_btn_timkiemdichvuActionPerformed
 
     private void cb_loaidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_loaidichvuActionPerformed
@@ -242,6 +242,27 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 			tableModel.addRow(rowData);
 
     	}
-    	//table.setModel(tableModel);
+    	table_dichvu.setModel(tableModel);
+    }
+    
+    private void search() {
+    	String maDichVu = txt_madichvu.getText();
+    	String tenDichVu = txt_tendichvu.getText();
+    	String loaiDichVu = "";
+//    	String loaiDichVu = (String) cb_loaidichvu.getSelectedItem();
+    	dsDichVu.clear();
+    	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+    	dsDichVu = dao.search(maDichVu, tenDichVu, loaiDichVu);
+    	for(DichVu dv: dsDichVu) {
+			String[] rowData = { dv.getMaDichVu(), dv.getTenDichVu(), dv.getLoaiDichVu()
+					, dv.getSoLuong()+"",dv.getGia()+""	};
+			tableModel.addRow(rowData);
+
+    	}
+    	table_dichvu.setModel(tableModel);
     }
 }
