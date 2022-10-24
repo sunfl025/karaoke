@@ -18,6 +18,7 @@ public class Menu extends javax.swing.JFrame {
     private ThongKe panelthongkedoanhthu;
     private ThongKeKhachHang panelthongkekhachhang;
     private QuanLyTimKiem paneltimkiem;
+
     public Menu() {
         initComponents();
     }
@@ -294,7 +295,7 @@ public class Menu extends javax.swing.JFrame {
         }
         jTabbedPaneMenuMain.setSelectedComponent(paneltimkiem);
     }//GEN-LAST:event_jMenuItem_phieudatphongActionPerformed
-
+     
     /**
      * @param args the command line arguments
      */
