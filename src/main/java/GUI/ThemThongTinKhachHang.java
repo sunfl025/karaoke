@@ -4,11 +4,22 @@
  */
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import DAO.AutoId;
+import DAO.KhachHang_dao;
+import Enitity.KhachHang;
+import Enitity.NhanVien;
+
 /**
  *
  * @author Admin
  */
-public class ThemThongTinKhachHang extends javax.swing.JFrame {
+public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionListener{
 
     /**
      * Creates new form ThemThongTinKhachHang
@@ -16,7 +27,7 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame {
     public ThemThongTinKhachHang() {
         initComponents();
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +53,7 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame {
         btn_Huy = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
         btn_Them = new javax.swing.JButton();
-
+        btn_Them.addActionListener(this);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -75,7 +86,8 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame {
 
         btn_Them.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\karaoke\\img\\Create.png")); // NOI18N
         btn_Them.setText("Thêm");
-
+        btn_Huy.addActionListener(this);
+        btn_LamMoi.addActionListener(this);
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -208,7 +220,7 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Huy;
     private javax.swing.JButton btn_LamMoi;
@@ -227,4 +239,51 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame {
     private javax.swing.JTextField txt_SDT;
     private javax.swing.JTextField txt_TenKhachHang;
     // End of variables declaration//GEN-END:variables
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if(o.equals(btn_LamMoi))
+			lamTrong();
+		if(o.equals(btn_Huy))
+			this.dispose();
+		if(o.equals(btn_Them))
+		{
+			int select = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm");
+			if(select==JOptionPane.YES_OPTION)
+				{
+					them();
+					JOptionPane.showMessageDialog(this, "Thêm thành công");
+					this.dispose();
+				}
+			else {
+				JOptionPane.showMessageDialog(this, "Thêm không thành công !");
+			}
+		}
+	}
+	
+	private void them() {
+		ArrayList<KhachHang> dskh = new ArrayList<KhachHang>();
+		String ex ="KH";
+		int min = 9999;
+		int max = 1000;
+		int random_int = (int)(Math.random() * (max - min + 1) + min);
+		String maKhachHang = ex+random_int;
+		String tenKhachHang = txt_TenKhachHang.getText();
+		String gioiTinh;
+		if(rdo_Nam.isSelected())
+			gioiTinh = rdo_Nam.getText().toString();
+		else
+			gioiTinh = rdo_Nu.getText().toString();
+		String sdt = txt_SDT.getText();
+		String diaChi = txt_DiaChi.getText();
+		KhachHang kh = new KhachHang(maKhachHang,tenKhachHang, gioiTinh, sdt, diaChi);
+		KhachHang_dao.them(kh);
+		lamTrong();
+	}
+	private void lamTrong() {
+		txt_TenKhachHang.setText("");
+		txt_SDT.setText("");
+		txt_DiaChi.setText("");
+		rdo_Nam.isSelected();
+	}
 }
