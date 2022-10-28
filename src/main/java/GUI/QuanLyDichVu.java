@@ -4,6 +4,14 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import DAO.DichVu_dao;
+import Enitity.DichVu;
+
 /**
  *
  * @author Lenovo
@@ -110,26 +118,10 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         lbl_loaidichvu.setText("Loại dịch vụ : ");
 
         table_dichvu.setBackground(new java.awt.Color(199, 199, 231));
-        table_dichvu.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Mã DV", "Tên dịch vụ", "Loại", "Số lượng", "Giá"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(table_dichvu);
+        String[] headers = "Mã DV;Tên dịch vụ;Loại;Số lượng;Giá".split(";");
+        tableModel = new DefaultTableModel(headers, 0);
+        table_dichvu.setAutoCreateRowSorter(true);
+        jScrollPane1.setViewportView(table_dichvu = new JTable(tableModel));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -189,6 +181,8 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addGap(31, 31, 31))
         );
+        
+       this.fillDataIntoTable();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_themdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themdichvuActionPerformed
@@ -201,11 +195,11 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_capnhatdichvuActionPerformed
 
     private void btn_lamoidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamoidichvuActionPerformed
-        // TODO add your handling code here:
+        fillDataIntoTable();
     }//GEN-LAST:event_btn_lamoidichvuActionPerformed
 
     private void btn_timkiemdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timkiemdichvuActionPerformed
-        // TODO add your handling code here:
+       search();
     }//GEN-LAST:event_btn_timkiemdichvuActionPerformed
 
     private void cb_loaidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_loaidichvuActionPerformed
@@ -229,4 +223,46 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     private javax.swing.JTextField txt_madichvu;
     private javax.swing.JTextField txt_tendichvu;
     // End of variables declaration//GEN-END:variables
+    private ArrayList<DichVu> dsDichVu = new ArrayList<>();
+    private DichVu_dao dao= new DichVu_dao();
+	private DefaultTableModel tableModel;
+    
+    private void fillDataIntoTable() {
+
+    	dsDichVu.clear();
+    	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+    	dsDichVu = dao.getAll();
+    	for(DichVu dv: dsDichVu) {
+			String[] rowData = { dv.getMaDichVu(), dv.getTenDichVu(), dv.getLoaiDichVu()
+					, dv.getSoLuong()+"",dv.getGia()+""	};
+			tableModel.addRow(rowData);
+
+    	}
+    	table_dichvu.setModel(tableModel);
+    }
+    
+    private void search() {
+    	String maDichVu = txt_madichvu.getText();
+    	String tenDichVu = txt_tendichvu.getText();
+    	String loaiDichVu = "";
+//    	String loaiDichVu = (String) cb_loaidichvu.getSelectedItem();
+    	dsDichVu.clear();
+    	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+    	dsDichVu = dao.search(maDichVu, tenDichVu, loaiDichVu);
+    	for(DichVu dv: dsDichVu) {
+			String[] rowData = { dv.getMaDichVu(), dv.getTenDichVu(), dv.getLoaiDichVu()
+					, dv.getSoLuong()+"",dv.getGia()+""	};
+			tableModel.addRow(rowData);
+
+    	}
+    	table_dichvu.setModel(tableModel);
+    }
 }

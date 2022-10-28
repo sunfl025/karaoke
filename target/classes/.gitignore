@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 /GUI/
 /META-INF/
 /DAO/
 /Enitity/
+=======
+/Enitity/
+/GUI/
+/DAO/
+/Connect/
+/META-INF/
+>>>>>>> 6754ea679c317dcc50c8ad8db0c583a19d10b8ae

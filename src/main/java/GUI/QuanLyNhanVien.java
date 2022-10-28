@@ -4,16 +4,27 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import DAO.NhanVien_dao;
+import Enitity.Authentication;
+import Enitity.NhanVien;
+
 /**
  *
  * @author Lenovo
  */
 public class QuanLyNhanVien extends javax.swing.JPanel {
 
-    /**
+    private DefaultTableModel tableModel;
+	/**
      * Creates new form Quanlinhanvien
      */
-    public QuanLyNhanVien() {
+    public QuanLyNhanVien(Authentication authentication) {
+    	auth = authentication;
         initComponents();
     }
 
@@ -155,28 +166,11 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
         buttonGroup1.add(rdo_nu);
         rdo_nu.setSelected(true);
         rdo_nu.setText("Nữ");
-
         table.setBackground(new java.awt.Color(199, 199, 231));
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã NV", "Họ tên", "SĐT", "Giới tính", "Ngày sinh", "Địa chỉ", "Chức vụ"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(table);
+        String[] headers = "Mã NV;Tên nhân viên ;Giới Tính;SĐT;chức vụ;Lương;Tên đăng nhập".split(";");
+        tableModel = new DefaultTableModel(headers, 0);
+        table.setAutoCreateRowSorter(true);
+        jScrollPane1.setViewportView(table = new JTable(tableModel));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -266,14 +260,34 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
+    private void fillDataIntoTable() {
+		NhanVien_dao nhanviendao = new NhanVien_dao();
+		list_nv.clear();
+		if (tableModel.getRowCount() > 0) {
+			for (int i = table.getRowCount() - 1; i > -1; i--) {
+				
+			}
+		}
+		list_nv = nhanviendao.getAll();
+		for (NhanVien nhanvien : list_nv) {
+			
+			String[] rowData = { nhanvien.getMaNhanVien() ,nhanvien.getTenNhanVien(), nhanvien.getGioiTinh(), nhanvien.getSdt(),
+					nhanvien.getChucVu(),nhanvien.getLuong() + "" ,nhanvien.getTenDangNhap().getTenDangNhap()};
+			tableModel.addRow(rowData);
+		}
+		table.setModel(tableModel);
+	}
+    
+    
 
     private void txt_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sdtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_sdtActionPerformed
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
-        ThemThongTinNhanVien framethemnv = new ThemThongTinNhanVien();
+        ThemThongTinNhanVien framethemnv = new ThemThongTinNhanVien(auth);
         framethemnv.setVisible(true);
+        
     }//GEN-LAST:event_btn_themActionPerformed
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
@@ -281,11 +295,11 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_xoaActionPerformed
 
     private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_suaActionPerformed
 
     private void btn_lammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lammoiActionPerformed
-        // TODO add your handling code here:
+    	fillDataIntoTable();
     }//GEN-LAST:event_btn_lammoiActionPerformed
 
     private void btn_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timActionPerformed
@@ -327,5 +341,8 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JTable table;
     private javax.swing.JTextField txt_manv;
     private javax.swing.JTextField txt_sdt;
+	private ArrayList<NhanVien>list_nv = new ArrayList<>();
+	private Authentication auth = null;
     // End of variables declaration//GEN-END:variables
+	
 }
