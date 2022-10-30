@@ -186,7 +186,8 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_themdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themdichvuActionPerformed
-        // TODO add your handling code here:
+        ThemDichVu framethemdichvu = new ThemDichVu();
+        framethemdichvu.setVisible(true);
     }//GEN-LAST:event_btn_themdichvuActionPerformed
 
     private void btn_capnhatdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capnhatdichvuActionPerformed
@@ -196,6 +197,8 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
     private void btn_lamoidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamoidichvuActionPerformed
         fillDataIntoTable();
+        txt_madichvu.setText("");
+        txt_tendichvu.setText("");
     }//GEN-LAST:event_btn_lamoidichvuActionPerformed
 
     private void btn_timkiemdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timkiemdichvuActionPerformed
@@ -248,8 +251,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     private void search() {
     	String maDichVu = txt_madichvu.getText();
     	String tenDichVu = txt_tendichvu.getText();
-    	String loaiDichVu = "";
-//    	String loaiDichVu = (String) cb_loaidichvu.getSelectedItem();
+    	String loaiDichVu = (String) cb_loaidichvu.getSelectedItem();
     	dsDichVu.clear();
     	if (tableModel.getRowCount() > 0) {
 			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
