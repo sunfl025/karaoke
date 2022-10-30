@@ -4,6 +4,12 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
+import DAO.TaiKhoan_dao;
+import Enitity.Authentication;
+import Enitity.TaiKhoan;
+
 /**
  *
  * @author Lenovo
@@ -30,17 +36,17 @@ public class Dangnhap extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_tentaikhoan = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txt_matkhau = new javax.swing.JPasswordField();
         btn_dangnhap = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 200));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("img/user-112-128.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\user-112-128.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Tên tài khoản : ");
@@ -74,8 +80,8 @@ public class Dangnhap extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_dangnhap)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)))
+                        .addComponent(txt_tentaikhoan)
+                        .addComponent(txt_matkhau, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,11 +92,11 @@ public class Dangnhap extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_tentaikhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_matkhau, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(btn_dangnhap)
                 .addGap(65, 65, 65))
@@ -112,8 +118,27 @@ public class Dangnhap extends javax.swing.JFrame {
 
     private void btn_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhapActionPerformed
         // TODO add your handling code here:
-        menu = new Menu();
-        menu.setVisible(true);
+//        menu = new Menu();
+//        menu.setVisible(true);
+        Object o = evt.getSource();
+		if (o.equals(btn_dangnhap)) {
+			String tentaikhoan = txt_tentaikhoan.getText();
+		
+			String matkhau =txt_matkhau.getText();
+		
+			
+			TaiKhoan taiKhoan = new TaiKhoan(tentaikhoan, matkhau);
+			TaiKhoan taiKhoanDangNhap =taiKhoan_dao.DangNhap_dao(taiKhoan);
+			if (taiKhoanDangNhap != null) {
+				Authentication authentication = new Authentication(true, taiKhoanDangNhap);
+				new Menu(authentication).setVisible(true);
+				this.setVisible(false);
+			}else {
+				txt_matkhau.setText("");
+				JOptionPane.showMessageDialog(this,"Tên đăng nhập hoặc mật khẩu chưa chính xác.");
+			}
+
+		}
         
     }//GEN-LAST:event_btn_dangnhapActionPerformed
 
@@ -159,7 +184,15 @@ public class Dangnhap extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txt_matkhau;
+    private javax.swing.JTextField txt_tentaikhoan;
+    private TaiKhoan_dao taiKhoan_dao = new TaiKhoan_dao();
+	private static Object userLogin;
+	private static Object auth;
+	
     // End of variables declaration//GEN-END:variables
+    public void hiddenLogin() {
+		this.setVisible(false);
+	}
+
 }
