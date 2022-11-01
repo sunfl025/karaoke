@@ -76,7 +76,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
         jTittle = new javax.swing.JLabel();
         btn_lamMoi = new javax.swing.JButton();
         btn_them = new javax.swing.JButton();
-        btn_timKiem = new javax.swing.JButton();
+        btn_xoa = new javax.swing.JButton();
         btn_sua = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -90,6 +90,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
         lbl_gioiTinh.setText("Giới tính:");
 
         buttonGroup1.add(rdo_nam);
+        rdo_nam.setSelected(true);
         rdo_nam.setText("Nam");
         rdo_nam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,9 +144,10 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
             }
         });
 
-        btn_timKiem.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Search.png")); // NOI18N
-        btn_timKiem.setText("Tìm kiếm");
-        btn_timKiem.setPreferredSize(new java.awt.Dimension(110, 30));
+        btn_xoa.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Search.png")); // NOI18N
+        btn_xoa.setText("Tìm kiếm");
+        btn_xoa.setPreferredSize(new java.awt.Dimension(110, 30));
+
         btn_sua.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Edit.png")); // NOI18N
         btn_sua.setText("Sửa");
         btn_sua.setPreferredSize(new java.awt.Dimension(110, 30));
@@ -183,7 +185,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_lamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_xoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,13 +212,33 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
                     .addComponent(rdo_nu)
                     .addComponent(lbl_sdt)
                     .addComponent(txt_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_xoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_sua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        btn_timKiem.addActionListener(this);
+
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -250,7 +272,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
                 return types [columnIndex];
             }
         });
-        jTable2.setPreferredSize(new java.awt.Dimension(900, 300));
+        jTable2.setPreferredSize(new java.awt.Dimension(900,500));
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -315,7 +337,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
     private javax.swing.JButton btn_lamMoi;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
-    private javax.swing.JButton btn_timKiem;
+    private javax.swing.JButton btn_xoa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
