@@ -305,10 +305,13 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
     }//GEN-LAST:event_rdo_namActionPerformed
 
     private void btn_lamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamMoiActionPerformed
+<<<<<<< HEAD
     	txt_maKhach.setText("");
     	txt_sdt.setText("");
     	txt_tenKhach.setText("");
     	
+=======
+>>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     	showList();
     }//GEN-LAST:event_btn_lamMoiActionPerformed
 
@@ -330,6 +333,11 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
         	edit.setEditData(dskh.get(select));
         	edit.setVisible(true);
         }
+<<<<<<< HEAD
+=======
+        if(edit.DISPOSE_ON_CLOSE==1)
+        	showList();
+>>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
         
        
     }//GEN-LAST:event_btn_suaActionPerformed
@@ -392,7 +400,10 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 		{
 			timKiem();
 		}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 	}
 
 	private void timKiem() {
@@ -413,8 +424,11 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 						kh.getDiaChi()
 				});
 		}
+<<<<<<< HEAD
 			
 	}
+=======
+>>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 		if(input.length()>0) {
 			dskh = KhachHang_dao.find(input);
 			tableModel.setRowCount(0);
@@ -429,4 +443,8 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 			}
 		}
 	}
+<<<<<<< HEAD
+=======
+	}
+>>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 }

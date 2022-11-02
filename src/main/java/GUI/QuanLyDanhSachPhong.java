@@ -4,6 +4,14 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+import DAO.Phong_dao;
+import Enitity.Phong;
+
 /**
  *
  * @author vanng
@@ -13,6 +21,18 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     /**
      * Creates new form QuanLyDanhSachPhong
      */
+	Phong_dao ph_dao = new Phong_dao();
+	//Tao icon
+	Icon iconPhongCho = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongcho.png");
+	Icon iconPhongTrong = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrong.png");
+	Icon iconPhongDSD = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongdangsudung.png");
+    Icon iconPhongChomini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongchomini.png");
+	Icon iconPhongTrongmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrongmini.png");
+	Icon iconPhongDSDmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongdangsudungmini.png");
+
+
+
+    ///
     public QuanLyDanhSachPhong() {
         initComponents();
     }
@@ -25,7 +45,6 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
@@ -49,66 +68,69 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_timKiem = new javax.swing.JTextPane();
         btn_timKiem = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_lamMoi = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel16 = new javax.swing.JPanel();
         pnl_p1 = new javax.swing.JPanel();
-        btn_ip1 = new javax.swing.JButton();
+        btn_iPhong1 = new javax.swing.JButton();
         btn_phong1 = new javax.swing.JButton();
         pnl_p2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        btn_iPhong2 = new javax.swing.JButton();
         btn_phong2 = new javax.swing.JButton();
         pnl_p3 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btn_iPhong3 = new javax.swing.JButton();
         btn_phong3 = new javax.swing.JButton();
         pnl_p4 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
+        btn_iPhong4 = new javax.swing.JButton();
         btn_phong4 = new javax.swing.JButton();
         pnl_p5 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
+        btn_iPhong5 = new javax.swing.JButton();
         btn_phong5 = new javax.swing.JButton();
         pnl_p6 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
+        btn_iPhong6 = new javax.swing.JButton();
         btn_phong6 = new javax.swing.JButton();
         pnl_p7 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
+        btn_iPhong7 = new javax.swing.JButton();
         btn_phong7 = new javax.swing.JButton();
         pnl_p8 = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
+        btn_iPhong8 = new javax.swing.JButton();
         btn_phong8 = new javax.swing.JButton();
         pnl_p9 = new javax.swing.JPanel();
-        jButton24 = new javax.swing.JButton();
+        btn_iPhong12 = new javax.swing.JButton();
         btn_phong12 = new javax.swing.JButton();
         pnl_p10 = new javax.swing.JPanel();
-        jButton22 = new javax.swing.JButton();
+        btn_iPhong11 = new javax.swing.JButton();
         btn_phong11 = new javax.swing.JButton();
         pnl_p11 = new javax.swing.JPanel();
-        jButton20 = new javax.swing.JButton();
+        btn_iPhong10 = new javax.swing.JButton();
         btn_phong10 = new javax.swing.JButton();
         pnl_p12 = new javax.swing.JPanel();
-        jButton18 = new javax.swing.JButton();
+        btn_iPhong9 = new javax.swing.JButton();
         btn_phong9 = new javax.swing.JButton();
         pnl_p13 = new javax.swing.JPanel();
-        jButton26 = new javax.swing.JButton();
+        btn_iPhong13 = new javax.swing.JButton();
         btn_phong13 = new javax.swing.JButton();
         pnl_p14 = new javax.swing.JPanel();
-        jButton32 = new javax.swing.JButton();
+        btn_iPhong16 = new javax.swing.JButton();
         btn_phong16 = new javax.swing.JButton();
         pnl_p15 = new javax.swing.JPanel();
-        jButton30 = new javax.swing.JButton();
+        btn_iPhong15 = new javax.swing.JButton();
         btn_phong15 = new javax.swing.JButton();
         pnl_p16 = new javax.swing.JPanel();
-        jButton28 = new javax.swing.JButton();
+        btn_iPhong14 = new javax.swing.JButton();
         btn_phong14 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btn_iconCho = new javax.swing.JButton();
+        btn_iconCho.setIcon(iconPhongChomini);
+        btn_iconSD = new javax.swing.JButton();
+        btn_iconSD.setIcon(iconPhongDSDmini);
+        btn_iconTrong = new javax.swing.JButton();
+        btn_iconTrong.setIcon(iconPhongTrongmini);
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+        // tạo icon
+       setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -154,14 +176,29 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         btn_xemPhong.setText("Xem phòng");
         btn_xemPhong.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_xemPhong.setEnabled(false);
+        btn_xemPhong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xemPhongActionPerformed(evt);
+            }
+        });
 
         btn_dichVu.setText("Dịch vụ");
         btn_dichVu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_dichVu.setEnabled(false);
+        btn_dichVu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dichVuActionPerformed(evt);
+            }
+        });
 
         btn_tinhTien.setText("Tính tiền");
         btn_tinhTien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_tinhTien.setEnabled(false);
+        btn_tinhTien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tinhTienActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -222,9 +259,19 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         buttonGroup1.add(rdo_phongThuong);
         rdo_phongThuong.setText("Phòng thường");
+        rdo_phongThuong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_phongThuongActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdo_phongVIP);
         rdo_phongVIP.setText("Phòng VIP");
+        rdo_phongVIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_phongVIPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -251,12 +298,27 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         buttonGroup2.add(rdo_dangSD);
         rdo_dangSD.setText("Đang sử dụng");
+        rdo_dangSD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_dangSDActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rdo_phongCho);
         rdo_phongCho.setText("Phòng chờ");
+        rdo_phongCho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_phongChoActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rdo_phongTrong);
         rdo_phongTrong.setText("Phòng trống");
+        rdo_phongTrong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_phongTrongActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -286,8 +348,18 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         jScrollPane2.setViewportView(txt_timKiem);
 
         btn_timKiem.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\search-icon-16.png")); // NOI18N
+        btn_timKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_timKiemActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Làm mới");
+        btn_lamMoi.setText("Làm mới");
+        btn_lamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_lamMoiActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(831, 633));
 
@@ -295,11 +367,20 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         pnl_p1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btn_ip1.setBorder(null);
-        btn_ip1.setPreferredSize(new java.awt.Dimension(140, 140));
-        btn_ip1.addActionListener(new java.awt.event.ActionListener() {
+        btn_iPhong1.setBorder(null);
+        btn_iPhong1.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 1
+        Phong p1 = ph_dao.findbyId("PH0001");	
+    	if(p1.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong1.setIcon(iconPhongTrong);
+    	else if(p1.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong1.setIcon(iconPhongDSD);
+    	else if(p1.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong1.setIcon(iconPhongCho);
+    	///
+    	btn_iPhong1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ip1ActionPerformed(evt);
+                btn_iPhong1ActionPerformed(evt);
             }
         });
 
@@ -319,14 +400,14 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnl_p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_iPhong1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_p1Layout.setVerticalGroup(
             pnl_p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong1)
                 .addContainerGap())
@@ -334,11 +415,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         pnl_p2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton4.setBorder(null);
-        jButton4.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong2.setBorder(null);
+        btn_iPhong2.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 1
+        Phong p2 = ph_dao.findbyId("PH0002");	
+    	if(p2.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong2.setIcon(iconPhongTrong);
+    	else if(p2.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong2.setIcon(iconPhongDSD);
+    	else if(p2.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong2.setIcon(iconPhongCho);
+    	///
+        btn_iPhong2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong2ActionPerformed(evt);
+            }
+        });
 
         btn_phong2.setText("Phòng 2");
         btn_phong2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p2Layout = new javax.swing.GroupLayout(pnl_p2);
         pnl_p2.setLayout(pnl_p2Layout);
@@ -348,14 +448,14 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnl_p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_iPhong2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_p2Layout.setVerticalGroup(
             pnl_p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_phong2)
                 .addContainerGap())
@@ -364,16 +464,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p3.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton6.setBorder(null);
-        jButton6.setPreferredSize(new java.awt.Dimension(140, 140));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btn_iPhong3.setBorder(null);
+        btn_iPhong3.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 3
+        Phong p3 = ph_dao.findbyId("PH0003");	
+    	if(p3.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong3.setIcon(iconPhongTrong);
+    	else if(p3.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong3.setIcon(iconPhongDSD);
+    	else if(p3.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong3.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btn_iPhong3ActionPerformed(evt);
             }
         });
 
         btn_phong3.setText("Phòng 3");
         btn_phong3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p3Layout = new javax.swing.GroupLayout(pnl_p3);
         pnl_p3.setLayout(pnl_p3Layout);
@@ -383,14 +497,14 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnl_p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_iPhong3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_p3Layout.setVerticalGroup(
             pnl_p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong3)
                 .addContainerGap())
@@ -399,11 +513,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p4.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton8.setBorder(null);
-        jButton8.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong4.setBorder(null);
+        btn_iPhong4.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 4
+        Phong p4 = ph_dao.findbyId("PH0004");	
+    	if(p4.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong4.setIcon(iconPhongTrong);
+    	else if(p4.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong4.setIcon(iconPhongDSD);
+    	else if(p4.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong4.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong4ActionPerformed(evt);
+            }
+        });
 
         btn_phong4.setText("Phòng 4");
         btn_phong4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p4Layout = new javax.swing.GroupLayout(pnl_p4);
         pnl_p4.setLayout(pnl_p4Layout);
@@ -413,14 +546,14 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnl_p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_iPhong4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_p4Layout.setVerticalGroup(
             pnl_p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_phong4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -429,11 +562,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p5.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton10.setBorder(null);
-        jButton10.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong5.setBorder(null);
+        btn_iPhong5.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 5
+        Phong p5 = ph_dao.findbyId("PH0005");	
+    	if(p5.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong5.setIcon(iconPhongTrong);
+    	else if(p5.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong5.setIcon(iconPhongDSD);
+    	else if(p5.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong5.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong5ActionPerformed(evt);
+            }
+        });
 
         btn_phong5.setText("Phòng 5");
         btn_phong5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p5Layout = new javax.swing.GroupLayout(pnl_p5);
         pnl_p5.setLayout(pnl_p5Layout);
@@ -442,7 +594,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong5, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                     .addComponent(btn_phong5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -450,7 +602,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong5)
                 .addContainerGap())
@@ -459,11 +611,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p6.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton12.setBorder(null);
-        jButton12.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong6.setBorder(null);
+        btn_iPhong6.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 6 ////////////////////////////////////////////
+        Phong p6 = ph_dao.findbyId("PH0006");	
+    	if(p6.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong6.setIcon(iconPhongTrong);
+    	else if(p6.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong6.setIcon(iconPhongDSD);
+    	else if(p6.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong6.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong6ActionPerformed(evt);
+            }
+        });
 
         btn_phong6.setText("Phòng 6");
         btn_phong6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p6Layout = new javax.swing.GroupLayout(pnl_p6);
         pnl_p6.setLayout(pnl_p6Layout);
@@ -472,7 +643,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -480,7 +651,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong6)
                 .addContainerGap())
@@ -489,11 +660,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p7.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton14.setBorder(null);
-        jButton14.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong7.setBorder(null);
+        btn_iPhong7.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 7 ////////////////////////////////////////////
+        Phong p7 = ph_dao.findbyId("PH0007");	
+    	if(p7.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong7.setIcon(iconPhongTrong);
+    	else if(p7.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong7.setIcon(iconPhongDSD);
+    	else if(p7.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong7.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong7ActionPerformed(evt);
+            }
+        });
 
         btn_phong7.setText("Phòng 7");
         btn_phong7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p7Layout = new javax.swing.GroupLayout(pnl_p7);
         pnl_p7.setLayout(pnl_p7Layout);
@@ -502,7 +692,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -510,7 +700,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_phong7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -519,11 +709,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p8.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton16.setBorder(null);
-        jButton16.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong8.setBorder(null);
+        btn_iPhong8.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 8 ////////////////////////////////////////////
+        Phong p8 = ph_dao.findbyId("PH0008");	
+    	if(p8.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong8.setIcon(iconPhongTrong);
+    	else if(p8.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong8.setIcon(iconPhongDSD);
+    	else if(p8.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong8.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong8ActionPerformed(evt);
+            }
+        });
 
         btn_phong8.setText("Phòng 8");
         btn_phong8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p8Layout = new javax.swing.GroupLayout(pnl_p8);
         pnl_p8.setLayout(pnl_p8Layout);
@@ -534,7 +743,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addGroup(pnl_p8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnl_p8Layout.createSequentialGroup()
-                        .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_iPhong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(6, 6, 6)))
                 .addContainerGap())
         );
@@ -542,7 +751,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_phong8)
                 .addContainerGap())
@@ -551,11 +760,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p9.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton24.setBorder(null);
-        jButton24.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong12.setBorder(null);
+        btn_iPhong12.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 12 ////////////////////////////////////////////
+        Phong p12 = ph_dao.findbyId("PH0012");	
+    	if(p12.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong12.setIcon(iconPhongTrong);
+    	else if(p12.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong12.setIcon(iconPhongDSD);
+    	else if(p12.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong12.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong12ActionPerformed(evt);
+            }
+        });
 
         btn_phong12.setText("Phòng 12");
         btn_phong12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p9Layout = new javax.swing.GroupLayout(pnl_p9);
         pnl_p9.setLayout(pnl_p9Layout);
@@ -564,7 +792,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -572,7 +800,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(btn_phong12)
                 .addContainerGap())
@@ -581,11 +809,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p10.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton22.setBorder(null);
-        jButton22.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong11.setBorder(null);
+        btn_iPhong11.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 11 ////////////////////////////////////////////
+        Phong p11 = ph_dao.findbyId("PH0011");	
+    	if(p11.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong11.setIcon(iconPhongTrong);
+    	else if(p11.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong11.setIcon(iconPhongDSD);
+    	else if(p11.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong11.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong11ActionPerformed(evt);
+            }
+        });
 
         btn_phong11.setText("Phòng 11");
         btn_phong11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p10Layout = new javax.swing.GroupLayout(pnl_p10);
         pnl_p10.setLayout(pnl_p10Layout);
@@ -594,7 +841,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong11, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                     .addComponent(btn_phong11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -602,7 +849,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong11)
                 .addContainerGap())
@@ -611,11 +858,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p11.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton20.setBorder(null);
-        jButton20.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong10.setBorder(null);
+        btn_iPhong10.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 10 ////////////////////////////////////////////
+        Phong p10 = ph_dao.findbyId("PH0010");	
+    	if(p10.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong10.setIcon(iconPhongTrong);
+    	else if(p10.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong10.setIcon(iconPhongDSD);
+    	else if(p10.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong10.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong10ActionPerformed(evt);
+            }
+        });
 
         btn_phong10.setText("Phòng 10");
         btn_phong10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p11Layout = new javax.swing.GroupLayout(pnl_p11);
         pnl_p11.setLayout(pnl_p11Layout);
@@ -625,14 +891,14 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnl_p11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_phong10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
+                    .addComponent(btn_iPhong10, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_p11Layout.setVerticalGroup(
             pnl_p11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong10)
                 .addContainerGap())
@@ -641,11 +907,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p12.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton18.setBorder(null);
-        jButton18.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong9.setBorder(null);
+        btn_iPhong9.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 9 ////////////////////////////////////////////
+        Phong p9 = ph_dao.findbyId("PH0009");	
+    	if(p9.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong9.setIcon(iconPhongTrong);
+    	else if(p9.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong9.setIcon(iconPhongDSD);
+    	else if(p9.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong9.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong9ActionPerformed(evt);
+            }
+        });
 
         btn_phong9.setText("Phòng 9");
         btn_phong9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p12Layout = new javax.swing.GroupLayout(pnl_p12);
         pnl_p12.setLayout(pnl_p12Layout);
@@ -654,7 +939,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -662,7 +947,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong9)
                 .addContainerGap())
@@ -671,11 +956,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p13.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton26.setBorder(null);
-        jButton26.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong13.setBorder(null);
+        btn_iPhong13.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 13 ////////////////////////////////////////////
+        Phong p13 = ph_dao.findbyId("PH0013");	
+    	if(p13.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong13.setIcon(iconPhongTrong);
+    	else if(p13.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong13.setIcon(iconPhongDSD);
+    	else if(p13.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong13.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong13ActionPerformed(evt);
+            }
+        });
 
         btn_phong13.setText("Phòng 13");
         btn_phong13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p13Layout = new javax.swing.GroupLayout(pnl_p13);
         pnl_p13.setLayout(pnl_p13Layout);
@@ -684,7 +988,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong13, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                     .addComponent(btn_phong13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -692,7 +996,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong13, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong13)
                 .addContainerGap())
@@ -701,11 +1005,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p14.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton32.setBorder(null);
-        jButton32.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong16.setBorder(null);
+        btn_iPhong16.setPreferredSize(new java.awt.Dimension(140, 140));
+        //Set icon cho phòng 13 ////////////////////////////////////////////
+        Phong p16 = ph_dao.findbyId("PH0016");	
+    	if(p16.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong16.setIcon(iconPhongTrong);
+    	else if(p16.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong16.setIcon(iconPhongDSD);
+    	else if(p16.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong16.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong16ActionPerformed(evt);
+            }
+        });
 
         btn_phong16.setText("Phòng 16");
         btn_phong16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong16ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p14Layout = new javax.swing.GroupLayout(pnl_p14);
         pnl_p14.setLayout(pnl_p14Layout);
@@ -714,7 +1037,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -722,7 +1045,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong16, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_phong16)
                 .addContainerGap(7, Short.MAX_VALUE))
@@ -731,16 +1054,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p15.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton30.setBorder(null);
-        jButton30.setPreferredSize(new java.awt.Dimension(140, 140));
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
+        btn_iPhong15.setBorder(null);
+        btn_iPhong15.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 15 ////////////////////////////////////////////
+        Phong p15 = ph_dao.findbyId("PH0015");	
+    	if(p15.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong15.setIcon(iconPhongTrong);
+    	else if(p15.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong15.setIcon(iconPhongDSD);
+    	else if(p15.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong15.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
+                btn_iPhong15ActionPerformed(evt);
             }
         });
 
         btn_phong15.setText("Phòng 15");
         btn_phong15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p15Layout = new javax.swing.GroupLayout(pnl_p15);
         pnl_p15.setLayout(pnl_p15Layout);
@@ -749,7 +1086,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton30, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong15, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                     .addComponent(btn_phong15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -757,7 +1094,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong15, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong15)
                 .addContainerGap())
@@ -766,11 +1103,30 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         pnl_p16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_p16.setPreferredSize(new java.awt.Dimension(150, 180));
 
-        jButton28.setBorder(null);
-        jButton28.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong14.setBorder(null);
+        btn_iPhong14.setPreferredSize(new java.awt.Dimension(140, 140));
+      //Set icon cho phòng 14 ////////////////////////////////////////////
+        Phong p14 = ph_dao.findbyId("PH0014");	
+    	if(p14.getTrangThai().equals("Phòng trống"))
+    		btn_iPhong14.setIcon(iconPhongTrong);
+    	else if(p14.getTrangThai().equals("Phòng đang sử dụng"))
+    		btn_iPhong14.setIcon(iconPhongDSD);
+    	else if(p14.getTrangThai().equals("Phòng chờ")) 
+    		btn_iPhong14.setIcon(iconPhongCho);
+    	////////////////////////////////////////////////////////
+        btn_iPhong14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iPhong14ActionPerformed(evt);
+            }
+        });
 
         btn_phong14.setText("Phòng 14");
         btn_phong14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_phong14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_phong14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_p16Layout = new javax.swing.GroupLayout(pnl_p16);
         pnl_p16.setLayout(pnl_p16Layout);
@@ -779,7 +1135,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(pnl_p16Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_p16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iPhong14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_phong14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -787,7 +1143,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             pnl_p16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_p16Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_iPhong14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_phong14)
                 .addContainerGap())
@@ -872,7 +1228,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_lamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -895,20 +1251,20 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                             .addComponent(jLabel1)
                             .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(btn_lamMoi)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jButton1.setBorder(null);
-        jButton1.setPreferredSize(new java.awt.Dimension(30, 30));
+        btn_iconCho.setBorder(null);
+        btn_iconCho.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        jButton3.setBorder(null);
-        jButton3.setPreferredSize(new java.awt.Dimension(30, 30));
+        btn_iconSD.setBorder(null);
+        btn_iconSD.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        jButton5.setBorder(null);
-        jButton5.setPreferredSize(new java.awt.Dimension(30, 30));
+        btn_iconTrong.setBorder(null);
+        btn_iconTrong.setPreferredSize(new java.awt.Dimension(30, 30));
 
         jLabel2.setText("Phòng đang sử dụng");
 
@@ -924,9 +1280,9 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_iconCho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iconSD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_iconTrong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -940,17 +1296,17 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_iconCho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_iconSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_iconTrong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -1004,28 +1360,261 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_datPhongChoActionPerformed
 
     private void btn_phong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong1ActionPerformed
+      setEnabledbyId("PH0001");
+    }
+
+    private void btn_iPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong1ActionPerformed
+    	setEnabledbyId("PH0001");
+    }//GEN-LAST:event_btn_iPhong1ActionPerformed
+
+    private void btn_iPhong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong3ActionPerformed
+    	setEnabledbyId("PH0003");
+    }//GEN-LAST:event_btn_iPhong3ActionPerformed
+
+    private void btn_iPhong15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong15ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_phong1ActionPerformed
+    	setEnabledbyId("PH0015");
+    }//GEN-LAST:event_btn_iPhong15ActionPerformed
 
-    private void btn_ip1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ip1ActionPerformed
+    private void btn_iPhong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ip1ActionPerformed
+    	setEnabledbyId("PH0002");
+    }//GEN-LAST:event_btn_iPhong2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btn_phong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    	setEnabledbyId("PH0002");
+    }//GEN-LAST:event_btn_phong2ActionPerformed
 
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+    private void btn_phong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
+    	setEnabledbyId("PH0003");
+    }//GEN-LAST:event_btn_phong3ActionPerformed
 
+    private void btn_iPhong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong4ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0004");
+    }//GEN-LAST:event_btn_iPhong4ActionPerformed
 
+    private void btn_phong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong4ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0004");
+    }//GEN-LAST:event_btn_phong4ActionPerformed
+
+    private void btn_iPhong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong5ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0005");
+    }//GEN-LAST:event_btn_iPhong5ActionPerformed
+
+    private void btn_phong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong5ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0005");
+    }//GEN-LAST:event_btn_phong5ActionPerformed
+
+    private void btn_iPhong6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong6ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0006");
+    }//GEN-LAST:event_btn_iPhong6ActionPerformed
+
+    private void btn_phong6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong6ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0006");
+    }//GEN-LAST:event_btn_phong6ActionPerformed
+
+    private void btn_iPhong7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong7ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0007");
+    }//GEN-LAST:event_btn_iPhong7ActionPerformed
+
+    private void btn_phong7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong7ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0007");
+    }//GEN-LAST:event_btn_phong7ActionPerformed
+
+    private void btn_iPhong8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong8ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0008");
+    }//GEN-LAST:event_btn_iPhong8ActionPerformed
+
+    private void btn_phong8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong8ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0008");
+    }//GEN-LAST:event_btn_phong8ActionPerformed
+
+    private void btn_iPhong12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong12ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0012");
+    }//GEN-LAST:event_btn_iPhong12ActionPerformed
+
+    private void btn_phong12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong12ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0012");
+    }//GEN-LAST:event_btn_phong12ActionPerformed
+
+    private void btn_iPhong11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong11ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0011");
+    }//GEN-LAST:event_btn_iPhong11ActionPerformed
+
+    private void btn_phong11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong11ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0011");
+    }//GEN-LAST:event_btn_phong11ActionPerformed
+
+    private void btn_iPhong10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong10ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0010");
+    }//GEN-LAST:event_btn_iPhong10ActionPerformed
+
+    private void btn_phong10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong10ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0010");
+    }//GEN-LAST:event_btn_phong10ActionPerformed
+
+    private void btn_iPhong9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong9ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0009");
+    }//GEN-LAST:event_btn_iPhong9ActionPerformed
+
+    private void btn_phong9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong9ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0009");
+    }//GEN-LAST:event_btn_phong9ActionPerformed
+
+    private void btn_iPhong13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong13ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0013");
+    }//GEN-LAST:event_btn_iPhong13ActionPerformed
+
+    private void btn_phong13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong13ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0013");
+    }//GEN-LAST:event_btn_phong13ActionPerformed
+
+    private void btn_iPhong16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong16ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0016");
+    }//GEN-LAST:event_btn_iPhong16ActionPerformed
+
+    private void btn_phong16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong16ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0016");
+    }//GEN-LAST:event_btn_phong16ActionPerformed
+
+    private void btn_phong15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong15ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0015");
+    }//GEN-LAST:event_btn_phong15ActionPerformed
+
+    private void btn_iPhong14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong14ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0014");
+    }//GEN-LAST:event_btn_iPhong14ActionPerformed
+
+    private void btn_phong14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong14ActionPerformed
+        // TODO add your handling code here:
+    	setEnabledbyId("PH0014");
+    }//GEN-LAST:event_btn_phong14ActionPerformed
+
+    private void btn_xemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xemPhongActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_xemPhongActionPerformed
+
+    private void btn_dichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dichVuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_dichVuActionPerformed
+
+    private void btn_tinhTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tinhTienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_tinhTienActionPerformed
+
+    private void rdo_phongThuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongThuongActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_phongThuongActionPerformed
+
+    private void rdo_phongVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongVIPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_phongVIPActionPerformed
+
+    private void rdo_dangSDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_dangSDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_dangSDActionPerformed
+
+    private void rdo_phongChoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongChoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_phongChoActionPerformed
+
+    private void rdo_phongTrongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongTrongActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_phongTrongActionPerformed
+
+    private void btn_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timKiemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_timKiemActionPerformed
+
+    private void btn_lamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamMoiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_lamMoiActionPerformed
+    public void listSetEnabled() {
+    	ArrayList<Phong> listPhong = ph_dao.getAllPhong();
+    	for(Phong p : listPhong) {
+    		setEnabledbyId(p.getMaPhong());
+    	}
+    }
+    public void setEnabledbyId(String maPhong){
+    	Phong p = ph_dao.findbyId(maPhong);
+    	if(p.getTrangThai().equals("Phòng trống")) {
+    		btn_datPhong1.setEnabled(true);
+    		btn_datPhongCho.setEnabled(true);
+    		btn_xemPhong.setEnabled(true);
+    		
+    		btn_dichVu.setEnabled(false);
+    		btn_tinhTien.setEnabled(false);	
+    		btn_nhanPhongCho.setEnabled(false);
+    		btn_huyPhong.setEnabled(false);
+    	}
+    	else if(p.getTrangThai().equals("Phòng đang sử dụng")) {
+    		btn_dichVu.setEnabled(true);
+    		btn_tinhTien.setEnabled(true);
+    		
+    		btn_datPhong1.setEnabled(false);
+    		btn_datPhongCho.setEnabled(false);
+    		btn_xemPhong.setEnabled(false);
+    		btn_nhanPhongCho.setEnabled(false);
+    		btn_huyPhong.setEnabled(false);
+    	}else if(p.getTrangThai().equals("Phòng chờ")) {
+    		btn_nhanPhongCho.setEnabled(true);
+    		btn_huyPhong.setEnabled(true);
+    		
+    		btn_datPhong1.setEnabled(false);
+    		btn_datPhongCho.setEnabled(false);
+    		btn_xemPhong.setEnabled(false);
+    		btn_dichVu.setEnabled(true);
+    		btn_tinhTien.setEnabled(false);
+    	}
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_datPhong1;
     private javax.swing.JButton btn_datPhongCho;
     private javax.swing.JButton btn_dichVu;
     private javax.swing.JButton btn_huyPhong;
-    private javax.swing.JButton btn_ip1;
+    private javax.swing.JButton btn_iPhong1;
+    private javax.swing.JButton btn_iPhong10;
+    private javax.swing.JButton btn_iPhong11;
+    private javax.swing.JButton btn_iPhong12;
+    private javax.swing.JButton btn_iPhong13;
+    private javax.swing.JButton btn_iPhong14;
+    private javax.swing.JButton btn_iPhong15;
+    private javax.swing.JButton btn_iPhong16;
+    private javax.swing.JButton btn_iPhong2;
+    private javax.swing.JButton btn_iPhong3;
+    private javax.swing.JButton btn_iPhong4;
+    private javax.swing.JButton btn_iPhong5;
+    private javax.swing.JButton btn_iPhong6;
+    private javax.swing.JButton btn_iPhong7;
+    private javax.swing.JButton btn_iPhong8;
+    private javax.swing.JButton btn_iPhong9;
+    private javax.swing.JButton btn_lamMoi;
     private javax.swing.JButton btn_nhanPhongCho;
     private javax.swing.JButton btn_phong1;
     private javax.swing.JButton btn_phong10;
@@ -1048,25 +1637,9 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     private javax.swing.JButton btn_xemPhong;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btn_iconCho;
+    private javax.swing.JButton btn_iconSD;
+    private javax.swing.JButton btn_iconTrong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

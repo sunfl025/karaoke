@@ -209,9 +209,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_them">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Create.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
       </Properties>
       <Events>
@@ -220,9 +217,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_xoa">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Delete.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Ngh&#x1ec9; vi&#x1ec7;c"/>
       </Properties>
       <Events>
@@ -231,9 +225,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_sua">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Edit.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
       </Properties>
       <Events>
@@ -242,9 +233,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_lammoi">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Refresh.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
       </Properties>
       <Events>
@@ -253,9 +241,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_tim">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\PTUD\img\Search.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
       </Properties>
       <Events>
@@ -323,7 +308,7 @@
               <Color blue="e7" green="c7" red="c7" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="7" rowCount="40">
                 <Column editable="true" title="M&#xe3; NV" type="java.lang.String"/>
                 <Column editable="true" title="H&#x1ecd; t&#xea;n" type="java.lang.String"/>
                 <Column editable="true" title="S&#x110;T" type="java.lang.String"/>
@@ -371,6 +356,9 @@
                   <Renderer/>
                 </Column>
               </TableColumnModel>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[525, 300]"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>

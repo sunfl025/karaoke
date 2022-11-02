@@ -17,6 +17,14 @@ public class KhachHang {
 		this.sdt = sdt;
 		this.diaChi = diaChi;
 	}
+	
+	public KhachHang(String tenKhachHang, String gioiTinh, String sdt, String diaChi) {
+		super();
+		this.tenKhachHang = tenKhachHang;
+		this.gioiTinh = gioiTinh;
+		this.sdt = sdt;
+		this.diaChi = diaChi;
+	}
 	public String getMaKhachHang() {
 		return maKhachHang;
 	}
