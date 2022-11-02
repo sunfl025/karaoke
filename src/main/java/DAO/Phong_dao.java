@@ -101,4 +101,41 @@ public class Phong_dao {
 		return p;
 		
 	}
+	/////////////////////////////////////////////////////////////////////////
+	public static void updateTrangThaiPhong(Phong p) {
+		Connection connection = null;
+		PreparedStatement sm = null;
+		
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLKaraoke","sa","0123");
+			String sql ="update Phong set trangThai=? where maKhachHang=? ";
+			sm = connection.prepareStatement(sql);
+			sm.setString(1, p.getTrangThai());
+			sm.setString(2, p.getMaPhong());
+			sm.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(sm != null) {
+				try {
+					sm.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	
 }

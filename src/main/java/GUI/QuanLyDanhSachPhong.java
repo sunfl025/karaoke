@@ -4,24 +4,39 @@
  */
 package GUI;
 
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JToggleButton;
+import javax.swing.event.ChangeListener;
 
+import DAO.ChiTietDatPhong_Dao;
 import DAO.Phong_dao;
+import Enitity.ChiTietDatPhong;
 import Enitity.Phong;
 
 /**
  *
  * @author vanng
  */
-public class QuanLyDanhSachPhong extends javax.swing.JPanel {
+public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionListener,MouseListener{
 
     /**
      * Creates new form QuanLyDanhSachPhong
      */
 	Phong_dao ph_dao = new Phong_dao();
+	ChiTietDatPhong_Dao dp_dao = new ChiTietDatPhong_Dao();
 	//Tao icon
 	Icon iconPhongCho = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongcho.png");
 	Icon iconPhongTrong = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrong.png");
@@ -29,10 +44,8 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     Icon iconPhongChomini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongchomini.png");
 	Icon iconPhongTrongmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrongmini.png");
 	Icon iconPhongDSDmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongdangsudungmini.png");
-
-
-
-    ///
+	private ButtonGroup btnGroup;
+	//Tạo groupButton    ///
     public QuanLyDanhSachPhong() {
         initComponents();
     }
@@ -72,53 +85,54 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel16 = new javax.swing.JPanel();
         pnl_p1 = new javax.swing.JPanel();
-        btn_iPhong1 = new javax.swing.JButton();
-        btn_phong1 = new javax.swing.JButton();
+        btn_iPhong1 = new javax.swing.JToggleButton();
+        btn_iPhong1.setActionCommand("123");
+        btn_phong1 = new javax.swing.JToggleButton();
         pnl_p2 = new javax.swing.JPanel();
-        btn_iPhong2 = new javax.swing.JButton();
-        btn_phong2 = new javax.swing.JButton();
+        btn_iPhong2 = new JToggleButton();
+        btn_phong2 = new javax.swing.JToggleButton();
         pnl_p3 = new javax.swing.JPanel();
-        btn_iPhong3 = new javax.swing.JButton();
-        btn_phong3 = new javax.swing.JButton();
+        btn_iPhong3 = new javax.swing.JToggleButton();
+        btn_phong3 = new javax.swing.JToggleButton();
         pnl_p4 = new javax.swing.JPanel();
-        btn_iPhong4 = new javax.swing.JButton();
-        btn_phong4 = new javax.swing.JButton();
+        btn_iPhong4 = new javax.swing.JToggleButton();
+        btn_phong4 = new javax.swing.JToggleButton();
         pnl_p5 = new javax.swing.JPanel();
-        btn_iPhong5 = new javax.swing.JButton();
-        btn_phong5 = new javax.swing.JButton();
+        btn_iPhong5 = new javax.swing.JToggleButton();
+        btn_phong5 = new javax.swing.JToggleButton();
         pnl_p6 = new javax.swing.JPanel();
-        btn_iPhong6 = new javax.swing.JButton();
-        btn_phong6 = new javax.swing.JButton();
+        btn_iPhong6 = new javax.swing.JToggleButton();
+        btn_phong6 = new javax.swing.JToggleButton();
         pnl_p7 = new javax.swing.JPanel();
-        btn_iPhong7 = new javax.swing.JButton();
-        btn_phong7 = new javax.swing.JButton();
+        btn_iPhong7 = new javax.swing.JToggleButton();
+        btn_phong7 = new javax.swing.JToggleButton();
         pnl_p8 = new javax.swing.JPanel();
-        btn_iPhong8 = new javax.swing.JButton();
-        btn_phong8 = new javax.swing.JButton();
+        btn_iPhong8 = new javax.swing.JToggleButton();
+        btn_phong8 = new javax.swing.JToggleButton();
         pnl_p9 = new javax.swing.JPanel();
-        btn_iPhong12 = new javax.swing.JButton();
-        btn_phong12 = new javax.swing.JButton();
+        btn_iPhong12 = new javax.swing.JToggleButton();
+        btn_phong12 = new javax.swing.JToggleButton();
         pnl_p10 = new javax.swing.JPanel();
-        btn_iPhong11 = new javax.swing.JButton();
-        btn_phong11 = new javax.swing.JButton();
+        btn_iPhong11 = new javax.swing.JToggleButton();
+        btn_phong11 = new javax.swing.JToggleButton();
         pnl_p11 = new javax.swing.JPanel();
-        btn_iPhong10 = new javax.swing.JButton();
-        btn_phong10 = new javax.swing.JButton();
+        btn_iPhong10 = new javax.swing.JToggleButton();
+        btn_phong10 = new javax.swing.JToggleButton();
         pnl_p12 = new javax.swing.JPanel();
-        btn_iPhong9 = new javax.swing.JButton();
-        btn_phong9 = new javax.swing.JButton();
+        btn_iPhong9 = new javax.swing.JToggleButton();
+        btn_phong9 = new javax.swing.JToggleButton();
         pnl_p13 = new javax.swing.JPanel();
-        btn_iPhong13 = new javax.swing.JButton();
-        btn_phong13 = new javax.swing.JButton();
+        btn_iPhong13 = new javax.swing.JToggleButton();
+        btn_phong13 = new javax.swing.JToggleButton();
         pnl_p14 = new javax.swing.JPanel();
-        btn_iPhong16 = new javax.swing.JButton();
-        btn_phong16 = new javax.swing.JButton();
+        btn_iPhong16 = new javax.swing.JToggleButton();
+        btn_phong16 = new javax.swing.JToggleButton();
         pnl_p15 = new javax.swing.JPanel();
-        btn_iPhong15 = new javax.swing.JButton();
-        btn_phong15 = new javax.swing.JButton();
+        btn_iPhong15 = new javax.swing.JToggleButton();
+        btn_phong15 = new javax.swing.JToggleButton();
         pnl_p16 = new javax.swing.JPanel();
-        btn_iPhong14 = new javax.swing.JButton();
-        btn_phong14 = new javax.swing.JButton();
+        btn_iPhong14 = new javax.swing.JToggleButton();
+        btn_phong14 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
         btn_iconCho = new javax.swing.JButton();
         btn_iconCho.setIcon(iconPhongChomini);
@@ -129,7 +143,8 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        // tạo icon
+        //
+     
        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -158,6 +173,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         btn_datPhong1.setText("Đặt phòng");
         btn_datPhong1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_datPhong1.setEnabled(false);
+        btn_datPhong1.addActionListener(this);
         btn_datPhong1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_datPhong1ActionPerformed(evt);
@@ -369,6 +385,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
 
         btn_iPhong1.setBorder(null);
         btn_iPhong1.setPreferredSize(new java.awt.Dimension(140, 140));
+        btn_iPhong1.setActionCommand("PH0001");
       //Set icon cho phòng 1
         Phong p1 = ph_dao.findbyId("PH0001");	
     	if(p1.getTrangThai().equals("Phòng trống"))
@@ -385,6 +402,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         });
 
         btn_phong1.setText("Phòng 1");
+        btn_phong1.setActionCommand("Phòng 1");
         btn_phong1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_phong1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,8 +432,10 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
         );
 
         pnl_p2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+      
         btn_iPhong2.setBorder(null);
+        btn_iPhong2.setActionCommand("PH0002");
+        add(btn_iPhong2);
         btn_iPhong2.setPreferredSize(new java.awt.Dimension(140, 140));
         //Set icon cho phòng 1
         Phong p2 = ph_dao.findbyId("PH0002");	
@@ -1336,7 +1356,76 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
+            
         );
+        btn_phong1.setActionCommand("PH0001");
+    	btn_phong2.setActionCommand("PH0002");
+    	btn_phong3.setActionCommand("PH0003");
+    	btn_phong4.setActionCommand("PH0004");
+    	btn_phong5.setActionCommand("PH0005");
+    	btn_phong6.setActionCommand("PH0006");
+    	btn_phong7.setActionCommand("PH0007");
+    	btn_phong8.setActionCommand("PH0008");
+    	btn_phong9.setActionCommand("PH0009");
+    	btn_phong10.setActionCommand("PH0010");
+    	btn_phong11.setActionCommand("PH0011");
+    	btn_phong12.setActionCommand("PH0012");
+    	btn_phong13.setActionCommand("PH0013");
+    	btn_phong14.setActionCommand("PH0014");
+    	btn_phong15.setActionCommand("PH0015");
+    	btn_phong16.setActionCommand("PH0016");
+    	
+    	btn_iPhong1.setActionCommand("PH0001");
+    	btn_iPhong2.setActionCommand("PH0002");
+    	btn_iPhong3.setActionCommand("PH0003");
+    	btn_iPhong4.setActionCommand("PH0004");
+    	btn_iPhong5.setActionCommand("PH0005");
+    	btn_iPhong6.setActionCommand("PH0006");
+    	btn_iPhong7.setActionCommand("PH0007");
+    	btn_iPhong8.setActionCommand("PH0008");
+    	btn_iPhong9.setActionCommand("PH0009");
+    	btn_iPhong10.setActionCommand("PH0010");
+    	btn_iPhong11.setActionCommand("PH0011");
+    	btn_iPhong12.setActionCommand("PH0012");
+    	btn_iPhong13.setActionCommand("PH0013");
+    	btn_iPhong14.setActionCommand("PH0014");
+    	btn_iPhong15.setActionCommand("PH0015");
+    	btn_iPhong16.setActionCommand("PH0016");
+    	
+    	btnGroup = new ButtonGroup();
+    	btnGroup.add(btn_phong1);
+    	btnGroup.add(btn_phong2);
+    	btnGroup.add(btn_phong3);
+    	btnGroup.add(btn_phong4);
+    	btnGroup.add(btn_phong5);
+    	btnGroup.add(btn_phong6);
+    	btnGroup.add(btn_phong7);
+    	btnGroup.add(btn_phong8);
+    	btnGroup.add(btn_phong9);
+    	btnGroup.add(btn_phong10);
+    	btnGroup.add(btn_phong11);
+    	btnGroup.add(btn_phong12);
+    	btnGroup.add(btn_phong13);
+    	btnGroup.add(btn_phong14);
+    	btnGroup.add(btn_phong15);
+    	btnGroup.add(btn_phong16);
+    	
+    	btnGroup.add(btn_iPhong1);
+    	btnGroup.add(btn_iPhong2);
+    	btnGroup.add(btn_iPhong3);
+    	btnGroup.add(btn_iPhong4);
+    	btnGroup.add(btn_iPhong5);
+    	btnGroup.add(btn_iPhong6);
+    	btnGroup.add(btn_iPhong7);
+    	btnGroup.add(btn_iPhong8);
+    	btnGroup.add(btn_iPhong9);
+    	btnGroup.add(btn_iPhong10);
+    	btnGroup.add(btn_iPhong11);
+    	btnGroup.add(btn_iPhong12);
+    	btnGroup.add(btn_iPhong13);
+    	btnGroup.add(btn_iPhong14);
+    	btnGroup.add(btn_iPhong15);
+    	btnGroup.add(btn_iPhong16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timKiemActionPerformed
@@ -1348,9 +1437,23 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_huyPhongActionPerformed
 
     private void btn_datPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datPhong1ActionPerformed
-        // TODO add your handling code here:
+    	String ex ="DP";
+		int min = 9999;
+		int max = 1000;
+		int random_int = (int)(Math.random() * (max - min + 1) + min);
+    	String chiTietDatPhong=ex+random_int; 
+    	String ma = btnGroup.getSelection().getActionCommand();
+    	Phong p = ph_dao.findbyId(ma);
+    	ChiTietDatPhong dp = new ChiTietDatPhong(chiTietDatPhong, null, null, p);
+    	dp_dao.them(dp);
+    	
+    	
+    	
+    	
+    	
     }//GEN-LAST:event_btn_datPhong1ActionPerformed
-
+    
+    
     private void btn_nhanPhongChoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nhanPhongChoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_nhanPhongChoActionPerformed
@@ -1593,45 +1696,58 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     		btn_tinhTien.setEnabled(false);
     	}
     }
+    //Lay ActionCommand
+    public String getSelected(ButtonGroup btnGroup) {
+		for(Enumeration<AbstractButton>btn = btnGroup.getElements();btn.hasMoreElements();) {
+			AbstractButton button = btn.nextElement();
+			if(button.isSelected()) {
+				button.setSelected(false);
+				return button.getActionCommand();
+			}
+		}
+		return null;
+	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_datPhong1;
     private javax.swing.JButton btn_datPhongCho;
     private javax.swing.JButton btn_dichVu;
     private javax.swing.JButton btn_huyPhong;
-    private javax.swing.JButton btn_iPhong1;
-    private javax.swing.JButton btn_iPhong10;
-    private javax.swing.JButton btn_iPhong11;
-    private javax.swing.JButton btn_iPhong12;
-    private javax.swing.JButton btn_iPhong13;
-    private javax.swing.JButton btn_iPhong14;
-    private javax.swing.JButton btn_iPhong15;
-    private javax.swing.JButton btn_iPhong16;
-    private javax.swing.JButton btn_iPhong2;
-    private javax.swing.JButton btn_iPhong3;
-    private javax.swing.JButton btn_iPhong4;
-    private javax.swing.JButton btn_iPhong5;
-    private javax.swing.JButton btn_iPhong6;
-    private javax.swing.JButton btn_iPhong7;
-    private javax.swing.JButton btn_iPhong8;
-    private javax.swing.JButton btn_iPhong9;
+    
+    
+    private JToggleButton btn_iPhong1;
+    private JToggleButton btn_iPhong10;
+    private JToggleButton btn_iPhong11;
+    private JToggleButton btn_iPhong12;
+    private JToggleButton btn_iPhong13;
+    private JToggleButton btn_iPhong14;
+    private JToggleButton btn_iPhong15;
+    private JToggleButton btn_iPhong16;
+    private JToggleButton btn_iPhong2;
+    private JToggleButton btn_iPhong3;
+    private JToggleButton btn_iPhong4;
+    private JToggleButton btn_iPhong5;
+    private JToggleButton btn_iPhong6;
+    private JToggleButton btn_iPhong7;
+    private JToggleButton btn_iPhong8;
+    private JToggleButton btn_iPhong9;
     private javax.swing.JButton btn_lamMoi;
     private javax.swing.JButton btn_nhanPhongCho;
-    private javax.swing.JButton btn_phong1;
-    private javax.swing.JButton btn_phong10;
-    private javax.swing.JButton btn_phong11;
-    private javax.swing.JButton btn_phong12;
-    private javax.swing.JButton btn_phong13;
-    private javax.swing.JButton btn_phong14;
-    private javax.swing.JButton btn_phong15;
-    private javax.swing.JButton btn_phong16;
-    private javax.swing.JButton btn_phong2;
-    private javax.swing.JButton btn_phong3;
-    private javax.swing.JButton btn_phong4;
-    private javax.swing.JButton btn_phong5;
-    private javax.swing.JButton btn_phong6;
-    private javax.swing.JButton btn_phong7;
-    private javax.swing.JButton btn_phong8;
-    private javax.swing.JButton btn_phong9;
+    private JToggleButton btn_phong1;
+    private JToggleButton btn_phong10;
+    private JToggleButton btn_phong11;
+    private JToggleButton btn_phong12;
+    private JToggleButton btn_phong13;
+    private JToggleButton btn_phong14;
+    private JToggleButton btn_phong15;
+    private JToggleButton btn_phong16;
+    private JToggleButton btn_phong2;
+    private JToggleButton btn_phong3;
+    private JToggleButton btn_phong4;
+    private JToggleButton btn_phong5;
+    private JToggleButton btn_phong6;
+    private JToggleButton btn_phong7;
+    private JToggleButton btn_phong8;
+    private JToggleButton btn_phong9;
     private javax.swing.JButton btn_timKiem;
     private javax.swing.JButton btn_tinhTien;
     private javax.swing.JButton btn_xemPhong;
@@ -1675,5 +1791,45 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel {
     private javax.swing.JRadioButton rdo_phongTrong;
     private javax.swing.JRadioButton rdo_phongVIP;
     private javax.swing.JTextPane txt_timKiem;
+    
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+    
     // End of variables declaration//GEN-END:variables
 }
