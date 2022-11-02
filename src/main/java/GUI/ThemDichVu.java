@@ -229,9 +229,9 @@ public class ThemDichVu extends javax.swing.JFrame {
 		if(dv!=null) {
 			dao.Them(dv);
 			if(dao.Them(dv)==true) {
-		        JOptionPane.showMessageDialog(btn_Them,"Thêm thành công");}
-		else {JOptionPane.showMessageDialog(btn_Them,"Thêm thất bại");}
-		}else {JOptionPane.showMessageDialog(btn_Them,"Thêm thất bại");}
+		        JOptionPane.showMessageDialog(this,"Thêm thành công");}
+		else {JOptionPane.showMessageDialog(this,"Thêm thất bại");}
+		}else {JOptionPane.showMessageDialog(this,"Thêm thất bại");}
 		
 	}
 }

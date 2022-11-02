@@ -111,17 +111,18 @@ public class DichVu_dao {
 		}
            return dsDichVu;
 	}
-	public ArrayList<DichVu> getChiTietDichVu(){
+	public ArrayList<DichVu> getChiTietDichVu(String maPhong){
 		ArrayList dsDichVu = new ArrayList<DichVu>();
            try {
        		Connection con = Connect.getInstance().getConnection();
     		PreparedStatement preparedStatement = null;
-    		preparedStatement = con.prepareStatement("Select * from DichVu DV,ChiTietDichVu CTDV where DV.maDichVu = CTDV.maDichVu;");
+    		preparedStatement = con.prepareStatement
+    				("select * from DichVu dv , ChiTietDichVu ctdv where dv.maDichVu=ctdv.maDichVu and maPhong like '"+maPhong+"';");
     		ResultSet result = preparedStatement.executeQuery();
     		
     		while (result.next()) {
     		DichVu dichvu = new DichVu(result.getString(2),result.getString(1),result.getString(3),
-    				result.getInt(4),Double.parseDouble(result.getString(5)));
+    				result.getInt(7),Double.parseDouble(result.getString(5)));
     		dsDichVu.add(dichvu);
     		}
 		} catch (SQLException e) {
@@ -130,26 +131,6 @@ public class DichVu_dao {
            return dsDichVu;
 	}
 	
-	public int getSoLuongSanPham(String maDV) {
-		ArrayList dsDichVu = new ArrayList<DichVu>();
-		int soluong =0;
-		Connection connection = null;
-		PreparedStatement sm = null;
-
-        try {
-    	 Connection con = Connect.getInstance().getConnection();
- 		PreparedStatement preparedStatement = null;
- 		preparedStatement = con.prepareStatement("Select * from ChiTietDichVu where maDichVu = '"+maDV+"';");
- 		ResultSet result = preparedStatement.executeQuery();
- 		
- 		soluong = result.getInt(2);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-        return soluong;
-
-	}
 	
 	public boolean delete(String maDichVu) {
 		Connection con = Connect.getInstance().getConnection();
@@ -165,4 +146,166 @@ public class DichVu_dao {
 		}
 	}
 
+	public static void ThemChiTietDichVu(DichVu dv,String maPhong, int soluong) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			String EX="CTDV";
+			int min = 9999;
+			int max = 1000;
+			int random_int = (int)(Math.random() * (max - min + 1) + min);
+			String maChiTietDichVu = EX+random_int;
+			
+			preparedStatement = con.prepareStatement("insert into ChiTietDichVu(maChiTietDichVu,soLuongSanPham,maDichVu,maPhong) values(?,?,?,?)");
+			preparedStatement.setString(1,maChiTietDichVu);
+			preparedStatement.setInt(2,soluong);
+			preparedStatement.setString(3, dv.getMaDichVu());
+			preparedStatement.setString(4, maPhong);
+			preparedStatement.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(preparedStatement!=null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	
+	public static void UpdateThemChiTietDichVu(DichVu dv,String maPhong, int soluong) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			
+			preparedStatement = con.prepareStatement("update ChiTietDichVu set soLuongSanPham= ? where maPhong = ? and maDichVu =?;");
+					
+			preparedStatement.setInt(1,soluong);
+			preparedStatement.setString(2,maPhong);
+			preparedStatement.setString(3, dv.getMaDichVu());						
+			preparedStatement.executeUpdate();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(preparedStatement!=null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void UpdateDichVuSauKhiThemBot(DichVu dv, int soluong) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+						
+			preparedStatement = con.prepareStatement("update DichVu set soLuong = ? where maDichVu = ?;");
+						
+			preparedStatement.setInt(1,soluong);
+			preparedStatement.setString(2, dv.getMaDichVu());
+			
+			preparedStatement.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(preparedStatement!=null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static void UpdateBotChiTietDichVu(DichVu dv,String maPhong, int soluong) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			
+			preparedStatement = con.prepareStatement("update ChiTietDichVu set soLuongSanPham= ? where maPhong = ? and maDichVu =?;");
+			preparedStatement.setInt(1,soluong);
+			preparedStatement.setString(2,maPhong);
+			preparedStatement.setString(3, dv.getMaDichVu());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(preparedStatement!=null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void deleteChiTietDichVu(String maDichVu,String maPhong) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = con.prepareStatement("delete from ChiTietDichVu where maDichVu=? and maPhong =?;");
+			preparedStatement.setString(1, maDichVu);
+			preparedStatement.setString(2, maPhong);
+			preparedStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+	}
 }

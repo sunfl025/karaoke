@@ -191,9 +191,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_themdichvuActionPerformed
 
     private void btn_xoadichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capnhatdichvuActionPerformed
-     //       Xoa();
-    	CapNhatDichVu cndv= new CapNhatDichVu();
-    	cndv.setVisible(true);
+            Xoa();
     }//GEN-LAST:event_btn_capnhatdichvuActionPerformed
 
     private void btn_lamoidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamoidichvuActionPerformed

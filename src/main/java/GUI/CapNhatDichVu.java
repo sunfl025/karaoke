@@ -22,9 +22,11 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     /**
      * Creates new form capnhatdichvu
      */
+
     public CapNhatDichVu() {
         initComponents();
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +50,8 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table_dichvu = new javax.swing.JTable();
         btn_Them = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txt_SoLuong = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -60,7 +64,8 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         btn_Xoa = new javax.swing.JButton();
         btn_QuayLai = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        txt_SoLuong.setPreferredSize(new java.awt.Dimension(50, 28));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -114,7 +119,6 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         });
 
         table_dichvu.setBackground(new java.awt.Color(199, 199, 231));
-
         String[] headers = "Mã DV;Tên dịch vụ;Số lượng;Giá".split(";");
         tableModel = new DefaultTableModel(headers, 0);
         table_dichvu.setAutoCreateRowSorter(true);
@@ -127,37 +131,45 @@ public class CapNhatDichVu extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Số lượng :");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Tim, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txt_MaDV, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(208, 208, 208))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_Tim, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(txt_MaDV))
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_TenDV, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(btn_Them, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(46, 46, 46))))
+                        .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_Them, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_TenDV, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(208, 208, 208))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -170,15 +182,17 @@ public class CapNhatDichVu extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txt_MaDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_TenDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_TenDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Tim)
                     .addComponent(btn_LamMoi)
                     .addComponent(btn_Them))
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addGap(61, 61, 61))
         );
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
@@ -191,25 +205,6 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         jLabel6.setText("Tên phòng :  ");
 
         table_dichvu1.setBackground(new java.awt.Color(199, 199, 231));
-//        table_dichvu1.setModel(new javax.swing.table.DefaultTableModel(
-//            new Object [][] {
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null}
-//            },
-//            new String [] {
-//                "Mã DV", "Tên dịch vụ", "Số lượng", "Thành tiền"
-//            }
-//        ) {
-//            Class[] types = new Class [] {
-//                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-//            };
-//
-//            public Class getColumnClass(int columnIndex) {
-//                return types [columnIndex];
-//            }
-//        });
         String[] headers2 = "Mã DV;Tên dịch vụ;Số lượng;Giá".split(";");
         tableModel1 = new DefaultTableModel(headers2, 0);
         table_dichvu1.setAutoCreateRowSorter(true);
@@ -251,7 +246,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
@@ -330,8 +325,8 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         );
 
         pack();
-        this.fillDataIntoTable();
-        this.fillDataIntoTable1();
+        fillDataIntoTable();
+        fillDataIntoTable1();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_tongtiendichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tongtiendichvuActionPerformed
@@ -344,20 +339,30 @@ public class CapNhatDichVu extends javax.swing.JFrame {
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
        fillDataIntoTable();
+       fillDataIntoTable1();
        txt_MaDV.setText("");
-       txt_TenDV.setText("");     
+       txt_TenDV.setText(""); 
+       txt_SoLuong.setText("");
+       txt_tenphong.setText(maPhong);
+       txt_tongtiendichvu.setText(tongtien+"");
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemActionPerformed
-//        Them();
+        Them();
+        fillDataIntoTable();
+        fillDataIntoTable1();
     }//GEN-LAST:event_btn_ThemActionPerformed
 
     private void btn_BotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BotActionPerformed
-        // TODO add your handling code here:
+        Bot();
+        fillDataIntoTable();
+        fillDataIntoTable1();
     }//GEN-LAST:event_btn_BotActionPerformed
 
     private void btn_XoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_XoaActionPerformed
-        // TODO add your handling code here:
+       Xoa();
+       fillDataIntoTable();
+       fillDataIntoTable1();
     }//GEN-LAST:event_btn_XoaActionPerformed
 
     private void btn_QuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuayLaiActionPerformed
@@ -416,24 +421,35 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField txt_MaDV;
-    private javax.swing.JTextField txt_TenDV;
     private javax.swing.JTable table_dichvu;
     private javax.swing.JTable table_dichvu1;
+    private javax.swing.JTextField txt_MaDV;
+    private javax.swing.JTextField txt_SoLuong;
+    private javax.swing.JTextField txt_TenDV;
     private javax.swing.JTextField txt_tenphong;
     private javax.swing.JTextField txt_tongtiendichvu;
-    
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel tableModel;
     private DefaultTableModel tableModel1;
     private ArrayList<DichVu> dsDichVu = new ArrayList<>();
     private ArrayList<DichVu> dsDichVu1 = new ArrayList<>();
     private DichVu_dao dao= new DichVu_dao();
+    private String maPhong;
+    private double tongtien ;
+    
+    public String getId() {
+    	return maPhong;
+    }
+    
+    public void setId(String maPhong) {
+    	this.maPhong =maPhong;
+    }
     
     private void fillDataIntoTable() {
 
@@ -452,6 +468,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     	table_dichvu.setModel(tableModel);
     }
     private void fillDataIntoTable1() {
+    	tongtien =0;
 
     	dsDichVu1.clear();
     	if (tableModel1.getRowCount() > 0) {
@@ -459,64 +476,124 @@ public class CapNhatDichVu extends javax.swing.JFrame {
 				tableModel1.removeRow(i);
 			}
 		}
-    	dsDichVu1 = dao.getChiTietDichVu();
+    	dsDichVu1 = dao.getChiTietDichVu(maPhong);
     	for(DichVu dv1: dsDichVu1) {
-    		System.out.println(dao.getSoLuongSanPham(dv1.getMaDichVu()));
-//    		dao.getSoLuongSanPham(dv1.getMaDichVu());
-			String[] rowData = { dv1.getMaDichVu(), dv1.getTenDichVu(),dao.getSoLuongSanPham(dv1.getMaDichVu())+"",dv1.getGia()+""	};
+    		
+    		 double gia=dv1.getGia()*dv1.getSoLuong();
+    		 tongtien += gia;
+			String[] rowData = { dv1.getMaDichVu(), dv1.getTenDichVu(),dv1.getSoLuong()+"",gia+""	};
 			tableModel1.addRow(rowData);
 
     	}
     	table_dichvu1.setModel(tableModel1);
-    	
+    	txt_tongtiendichvu.setText(tongtien+" VND");
     }
 
     
-//    private void Them() {
-//    	int f=0;
-//    	int soLuongThuc=0;
-//    	int select = table_dichvu.getSelectedRow();
-//    	if(select == -1) {
-//        	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
-//        }else {
-//        	DichVu dv =dsDichVu.get(select);
-//        	
-//        	
-//            if (dsDichVu1.isEmpty()==true) {dsDichVu1.add(dv); soLuongThuc= dv.getSoLuong();}
-//            else if (dsDichVu1.isEmpty()==false){
-//            	for(DichVu dv1: dsDichVu1 ) {
-//        		if(dv.getMaDichVu()==(dv1.getMaDichVu())) {
-//        			soLuongThuc+=dv.getSoLuong();
-//        			f=1;
-//        			break;
-//        		}
-//        	  }
-//
-//            }
-//          else if(f==0) {dsDichVu1.add(dv);}
-////        	for(DichVu dv1: dsDichVu1 ) {
-////        		if(dv.getMaDichVu()==(dv1.getMaDichVu())) {
-////        			soLuongThuc+=dv.getSoLuong();
-////        			break;
-////        		}
-//////        		else {dsDichVu1.add(dv);}
-////        	}
-//// //       	dsDichVu1.clear();     	
-//    			String[] rowData = { dv.getMaDichVu(), dv.getTenDichVu(),soLuongThuc+"",(dv.getSoLuong()*dv.getGia())+""	};
-//    			tableModel1.addRow(rowData);
-//        	table_dichvu1.setModel(tableModel1);
-//        	///
-////            for(DichVu dv1: dsDichVu1) {
-////    			String[] rowData = { dv1.getMaDichVu(), dv1.getTenDichVu(),soLuongThuc+"",(soLuongThuc*dv1.getGia())+""};
-////    			tableModel1.addRow(rowData);
-////
-////        	}
-////        	table_dichvu1.setModel(tableModel1);
-//        	
+    private void Them() {
+    	
+    	int soLuongThuc=0;
+    	int select = table_dichvu.getSelectedRow();
+    	if(select == -1) {
+        	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
+        }
+    	else if (txt_SoLuong.getText()=="") {JOptionPane.showMessageDialog(this,"Chưa nhập số lượng !!!");}
+    	else {
+        	DichVu dv =dsDichVu.get(select);
+        	dsDichVu1 = dao.getChiTietDichVu(maPhong);
+        	
+            if (dsDichVu1.isEmpty()) 
+            {            	
+            	    dsDichVu1.add(dv);            	
+            		int soluong= Integer.parseInt(txt_SoLuong.getText()) ;
+            		dao.ThemChiTietDichVu(dv, maPhong, soluong);
+            		dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()-Integer.parseInt(txt_SoLuong.getText()));
+            	          	
+            }
+            else {
+            	
+            	int f=0;
+            	int soluongsanpham=0;
+            	for(DichVu dv1: dsDichVu1 ) {
+            		if(dv1.getMaDichVu().equals(dv.getMaDichVu())) {
+            			if(dv.getSoLuong()>=Integer.parseInt(txt_SoLuong.getText())) {
+                			soluongsanpham =dv1.getSoLuong()+Integer.parseInt(txt_SoLuong.getText());         			
+                		    dao.UpdateThemChiTietDichVu(dv1, maPhong, soluongsanpham);
+                		    dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()-Integer.parseInt(txt_SoLuong.getText()));
+                		    f=1;
+                			break;
+            			}
+            			else if(dv.getSoLuong()<Integer.parseInt(txt_SoLuong.getText())) {
+            				JOptionPane.showMessageDialog(this,"Số lượng quá lớn !!!");
+            			}
+            	}
+            	if(f==0) {
+            		if(dv.getSoLuong()>=Integer.parseInt(txt_SoLuong.getText())) {
+            			dsDichVu1.add(dv);            	
+                		int soluong= Integer.parseInt(txt_SoLuong.getText()) ;
+                		dao.ThemChiTietDichVu(dv, maPhong, soluong);
+                		dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()-Integer.parseInt(txt_SoLuong.getText()));
+            		}
+            		else if(dv.getSoLuong()<Integer.parseInt(txt_SoLuong.getText())) {
+        				JOptionPane.showMessageDialog(this,"Số lượng quá lớn !!!");
+        			}
+            		
+            	}
+            	
+            }
+        	
+        	}
+    	}
+        	
+          	
+    }
+    
+    public void Bot() {
+    	int soluongbot = Integer.parseInt(txt_SoLuong.getText());
+    	int select = table_dichvu1.getSelectedRow();
+    	
+    	if(select == -1) {
+        	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
+        }
+    	else if (txt_SoLuong.getText()=="") {JOptionPane.showMessageDialog(this,"Chưa nhập số lượng !!!");}
+        else {
+        	DichVu dv1 =dsDichVu1.get(select);
+        	dsDichVu = dao.getAll();
+        	int soluong = dv1.getSoLuong()-soluongbot;
+         if(soluong<0) {JOptionPane.showMessageDialog(this,"Số lượng bớt quá lớn !!!");}
+        	
+         else {
+        	 int f=0;
+        	 for(DichVu dv : dsDichVu) {
+        		 if(dv.getMaDichVu().equals(dv1.getMaDichVu())) {
+        			 if(soluong==0) {
+        	        		dao.deleteChiTietDichVu(dv1.getMaDichVu(),maPhong);
+        	        		dao.UpdateDichVuSauKhiThemBot(dv,dv.getSoLuong()+ soluongbot);
+        	        		f=1;
+        	        	}
+        	        	else {
+        	        		dao.UpdateBotChiTietDichVu(dv1, maPhong, soluong);
+        	        		dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()+ soluongbot);
+        	        		f=1;
+        	        	}
+        			 break;
+        		 }
+        		 
+        	 }
+        	 if(f==0) {
+        		 dao.Them(dv1);
+        	 }
+//        	 if(soluong==0) {
+//        		dao.deleteChiTietDichVu(dv1.getMaDichVu(),maPhong);
+//        		dao.UpdateDichVuSauKhiThemBot(dv1, soluongbot);
 //        	}
-//        	
-//          	
-//    }
+//        	else {
+//        		dao.UpdateBotChiTietDichVu(dv1, maPhong, soluong);
+//        		dao.UpdateDichVuSauKhiThemBot(dv1, soluongbot);
+//        	}
+        }
+        }
+    }
     
     private void Tim() {
     	String maDichVu = txt_MaDV.getText();
@@ -538,6 +615,25 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     }
 
     private void Xoa() {
+    	int select = table_dichvu1.getSelectedRow();
+    	if(select == -1) {
+        	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
+        }else {
+        	int f=0;
+        	DichVu dv1 =dsDichVu1.get(select);
+        	dsDichVu = dao.getAll();
+        	for(DichVu dv : dsDichVu) {
+        		if(dv.getMaDichVu().equals(dv1.getMaDichVu())) {
+        			dao.UpdateDichVuSauKhiThemBot(dv1,dv.getSoLuong()+ dv1.getSoLuong());
+        			dao.deleteChiTietDichVu(dv1.getMaDichVu(),maPhong);
+        			f=1;
+        		}
+        	}
+        	if(f==0) {
+        		dao.Them(dv1);
+        		dao.deleteChiTietDichVu(dv1.getMaDichVu(),maPhong);
+        	}
+        }
     	
     }
     

@@ -76,7 +76,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
         jTittle = new javax.swing.JLabel();
         btn_lamMoi = new javax.swing.JButton();
         btn_them = new javax.swing.JButton();
-        btn_timKiem = new javax.swing.JButton();
+        btn_xoa = new javax.swing.JButton();
         btn_sua = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -144,10 +144,10 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
             }
         });
 
-        btn_timKiem.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Search.png")); // NOI18N
-        btn_timKiem.setText("Tìm kiếm");
-        btn_timKiem.setPreferredSize(new java.awt.Dimension(110, 30));
-        btn_timKiem.addActionListener(this);
+        btn_xoa.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Search.png")); // NOI18N
+        btn_xoa.setText("Tìm kiếm");
+        btn_xoa.setPreferredSize(new java.awt.Dimension(110, 30));
+
         btn_sua.setIcon(new javax.swing.ImageIcon("D:\\HocHanh\\HK1-2022-2023\\PTUD\\karaoke\\img\\Edit.png")); // NOI18N
         btn_sua.setText("Sửa");
         btn_sua.setPreferredSize(new java.awt.Dimension(110, 30));
@@ -185,7 +185,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_lamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_xoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -212,7 +212,7 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
                     .addComponent(rdo_nu)
                     .addComponent(lbl_sdt)
                     .addComponent(txt_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_xoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_sua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -305,13 +305,6 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
     }//GEN-LAST:event_rdo_namActionPerformed
 
     private void btn_lamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamMoiActionPerformed
-<<<<<<< HEAD
-    	txt_maKhach.setText("");
-    	txt_sdt.setText("");
-    	txt_tenKhach.setText("");
-    	
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     	showList();
     }//GEN-LAST:event_btn_lamMoiActionPerformed
 
@@ -333,11 +326,8 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
         	edit.setEditData(dskh.get(select));
         	edit.setVisible(true);
         }
-<<<<<<< HEAD
-=======
         if(edit.DISPOSE_ON_CLOSE==1)
         	showList();
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
         
        
     }//GEN-LAST:event_btn_suaActionPerformed
@@ -345,9 +335,10 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_lamMoi;
+    private javax.swing.JButton btn_timKiem;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
-    private javax.swing.JButton btn_timKiem;
+    private javax.swing.JButton btn_xoa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -400,10 +391,6 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 		{
 			timKiem();
 		}
-<<<<<<< HEAD
-		
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 	}
 
 	private void timKiem() {
@@ -424,11 +411,6 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 						kh.getDiaChi()
 				});
 		}
-<<<<<<< HEAD
-			
-	}
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 		if(input.length()>0) {
 			dskh = KhachHang_dao.find(input);
 			tableModel.setRowCount(0);
@@ -443,8 +425,5 @@ public class QuanLyKhachHang extends javax.swing.JPanel implements ActionListene
 			}
 		}
 	}
-<<<<<<< HEAD
-=======
 	}
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 }
