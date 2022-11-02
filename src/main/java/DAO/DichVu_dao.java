@@ -150,5 +150,19 @@ public class DichVu_dao {
         return soluong;
 
 	}
+	
+	public boolean delete(String maDichVu) {
+		Connection con = Connect.getInstance().getConnection();
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = con.prepareStatement("delete DichVu where maDichVu = ?");
+			preparedStatement.setString(1, maDichVu);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }

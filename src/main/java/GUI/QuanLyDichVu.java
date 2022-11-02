@@ -41,7 +41,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         lbl_tendichvu = new javax.swing.JLabel();
         txt_tendichvu = new javax.swing.JTextField();
         btn_themdichvu = new javax.swing.JButton();
-        btn_capnhatdichvu = new javax.swing.JButton();
+        btn_xoadichvu = new javax.swing.JButton();
         btn_lamoidichvu = new javax.swing.JButton();
         btn_timkiemdichvu = new javax.swing.JButton();
         cb_loaidichvu = new javax.swing.JComboBox<>();
@@ -87,10 +87,10 @@ public class QuanLyDichVu extends javax.swing.JPanel {
             }
         });
 
-        btn_capnhatdichvu.setText("Cập nhật");
-        btn_capnhatdichvu.addActionListener(new java.awt.event.ActionListener() {
+        btn_xoadichvu.setText("Xóa");
+        btn_xoadichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_capnhatdichvuActionPerformed(evt);
+                btn_xoadichvuActionPerformed(evt);
             }
         });
 
@@ -148,7 +148,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_timkiemdichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_capnhatdichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btn_xoadichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_lamoidichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,7 +163,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_capnhatdichvu)
+                    .addComponent(btn_xoadichvu)
                     .addComponent(btn_lamoidichvu)
                     .addComponent(lbl_madichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_madichvu)
@@ -190,9 +190,10 @@ public class QuanLyDichVu extends javax.swing.JPanel {
         framethemdichvu.setVisible(true);
     }//GEN-LAST:event_btn_themdichvuActionPerformed
 
-    private void btn_capnhatdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capnhatdichvuActionPerformed
-            CapNhatDichVu framecapnhatdichvu = new CapNhatDichVu();
-            framecapnhatdichvu.setVisible(true);
+    private void btn_xoadichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capnhatdichvuActionPerformed
+     //       Xoa();
+    	CapNhatDichVu cndv= new CapNhatDichVu();
+    	cndv.setVisible(true);
     }//GEN-LAST:event_btn_capnhatdichvuActionPerformed
 
     private void btn_lamoidichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamoidichvuActionPerformed
@@ -211,7 +212,7 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_capnhatdichvu;
+    private javax.swing.JButton btn_xoadichvu;
     private javax.swing.JButton btn_lamoidichvu;
     private javax.swing.JButton btn_themdichvu;
     private javax.swing.JButton btn_timkiemdichvu;
@@ -266,5 +267,15 @@ public class QuanLyDichVu extends javax.swing.JPanel {
 
     	}
     	table_dichvu.setModel(tableModel);
+    }
+    
+    private void Xoa() {
+    	int row = table_dichvu.getSelectedRow();
+		if (row >= 0) {
+			String id = dsDichVu.get(row).getMaDichVu();
+			if (dao.delete(id)) {
+				fillDataIntoTable();
+			}
+		}
     }
 }
