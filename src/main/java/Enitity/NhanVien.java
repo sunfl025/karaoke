@@ -8,6 +8,12 @@ public class NhanVien {
 	private String chucVu;
 	private double luong;
 	private TaiKhoan tenDangNhap;
+	
+	
+	public NhanVien(String tenNhanVien) {
+		super();
+		this.tenNhanVien = tenNhanVien;
+	}
 	public NhanVien(String maNhanVien, String tenNhanVien, String gioiTinh, String sdt, String chucVu, double luong,
 			TaiKhoan tenDangNhap) {
 		super();

@@ -10,11 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-<<<<<<< HEAD
-
-=======
 import DAO.AutoId;
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 import DAO.KhachHang_dao;
 import Enitity.KhachHang;
 import Enitity.NhanVien;
@@ -30,8 +26,6 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
      */
     public ThemThongTinKhachHang() {
         initComponents();
-        setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-        this.setResizable(false);
     }
    
     /**
@@ -283,19 +277,8 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
 		String sdt = txt_SDT.getText();
 		String diaChi = txt_DiaChi.getText();
 		KhachHang kh = new KhachHang(maKhachHang,tenKhachHang, gioiTinh, sdt, diaChi);
-<<<<<<< HEAD
-		if(tenKhachHang.equalsIgnoreCase("") || sdt.equalsIgnoreCase("")) {
-			JOptionPane.showMessageDialog(this, "Vui nhập đầy đủ thông tin !");
-			txt_TenKhachHang.setFocusable(true);
-		}
-		else {
-			KhachHang_dao.them(kh);
-			lamTrong();
-		}
-=======
 		KhachHang_dao.them(kh);
 		lamTrong();
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 	}
 	private void lamTrong() {
 		txt_TenKhachHang.setText("");

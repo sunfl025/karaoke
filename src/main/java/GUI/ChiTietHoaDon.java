@@ -4,17 +4,29 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+import DAO.ChiTietHoaDon_Dao;
+import DAO.NhanVien_dao;
+import Enitity.HoaDon;
+import Enitity.NhanVien;
+
 /**
  *
  * @author Admin
  */
 public class ChiTietHoaDon extends javax.swing.JFrame {
 
-    /**
+    private DefaultTableModel tableModel;
+	/**
      * Creates new form ChiTietHoaDon
      */
     public ChiTietHoaDon() {
         initComponents();
+        tableModel = (DefaultTableModel)  jTable1.getModel();
+        selectDv();
     }
 
     /**
@@ -104,7 +116,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Tên", "Số lượng", "Đơn vị tính", "Đơn giá ", "Thành tiền"
+                "STT", "Tên", "Số lượng", "Đơn giá ", "Thành tiền"
             }
         ) {
             Class[] types = new Class [] {
@@ -264,7 +276,34 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void selectDv()
+    {
+    	Double  tongtien=0.0;
+    	Double tongtienthanhtoan = 0.0;
+    	list_hd = ChiTietHoaDon_Dao.getAll();
+		tableModel.setRowCount(0);
+		for(HoaDon hd : list_hd) {
+			txt_NhanVien.setText(hd.getNhanvien().getTenNhanVien());
+			txt_KhachHang.setText(hd.getKhachhang().getTenKhachHang());
+			txt_ThoiGianVao.setText(hd.getChiTietDatPhong().getThoiGianVao().toString());
+			txt_ThoiGianRa.setText(hd.getChiTietDatPhong().getThoiGianRa().toString());
+			txt_MaHoaDon.setText(hd.getMaHoaDon());
+			Double thanhtien = hd.getDichvu().getSoLuong() * hd.getDichvu().getGia();
+			tongtien += thanhtien;
+			txt_TongTien.setText(tongtien.toString() );
+			tongtienthanhtoan = tongtien + (tongtien * 0.1);
+			txt_TongTienTT.setText(tongtienthanhtoan.toString() );
+			tableModel.addRow(new Object[] {
+					tableModel.getRowCount() + 1,
+					hd.getKhachhang().getTenKhachHang(),
+					hd.getDichvu().getSoLuong(),
+					hd.getDichvu().getGia(),
+					thanhtien
+				
+			});
+			
+		}
+    }
     private void txt_MaHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_MaHoaDonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_MaHoaDonActionPerformed
@@ -307,6 +346,7 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -331,5 +371,6 @@ public class ChiTietHoaDon extends javax.swing.JFrame {
     private javax.swing.JTextField txt_TongTien;
     private javax.swing.JTextField txt_TongTienTT;
     private javax.swing.JTextField txt_VAT;
+    private ArrayList<HoaDon> list_hd = new ArrayList<>();
     // End of variables declaration//GEN-END:variables
 }

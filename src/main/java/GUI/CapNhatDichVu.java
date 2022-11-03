@@ -22,9 +22,11 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     /**
      * Creates new form capnhatdichvu
      */
+
     public CapNhatDichVu() {
         initComponents();
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +62,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         btn_Xoa = new javax.swing.JButton();
         btn_QuayLai = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -344,12 +346,14 @@ public class CapNhatDichVu extends javax.swing.JFrame {
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
        fillDataIntoTable();
+       fillDataIntoTable1();
        txt_MaDV.setText("");
        txt_TenDV.setText("");     
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemActionPerformed
 //        Them();
+    	txt_MaDV.setText(maPhong);
     }//GEN-LAST:event_btn_ThemActionPerformed
 
     private void btn_BotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BotActionPerformed
@@ -434,6 +438,11 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     private ArrayList<DichVu> dsDichVu = new ArrayList<>();
     private ArrayList<DichVu> dsDichVu1 = new ArrayList<>();
     private DichVu_dao dao= new DichVu_dao();
+    private String maPhong;
+    
+    public void getId(String id) {
+    	this.maPhong =id;
+    }
     
     private void fillDataIntoTable() {
 
@@ -459,11 +468,10 @@ public class CapNhatDichVu extends javax.swing.JFrame {
 				tableModel1.removeRow(i);
 			}
 		}
-    	dsDichVu1 = dao.getChiTietDichVu();
+    	txt_TenDV.setText(maPhong);
+    	dsDichVu1 = dao.getChiTietDichVu(maPhong);
     	for(DichVu dv1: dsDichVu1) {
-    		System.out.println(dao.getSoLuongSanPham(dv1.getMaDichVu()));
-//    		dao.getSoLuongSanPham(dv1.getMaDichVu());
-			String[] rowData = { dv1.getMaDichVu(), dv1.getTenDichVu(),dao.getSoLuongSanPham(dv1.getMaDichVu())+"",dv1.getGia()+""	};
+			String[] rowData = { dv1.getMaDichVu(), dv1.getTenDichVu(),dv1.getSoLuong()+"",dv1.getGia()+""	};
 			tableModel1.addRow(rowData);
 
     	}
@@ -538,6 +546,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     }
 
     private void Xoa() {
+    	
     	
     }
     

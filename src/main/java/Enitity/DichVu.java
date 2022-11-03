@@ -17,8 +17,19 @@ public class DichVu {
 	public DichVu() {
 		super();
 	}
+	
 
-
+	public DichVu(int soLuong, double gia) {
+		super();
+		this.soLuong = soLuong;
+		this.gia = gia;
+	}
+	public DichVu(String tenDichVu, int soLuong, double gia) {
+		super();
+		this.tenDichVu = tenDichVu;
+		this.soLuong = soLuong;
+		this.gia = gia;
+	}
 	public String getMaDichVu() {
 		return maDichVu;
 	}

@@ -27,11 +27,8 @@ public class SuaThongTinKhachHang extends javax.swing.JFrame implements ActionLi
      */
     public SuaThongTinKhachHang() {
         initComponents();
-<<<<<<< HEAD
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setResizable(false);
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     }
    
     /**
@@ -145,18 +142,9 @@ public class SuaThongTinKhachHang extends javax.swing.JFrame implements ActionLi
         );
 
         btn_sua.setText("Sửa");
-<<<<<<< HEAD
        
         btn_sua.addActionListener(this);
         btn_Huy.addActionListener(this);
-=======
-        btn_sua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_suaActionPerformed(evt);
-            }
-        });
-
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
         btn_Huy.setText("Hủy");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -261,10 +249,7 @@ public class SuaThongTinKhachHang extends javax.swing.JFrame implements ActionLi
     private javax.swing.JTextField txt_maKhachHang;
     // End of variables declaration//GEN-END:variables
 	public void setEditData(KhachHang kh) {
-<<<<<<< HEAD
 		txt_maKhachHang.setText(kh.getMaKhachHang());
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 		txt_TenKhachHang.setText(kh.getTenKhachHang());
 		String gioiTinh = kh.getGioiTinh();
 		if(gioiTinh.equals("Nữ"))
@@ -285,10 +270,7 @@ public class SuaThongTinKhachHang extends javax.swing.JFrame implements ActionLi
 		}
 	}
 	private void sua() {
-<<<<<<< HEAD
 		String maKhachHang = txt_maKhachHang.getText();
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 		String tenKhachHang = txt_TenKhachHang.getText();
 		String gioiTinh;
 		if(rdo_Nam.isSelected())
@@ -297,11 +279,7 @@ public class SuaThongTinKhachHang extends javax.swing.JFrame implements ActionLi
 			gioiTinh = rdo_Nu.getText().toString();
 		String sdt = txt_SDT.getText();
 		String diaChi = txt_DiaChi.getText();
-<<<<<<< HEAD
 		KhachHang kh = new KhachHang(maKhachHang,tenKhachHang, gioiTinh, sdt, diaChi);
-=======
-		KhachHang kh = new KhachHang(tenKhachHang, gioiTinh, sdt, diaChi);
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 		int select = JOptionPane.showConfirmDialog(this, "Bạn muốn cập nhật ?");
 		if(select == JOptionPane.YES_OPTION)
 			{

@@ -134,23 +134,13 @@ public class KhachHang_dao {
 		
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLKaraoke","sa","0123");
-<<<<<<< HEAD
-			String sql ="update KhachHang set tenKhachHang=?, gioiTinh=?,sdt=? ,diaChi=? where maKhachHang=? ";
-=======
 			String sql ="update KhachHang set tenKhachHang=?, gioiTinh=?,diaChi=? where sdt=? ";
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 			sm = connection.prepareStatement(sql);
 			
 			sm.setString(1, kh.getTenKhachHang());
 			sm.setString(2, kh.getGioiTinh());
-<<<<<<< HEAD
-			sm.setString(3, kh.getSdt());
-			sm.setString(4, kh.getDiaChi());
-			sm.setString(5, kh.getMaKhachHang());
-=======
 			sm.setString(3, kh.getDiaChi());
 			sm.setString(4, kh.getSdt());
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 			sm.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

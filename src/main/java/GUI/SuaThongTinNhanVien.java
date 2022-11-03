@@ -7,18 +7,12 @@ package GUI;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 import javax.swing.text.html.HTMLEditorKit.Parser;
 
 import DAO.KhachHang_dao;
 import DAO.NhanVien_dao;
 import Enitity.Authentication;
 import Enitity.KhachHang;
-=======
-
-import DAO.NhanVien_dao;
-import Enitity.Authentication;
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 import Enitity.NhanVien;
 import Enitity.TaiKhoan;
 
@@ -28,21 +22,14 @@ import Enitity.TaiKhoan;
  */
 public class SuaThongTinNhanVien extends javax.swing.JFrame {
 
-<<<<<<< HEAD
     private static Authentication auth;
 	/**
-=======
-    /**
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
      * Creates new form themnhanvien
      */
     public SuaThongTinNhanVien(Authentication authentication) {
     	auth = authentication;
         initComponents();
-<<<<<<< HEAD
        setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     }
 
     /**
@@ -70,11 +57,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
         cbo_ChucVu = new javax.swing.JComboBox<>();
         txt_Luong = new javax.swing.JTextField();
         btn_Huy = new javax.swing.JButton();
-<<<<<<< HEAD
         btn_capNhat = new javax.swing.JButton();
-=======
-        btn_Them = new javax.swing.JButton();
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
         btn_LamMoi = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txt_maNhanVien = new javax.swing.JTextField();
@@ -140,17 +123,10 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
         btn_capNhat.setText("Cập nhật");
         btn_capNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_capNhatActionPerformed(evt);
-=======
-        btn_Them.setText("Cập nhật");
-        btn_Them.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ThemActionPerformed(evt);
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
             }
         });
 
@@ -207,11 +183,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
                                 .addGap(112, 112, 112)
                                 .addComponent(btn_LamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-<<<<<<< HEAD
                                 .addComponent(btn_capNhat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-=======
-                                .addComponent(btn_Them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
                         .addGap(31, 31, 31))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -245,11 +217,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Huy)
-<<<<<<< HEAD
                     .addComponent(btn_capNhat)
-=======
-                    .addComponent(btn_Them)
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
                     .addComponent(btn_LamMoi))
                 .addGap(24, 24, 24))
         );
@@ -289,40 +257,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-<<<<<<< HEAD
    
-=======
-    private void addNhanVien() {
-    	NhanVien_dao nhanviendao = new NhanVien_dao();
-    	ArrayList<NhanVien>  dsnv = new ArrayList<NhanVien>();
-    	String ex = "NV";
-    	int i = (int)dsnv.size() + 1;
-		String maNhanVien = ex+i;
-		String tenNhanVien = txt_TenNhanVien.getText();
-		String gioiTinh;
-		if(rdo_Nam.isSelected())
-		{
-			gioiTinh = rdo_Nam.getText().toString();
-		}
-		else
-			gioiTinh = rdo_Nu.getText().toString();
-		
-		String sdt = txt_SDT.getText();
-		String chucVu = cbo_ChucVu.getSelectedItem().toString();
-		double luong = Double.parseDouble(txt_Luong.getText());
-	    TaiKhoan taikhoan = new TaiKhoan(auth.getTaikhoan().getTenDangNhap());
-		NhanVien nhanvien = new NhanVien(maNhanVien, tenNhanVien, gioiTinh, sdt, chucVu, luong,taikhoan );
-		
-		
-		if (maNhanVien.equalsIgnoreCase("") || tenNhanVien.equalsIgnoreCase("") || gioiTinh.equalsIgnoreCase("")
-				|| sdt.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ){
-			JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ thông tin");
-			return;
-		} else {
-			nhanviendao.save(nhanvien);
-		}
-	}
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     private void txt_SDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SDTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SDTActionPerformed
@@ -340,7 +275,6 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_LuongActionPerformed
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-<<<<<<< HEAD
         txt_maNhanVien.setText("");
         txt_SDT.setText("");
         txt_TenNhanVien.setText("");
@@ -354,17 +288,6 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
 
     private void btn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HuyActionPerformed
     	this.dispose();
-=======
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_LamMoiActionPerformed
-
-    private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemActionPerformed
-    	addNhanVien();
-    }//GEN-LAST:event_btn_ThemActionPerformed
-
-    private void btn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HuyActionPerformed
-        // TODO add your handling code here:
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     }//GEN-LAST:event_btn_HuyActionPerformed
 
     /**
@@ -413,11 +336,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Huy;
     private javax.swing.JButton btn_LamMoi;
-<<<<<<< HEAD
     private javax.swing.JButton btn_capNhat;
-=======
-    private javax.swing.JButton btn_Them;
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbo_ChucVu;
     private javax.swing.JLabel jLabel1;
@@ -436,7 +355,6 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
     private javax.swing.JTextField txt_TenNhanVien;
     private javax.swing.JTextField txt_maNhanVien;
     // End of variables declaration//GEN-END:variables
-<<<<<<< HEAD
     
 	public void setEditData(NhanVien nhanVien) {
 		txt_maNhanVien.setText(nhanVien.getMaNhanVien());
@@ -478,6 +396,4 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
 		}
 		
 	}
-=======
->>>>>>> 4f8a2594a80219494176a0f7b46004c8f1768c7d
 }
