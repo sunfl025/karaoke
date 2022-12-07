@@ -26,9 +26,27 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
      */
     public QuanLyNhanVien(Authentication authentication) {
     	auth = authentication;
+//    	System.out.println(auth.getTaikhoan().getQuyen());
         initComponents();
+        
         tableModel = (DefaultTableModel) table.getModel();
-        fillDataIntoTable();
+        if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân")))
+    	{
+    		fillDataIntoTable();
+    	}
+    	else
+    	{
+    		nv = NhanVien_dao.getNhanVien(auth.getTaikhoan().getTenDangNhap());
+    		tableModel.setRowCount(0);
+    		tableModel.addRow(new Object[] {
+					nv.getMaNhanVien(),
+					nv.getTenNhanVien(),
+					nv.getSdt(),
+					nv.getGioiTinh(),
+					nv.getChucVu(),
+					auth.getTaikhoan().getTenDangNhap()
+			});
+    	}
    
     }
 
@@ -45,7 +63,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_tennv = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_manv = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -92,7 +110,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 
         jLabel2.setText("Tên : ");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_tennv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -108,7 +126,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        btn_them.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Create.png")); // NOI18N
+        btn_them.setIcon(new javax.swing.ImageIcon("img//Create.png")); // NOI18N
         btn_them.setText("Thêm");
         btn_them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +134,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        btn_xoa.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Delete.png")); // NOI18N
+        btn_xoa.setIcon(new javax.swing.ImageIcon("img//Delete.png")); // NOI18N
         btn_xoa.setText("Nghỉ việc");
         btn_xoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +142,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        btn_sua.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Edit.png")); // NOI18N
+        btn_sua.setIcon(new javax.swing.ImageIcon("img//Edit.png")); // NOI18N
         btn_sua.setText("Sửa");
         btn_sua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +150,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        btn_lammoi.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Refresh.png")); // NOI18N
+        btn_lammoi.setIcon(new javax.swing.ImageIcon("img//Refresh.png")); // NOI18N
         btn_lammoi.setText("Làm mới");
         btn_lammoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +158,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        btn_tim.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\Search.png")); // NOI18N
+        btn_tim.setIcon(new javax.swing.ImageIcon("img//Search.png")); // NOI18N
         btn_tim.setText("Tìm kiếm");
         btn_tim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +166,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        cb_chucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên tiếp tân", "Item 2", "Item 3", "Item 4" }));
+        cb_chucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "","Nhân viên tiếp tân", "Quản trị hệ thống", "Quản lý thống kê" }));
         cb_chucvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_chucvuActionPerformed(evt);
@@ -216,7 +234,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã NV", "Họ tên", "SĐT", "Giới tính", "Chức vụ", "Lương","Tên đăng nhập"
+                "Mã NV", "Họ tên", "SĐT", "Giới tính", "Chức vụ", "Tên đăng nhập"
             }
         ) {
             Class[] types = new Class [] {
@@ -260,7 +278,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)))
+                        .addComponent(txt_tennv)))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -296,7 +314,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1))
+                            .addComponent(txt_tennv))
                         .addGap(4, 4, 4))
                     .addComponent(btn_them)
                     .addComponent(btn_xoa))
@@ -328,7 +346,6 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 					nv.getSdt(),
 					nv.getGioiTinh(),
 					nv.getChucVu(),
-					nv.getLuong(),
 					nv.getTenDangNhap().getTenDangNhap()
 			});
 		}
@@ -342,57 +359,189 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         ThemThongTinNhanVien framethemnv = new ThemThongTinNhanVien(auth);
-        framethemnv.setVisible(true);
+        if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân")))
+        {
+        	 framethemnv.setVisible(true);
+        }
+        else {
+        	JOptionPane.showMessageDialog(framethemnv, "Chức năng này không dành cho nhân viên");
+        	 framethemnv.setVisible(false);
+        }
         
     }//GEN-LAST:event_btn_themActionPerformed
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
-    	int select = table.getSelectedRow();
-    	if(select >=0) {
-    		NhanVien emp = list_nv.get(select);
-    		int option = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa ?");
-    		if(option == 1) {
-    			NhanVien_dao.xoa(emp.getMaNhanVien());
-    			tableModel.removeRow(select);
-    		}
+    	if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân"))) {
+    		int select = table.getSelectedRow();
+        	if(select >=0) {
+        		String id = list_nv.get(select).getMaNhanVien();
+        		try {
+    				if(NhanVien_dao.xoa(id))
+    				{
+    					fillDataIntoTable();
+    				}
+    				else
+    				{
+    					JOptionPane.showMessageDialog(this, "Xóa không thành công");
+    				}
+    			} catch (Exception e) {
+    				// TODO Auto-generated catch block
+    				
+    				e.printStackTrace();
+    			}
+        		
+        	}
+        	else {
+        		JOptionPane.showMessageDialog(btn_xoa, "Vui lòng chọn nhân viên cần xóa");
+        	}
+    	}
+    	else
+    	{
+    		JOptionPane.showMessageDialog(btn_xoa, "Chức năng này không dành cho nhân viên");
     	}
     }//GEN-LAST:event_btn_xoaActionPerformed
 
     private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
     	SuaThongTinNhanVien edit = new SuaThongTinNhanVien(auth);
-    	int select = table.getSelectedRow();
-    	if(list_nv.size()==0) {
-    		JOptionPane.showMessageDialog(this, "Bảng rỗng !");
-    	}else if(select ==-1){
-    		JOptionPane.showMessageDialog(this, "Vui lòng chọn nhân viên !");
-    	}else {
-    		edit.setEditData(list_nv.get(select));
-    		edit.setVisible(true);
+    	if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân")))
+    	{
+    		int select = table.getSelectedRow();
+        	if(list_nv.size()==0) {
+        		JOptionPane.showMessageDialog(this, "Bảng rỗng !");
+        	}else if(select ==-1){
+        		JOptionPane.showMessageDialog(this, "Vui lòng chọn nhân viên !");
+        	}else {
+        		edit.setEditData(list_nv.get(select));
+        		edit.setVisible(true);
+        	}
     	}
+    	else
+    	{
+    		JOptionPane.showMessageDialog(edit, "Chức năng này không dành cho nhân viên");
+    		edit.setVisible(false);
+    	}
+    	
     }//GEN-LAST:event_btn_suaActionPerformed
 
     private void btn_lammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lammoiActionPerformed
-    	fillDataIntoTable();
+    	if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân")))
+    	{
+    		fillDataIntoTable();
+    	}
+    	else
+    	{
+    		nv = NhanVien_dao.getNhanVien(auth.getTaikhoan().getTenDangNhap());
+    		tableModel.setRowCount(0);
+    		tableModel.addRow(new Object[] {
+					nv.getMaNhanVien(),
+					nv.getTenNhanVien(),
+					nv.getSdt(),
+					nv.getGioiTinh(),
+					nv.getChucVu(),
+					auth.getTaikhoan().getTenDangNhap()
+			});
+    	}
     	
     }//GEN-LAST:event_btn_lammoiActionPerformed
 
     private void btn_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timActionPerformed
-    	String sdt = txt_sdt.getText();
-    	if(sdt.length()>0) {
-    		list_nv = NhanVien_dao.find(sdt);
-    		tableModel.setRowCount(0);
-    		for(NhanVien nv : list_nv) {
-    			tableModel.addRow(new Object[] {
-    					nv.getMaNhanVien(),
-    					nv.getTenNhanVien(),
-    					nv.getSdt(),
-    					nv.getGioiTinh(),
-    					nv.getChucVu(),
-    					nv.getLuong(),
-    					nv.getTenDangNhap().getTenDangNhap()
-    			});
-    		}
+    	if(!(auth.getTaikhoan().getQuyen().equalsIgnoreCase("Nhân viên tiếp tân")))
+    	{
+    		String sdt = txt_sdt.getText();
+        	String manv = txt_manv.getText();
+        	String tennv = txt_tennv.getText();
+        	String chucvu = cb_chucvu.getSelectedItem().toString();
+        	String gioiTinh;
+    		if(rdo_nam.isSelected())
+    			gioiTinh = rdo_nam.getText().toString();
+    		else
+    			gioiTinh = rdo_nu.getText().toString();
+        	
+        	if(sdt.length()>0) {
+        		list_nv = NhanVien_dao.find(sdt);
+        		tableModel.setRowCount(0);
+        		for(NhanVien nv : list_nv) {
+        			tableModel.addRow(new Object[] {
+        					nv.getMaNhanVien(),
+        					nv.getTenNhanVien(),
+        					nv.getSdt(),
+        					nv.getGioiTinh(),
+        					nv.getChucVu(),
+        					nv.getTenDangNhap().getTenDangNhap()
+        			});
+        		}
+        	}
+        	else if(manv.length() > 0)
+        	{
+        		
+        		list_nv = NhanVien_dao.searchMaNV(manv);
+        		tableModel.setRowCount(0);
+        		for(NhanVien nv : list_nv) {
+        			tableModel.addRow(new Object[] {
+        					nv.getMaNhanVien(),
+        					nv.getTenNhanVien(),
+        					nv.getSdt(),
+        					nv.getGioiTinh(),
+        					nv.getChucVu(),
+        					nv.getTenDangNhap().getTenDangNhap()
+        			});
+        		}
+        	}
+        	else if(tennv.length() > 0)
+        	{
+        		
+        		list_nv = NhanVien_dao.searchTenNV(tennv);
+        		tableModel.setRowCount(0);
+        		for(NhanVien nv : list_nv) {
+        			tableModel.addRow(new Object[] {
+        					nv.getMaNhanVien(),
+        					nv.getTenNhanVien(),
+        					nv.getSdt(),
+        					nv.getGioiTinh(),
+        					nv.getChucVu(),
+        					nv.getTenDangNhap().getTenDangNhap()
+        			});
+        		}
+        	}
+        	else if(chucvu.length() > 0)
+        	{
+        		
+        		list_nv = NhanVien_dao.searchChucVu(chucvu);
+        		tableModel.setRowCount(0);
+        		for(NhanVien nv : list_nv) {
+        			tableModel.addRow(new Object[] {
+        					nv.getMaNhanVien(),
+        					nv.getTenNhanVien(),
+        					nv.getSdt(),
+        					nv.getGioiTinh(),
+        					nv.getChucVu(),
+        					nv.getTenDangNhap().getTenDangNhap()
+        			});
+        		}
+        	}
+        	else if(gioiTinh == "Nam" || gioiTinh == "Nữ")
+        	{
+        		
+        		list_nv = NhanVien_dao.searchGioiTinh(gioiTinh);
+        		tableModel.setRowCount(0);
+        		for(NhanVien nv : list_nv) {
+        			tableModel.addRow(new Object[] {
+        					nv.getMaNhanVien(),
+        					nv.getTenNhanVien(),
+        					nv.getSdt(),
+        					nv.getGioiTinh(),
+        					nv.getChucVu(),
+        					nv.getTenDangNhap().getTenDangNhap()
+        			});
+        		}
+        	}
     	}
+    	else
+    	{
+    		JOptionPane.showMessageDialog(btn_tim, "Chức năng này không dành cho nhân viên");
+    	}
+    	
+    	
     }//GEN-LAST:event_btn_timActionPerformed
 
     private void cb_chucvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_chucvuActionPerformed
@@ -424,7 +573,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txt_tennv;
     private javax.swing.JRadioButton rdo_nam;
     private javax.swing.JRadioButton rdo_nu;
     private javax.swing.JTable table;
@@ -432,6 +581,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JTextField txt_sdt;
 	private ArrayList<NhanVien>list_nv = new ArrayList<>();
 	private Authentication auth = null;
+	private NhanVien nv = new NhanVien();
     // End of variables declaration//GEN-END:variables
 	
 }

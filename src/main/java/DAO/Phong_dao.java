@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import Enitity.KhachHang;
 import Enitity.Phong;
@@ -99,6 +100,134 @@ public class Phong_dao {
 			}
 		}
 		return p;
+		
+	}
+	/////////////////////////////////////////////////////////////////////////
+	public static void updateTrangThaiPhong(Phong p) {
+		Connection connection = null;
+		PreparedStatement sm = null;
+		
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLKaraoke","sa","0123");
+			String sql ="update Phong set trangThai=? where maPhong=? ";
+			sm = connection.prepareStatement(sql);
+			sm.setString(1, p.getTrangThai());
+			sm.setString(2, p.getMaPhong());
+			sm.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(sm != null) {
+				try {
+					sm.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	public static Phong findIdByTen(String tenPhong){
+		Connection connection = null;
+		PreparedStatement sm =null;
+		Phong p = null;
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLKaraoke","sa","0123");
+			String sql = "select *from Phong where tenPhong = '"+tenPhong+"'";
+			sm = connection.prepareStatement(sql);
+			
+			ResultSet rs = sm.executeQuery();
+			while(rs.next()) {
+				String maPhong = rs.getString(1);
+				tenPhong = rs.getString(2);
+				String loaiPhong = rs.getString(3);
+				String trangThai = rs.getString(4);
+				int sucChua = rs.getInt(5);
+				int dienTich = rs.getInt(6);
+				double giaPhong = rs.getDouble(7);
+
+				 p = new Phong(maPhong, tenPhong, loaiPhong, trangThai, sucChua, dienTich, giaPhong);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(sm != null) {
+				try {
+					sm.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return p;
+		
+	}
+	public static ArrayList<Phong> findPhongByTrangThai(String trangThai){
+		Connection connection = null;
+		PreparedStatement sm =null;
+		Phong p = null;
+		ArrayList<Phong>dsp = new ArrayList<>();
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLKaraoke","sa","0123");
+			String sql = "select *from Phong where trangThai like ?";
+			sm = connection.prepareCall(sql);
+			sm.setString(1,"%"+trangThai+"%");
+			ResultSet rs = sm.executeQuery();
+			while(rs.next()) {
+				String maPhong = rs.getString(1);
+				String tenPhong = rs.getString(2);
+				String loaiPhong = rs.getString(3);
+				trangThai = rs.getString(4);
+				int sucChua = rs.getInt(5);
+				int dienTich = rs.getInt(6);
+				double giaPhong = rs.getDouble(7);
+
+				 p = new Phong(maPhong, tenPhong, loaiPhong, trangThai, sucChua, dienTich, giaPhong);
+				 dsp.add(p);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(sm != null) {
+				try {
+					sm.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return dsp;
 		
 	}
 }

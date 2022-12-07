@@ -4,11 +4,26 @@
  */
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import DAO.ThongKe_dao;
+import Enitity.Authentication;
+import Enitity.ChiTietDichVu;
+import Enitity.HoaDon;
+import Enitity.NhanVien;
+
 /**
  *
  * @author Lenovo
  */
-public class ThongKeKhachHang extends javax.swing.JPanel {
+public class ThongKeKhachHang extends javax.swing.JPanel implements ActionListener{
 
     /**
      * Creates new form ThongkeKhachHang
@@ -16,6 +31,11 @@ public class ThongKeKhachHang extends javax.swing.JPanel {
     public ThongKeKhachHang() {
         initComponents();
     }
+//    public ThongKeKhachHang(Authentication authentication) {
+//    	auth = authentication;
+//        initComponents();
+//    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,18 +86,21 @@ public class ThongKeKhachHang extends javax.swing.JPanel {
         jLabel2.setText("Chọn ngày/tháng/năm : ");
 
         table.setBackground(new java.awt.Color(199, 199, 231));
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Mã khách hàng", "Tên khách hàng", "SĐT khách hàng", "Tổng tiền"
-            }
-        ));
-        jScrollPane1.setViewportView(table);
+//        table.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//                {null, null, null, null},
+//                {null, null, null, null},
+//                {null, null, null, null},
+//                {null, null, null, null}
+//            },
+//            new String [] {
+//                "Mã khách hàng", "Tên khách hàng", "SĐT khách hàng", "Tổng tiền"
+//            }
+//        ));
+        String[] headers = "Mã khách hàng;Tên khách hàng;SĐT khách hàng;Tổng tiền".split(";");
+        tableModel = new DefaultTableModel(headers, 0);
+        table.setAutoCreateRowSorter(true);
+        jScrollPane1.setViewportView(table= new JTable(tableModel));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,6 +134,8 @@ public class ThongKeKhachHang extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                 .addGap(38, 38, 38))
         );
+        btn_luachon.addActionListener(this);
+        this.fillDataIntoTable();
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -123,4 +148,108 @@ public class ThongKeKhachHang extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
+    private DefaultTableModel tableModel;
+    private ArrayList<HoaDon> dsHoaDon = new ArrayList<>();;
+    private ThongKe_dao dao = new ThongKe_dao();
+    private NhanVien nv =new NhanVien();
+    private Authentication auth = null;
+ //   private ArrayList<ChiTietDichVu> ctdvList = new ArrayList<>();
+   
+    private void fillDataIntoTable() {
+    	NhanVien nv = dao.getNhanVien("%%");
+
+    	dsHoaDon.clear();
+    	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+    	dsHoaDon = dao.getAllThongKeHoaDonTheoKhachHang("%%");
+    	
+    	
+    	for(HoaDon hd: dsHoaDon) {
+             double tongtiendichvu=0;
+            
+             ArrayList<ChiTietDichVu> ctdvList =  hd.getChitietdichvu();
+    		for(ChiTietDichVu ctdv: ctdvList) {
+    			tongtiendichvu+= ctdv.getSoLuongSanPham()*ctdv.getDichvu().getGia();
+    			
+    		}
+
+    		int thoigianvao=0;
+    		int thoigianra=0;
+    		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()<=hd.getChiTietDatPhong().getThoiGianRa().getHours()) {			
+    		thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+    		thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+hd.getChiTietDatPhong().getThoiGianRa().getHours()*60;
+    		}
+    		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()>hd.getChiTietDatPhong().getThoiGianRa().getHours()) {
+    			thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+    			thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+(24-hd.getChiTietDatPhong().getThoiGianVao().getHours()+hd.getChiTietDatPhong().getThoiGianRa().getHours())*60;
+
+    		}
+    		int thoigiandatphong = thoigianra-thoigianvao;
+    		double tienphong= (hd.getPhong().getGiaPhong()/60)*thoigiandatphong;
+    		double tongtien= tienphong+tongtiendichvu; 
+  		    String[] rowData = {hd.getKhachhang().getMaKhachHang() ,hd.getKhachhang().getTenKhachHang(),hd.getKhachhang().getSdt(),tongtien+""};
+			tableModel.addRow(rowData);
+
+    	}
+    	table.setModel(tableModel);
+    }
+    
+    public static java.sql.Date convertDate(Date date){
+    	java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+    	return sqlDate;
+    }
+
+    
+   private void LuaChonTheoNgay() {
+	   Date date =convertDate(jCalendarComboBox1.getDate());
+	   
+	   dsHoaDon.clear();
+   	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+   	dsHoaDon = dao.getAllThongKeHoaDonTheoThoiGian(date);
+   	for(HoaDon hd: dsHoaDon) {
+   		double tongtiendichvu=0;
+        
+        ArrayList<ChiTietDichVu> ctdvList =  hd.getChitietdichvu();
+		for(ChiTietDichVu ctdv: ctdvList) {
+			tongtiendichvu+= ctdv.getSoLuongSanPham()*ctdv.getDichvu().getGia();
+			
+		}
+		
+		int thoigianvao=0;
+		int thoigianra=0;
+		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()<=hd.getChiTietDatPhong().getThoiGianRa().getHours()) {			
+		thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+		thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+hd.getChiTietDatPhong().getThoiGianRa().getHours()*60;
+		}
+		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()>hd.getChiTietDatPhong().getThoiGianRa().getHours()) {
+			thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+			thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+(24-hd.getChiTietDatPhong().getThoiGianVao().getHours()+hd.getChiTietDatPhong().getThoiGianRa().getHours())*60;
+
+		}
+		int thoigiandatphong = thoigianra-thoigianvao;
+		double tienphong= (hd.getPhong().getGiaPhong()/60)*thoigiandatphong;
+		double tongtien= tienphong+tongtiendichvu; 
+		    String[] rowData = {hd.getKhachhang().getMaKhachHang() ,hd.getKhachhang().getTenKhachHang(),hd.getKhachhang().getSdt(),tongtien+""};
+		tableModel.addRow(rowData);
+   	}
+   	table.setModel(tableModel);
+   }
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	Object o = e.getSource();
+	if(o.equals(btn_luachon)) {
+		LuaChonTheoNgay();
+	}
+	
+}
+    
+
 }

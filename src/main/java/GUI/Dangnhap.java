@@ -46,7 +46,7 @@ public class Dangnhap extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\img\\user-112-128.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("img/user-112-128.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Tên tài khoản : ");

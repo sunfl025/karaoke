@@ -6,9 +6,24 @@ public class NhanVien {
 	private String gioiTinh;
 	private String sdt;
 	private String chucVu;
-	private double luong;
 	private TaiKhoan tenDangNhap;
-	public NhanVien(String maNhanVien, String tenNhanVien, String gioiTinh, String sdt, String chucVu, double luong,
+	
+	public NhanVien(String tenNhanVien) {
+		super();
+		this.tenNhanVien = tenNhanVien;
+	}
+	
+	public NhanVien(String maNhanVien, String tenNhanVien) {
+		super();
+		this.maNhanVien = maNhanVien;
+		this.tenNhanVien = tenNhanVien;
+	}
+
+	public NhanVien() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public NhanVien(String maNhanVien, String tenNhanVien, String gioiTinh, String sdt, String chucVu,
 			TaiKhoan tenDangNhap) {
 		super();
 		this.maNhanVien = maNhanVien;
@@ -16,12 +31,7 @@ public class NhanVien {
 		this.gioiTinh = gioiTinh;
 		this.sdt = sdt;
 		this.chucVu = chucVu;
-		this.luong = luong;
 		this.tenDangNhap = tenDangNhap;
-	}
-	public NhanVien() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getMaNhanVien() {
 		return maNhanVien;
@@ -53,12 +63,6 @@ public class NhanVien {
 	public void setChucVu(String chucVu) {
 		this.chucVu = chucVu;
 	}
-	public double getLuong() {
-		return luong;
-	}
-	public void setLuong(double luong) {
-		this.luong = luong;
-	}
 	public TaiKhoan getTenDangNhap() {
 		return tenDangNhap;
 	}
@@ -68,8 +72,11 @@ public class NhanVien {
 	@Override
 	public String toString() {
 		return "NhanVien [maNhanVien=" + maNhanVien + ", tenNhanVien=" + tenNhanVien + ", gioiTinh=" + gioiTinh
-				+ ", sdt=" + sdt + ", chucVu=" + chucVu + ", luong=" + luong + ", tenDangNhap=" + tenDangNhap + "]";
+				+ ", sdt=" + sdt + ", chucVu=" + chucVu + ", tenDangNhap=" + tenDangNhap + "]";
 	}
+	
+	
+	
 	
 	
 	

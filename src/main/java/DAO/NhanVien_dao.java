@@ -22,8 +22,8 @@ public class NhanVien_dao {
 			preparedStatement = con.prepareStatement("select * from NhanVien");
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
-				TaiKhoan taikhoan = new TaiKhoan(result.getString(7));
-				NhanVien nhanvien = new NhanVien(result.getString(1), result.getString(2),result.getString(3) , result.getString(4), result.getString(5), result.getDouble(6), taikhoan);
+				TaiKhoan taikhoan = new TaiKhoan(result.getString(6));
+				NhanVien nhanvien = new NhanVien(result.getString(1), result.getString(2),result.getString(3) , result.getString(4), result.getString(5),  taikhoan);
 			
 				
 				list_nv.add(nhanvien);
@@ -38,14 +38,13 @@ public class NhanVien_dao {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = con.prepareStatement(
-					"insert NhanVien(maNhanVien,tenNhanVien,gioiTinh,sdt,chucVu,luong,tenDangNhap) values(?,?,?,?,?,?,?)");
+					"insert NhanVien(maNhanVien,tenNhanVien,gioiTinh,sdt,chucVu,tenDangNhap) values(?,?,?,?,?,?)");
 			preparedStatement.setString(1, nhanvien.getMaNhanVien());
 			preparedStatement.setString(2, nhanvien.getTenNhanVien());
 			preparedStatement.setString(3, nhanvien.getGioiTinh());
 			preparedStatement.setString(4, nhanvien.getSdt());
 			preparedStatement.setString(5, nhanvien.getChucVu());
-			preparedStatement.setDouble(6, nhanvien.getLuong());
-			preparedStatement.setString(7, nhanvien.getTenDangNhap().getTenDangNhap());
+			preparedStatement.setString(6, nhanvien.getTenDangNhap().getTenDangNhap());
 			if (preparedStatement.executeUpdate() > 0) {
 				return true;
 			}
@@ -59,14 +58,13 @@ public class NhanVien_dao {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = con.prepareStatement(
-					"update nhanvien set tennhanvien=?,gioitinh=?,sdt=?,chucvu=?,luong=?,tendangnhap=? where  manhanvien= ?");
+					"update nhanvien set tennhanvien=?,gioitinh=?,sdt=?,chucvu=?,tendangnhap=? where  manhanvien= ?");
 			preparedStatement.setString(1, nv.getTenNhanVien());
 			preparedStatement.setString(2, nv.getGioiTinh());
 			preparedStatement.setString(3, nv.getSdt());
 			preparedStatement.setString(4, nv.getChucVu());
-			preparedStatement.setDouble(5, nv.getLuong());
-			preparedStatement.setString(6, nv.getTenDangNhap().getTenDangNhap());
-			preparedStatement.setString(7, nv.getMaNhanVien());
+			preparedStatement.setString(5, nv.getTenDangNhap().getTenDangNhap());
+			preparedStatement.setString(6, nv.getMaNhanVien());
 			if (preparedStatement.executeUpdate() > 0) {
 				return true;
 			}
@@ -107,9 +105,8 @@ public class NhanVien_dao {
 				String gioiTinh = rs.getString(3);
 				sdt = rs.getString(4);
 				String chucVu = rs.getString(5);
-				double luong = rs.getDouble(6);
-				TaiKhoan tenDangNhap = new 	TaiKhoan(rs.getString(7));
-				NhanVien nv = new NhanVien(maKhachhang, tenKhachHang, gioiTinh, sdt, chucVu, luong, tenDangNhap);
+				TaiKhoan tenDangNhap = new 	TaiKhoan(rs.getString(6));
+				NhanVien nv = new NhanVien(maKhachhang, tenKhachHang, gioiTinh, sdt, chucVu, tenDangNhap);
 				dsnv.add(nv);
 			}
 		} catch (SQLException e) {
@@ -145,9 +142,9 @@ public class NhanVien_dao {
 			preparedStatement.setString(1, keyword);
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
-				TaiKhoan taiKhoan = new TaiKhoan(result.getString(7));
+				TaiKhoan taiKhoan = new TaiKhoan(result.getString(6));
 			
-				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6), taiKhoan);
+				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), taiKhoan);
 				
 				list_nv.add(nv);
 			}
@@ -166,9 +163,9 @@ public class NhanVien_dao {
 			preparedStatement.setString(1,"%" + keyword + "%" );
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
-				TaiKhoan taiKhoan = new TaiKhoan(result.getString(7));
+				TaiKhoan taiKhoan = new TaiKhoan(result.getString(6));
 			
-				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6), taiKhoan);
+				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), taiKhoan);
 				
 				list_nv.add(nv);
 			}
@@ -187,9 +184,9 @@ public class NhanVien_dao {
 			preparedStatement.setString(1, keyword);
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
-				TaiKhoan taiKhoan = new TaiKhoan(result.getString(7));
+				TaiKhoan taiKhoan = new TaiKhoan(result.getString(6));
 			
-				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6), taiKhoan);
+				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), taiKhoan);
 				
 				list_nv.add(nv);
 			}
@@ -207,9 +204,9 @@ public class NhanVien_dao {
 			preparedStatement.setString(1, keyword);
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
-				TaiKhoan taiKhoan = new TaiKhoan(result.getString(7));
+				TaiKhoan taiKhoan = new TaiKhoan(result.getString(6));
 			
-				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6), taiKhoan);
+				NhanVien nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5),  taiKhoan);
 				
 				list_nv.add(nv);
 			}
@@ -218,6 +215,29 @@ public class NhanVien_dao {
 		}
 		return list_nv;
 	}
+	
+	public static NhanVien getNhanVien(String tenDangNhap)
+	{
+		NhanVien nv = null ;
+		try {
+			Connection con = Connect.getInstance().getConnection();
+			PreparedStatement preparedStatement = null;
+			preparedStatement = con.prepareStatement("select * from NhanVien where tenDangNhap = ?"  );
+			preparedStatement.setString(1, tenDangNhap);
+			ResultSet result = preparedStatement.executeQuery();
+			while (result.next()) {
+				TaiKhoan taiKhoan = new TaiKhoan(result.getString(6));
+			
+				nv = new NhanVien(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), taiKhoan);
+				
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return nv;
+	}
+
 	
 	
 }

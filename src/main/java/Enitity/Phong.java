@@ -8,6 +8,7 @@ public class Phong {
 	private int sucChua;
 	private int dienTich;
 	private Double giaPhong;
+	
 	public String getMaPhong() {
 		return maPhong;
 	}
@@ -73,10 +74,29 @@ public class Phong {
 	public Phong() {
 		super();
 	}
+		
+	
+	
+	public Phong(String maPhong) {
+		super();
+		this.maPhong = maPhong;
+	}
+	public Phong(String maPhong, String trangThai) {
+		super();
+		this.maPhong = maPhong;
+		this.trangThai = trangThai;
+	}
 	@Override
 	public String toString() {
 		return "Phong [maPhong=" + maPhong + ", tenPhong=" + tenPhong + ", loaiPhong=" + loaiPhong + ", trangThai="
 				+ trangThai + ", sucChua=" + sucChua + ", dienTich=" + dienTich + ", giaPhong=" + giaPhong + "]";
 	}
+	public Phong(String maPhong, String tenPhong, Double giaPhong) {
+		super();
+		this.maPhong = maPhong;
+		this.tenPhong = tenPhong;
+		this.giaPhong = giaPhong;
+	}
+	
 	
 }

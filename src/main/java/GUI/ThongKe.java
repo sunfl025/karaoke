@@ -4,6 +4,17 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import DAO.ThongKe_dao;
+import Enitity.ChiTietDichVu;
+import Enitity.DichVu;
+import Enitity.HoaDon;
+import Enitity.NhanVien;
+
 /**
  *
  * @author vanng
@@ -280,26 +291,29 @@ public class ThongKe extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã khách hàng", "Ngày lập", "Tên khách hàng", "SDT", "Tên nhân viên", "Tổng tiền"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
+//        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null},
+//                {null, null, null, null, null, null}
+//            },
+//            new String [] {
+//                "Mã khách hàng", "Ngày lập", "Tên khách hàng", "SDT", "Tên nhân viên", "Tổng tiền"
+//            }
+//        ) {
+//            Class[] types = new Class [] {
+//                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+//            };
+//
+//            public Class getColumnClass(int columnIndex) {
+//                return types [columnIndex];
+//            }
+//        });
+        String[] headers = "Mã khách hàng; Ngày lập; Tên khách hàng; SDT; Tên nhân viên; Tổng tiền".split(";");
+        tableModel = new DefaultTableModel(headers, 0);
+        jTable1.setAutoCreateRowSorter(true);
+        jScrollPane2.setViewportView(jTable1= new JTable(tableModel));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -332,6 +346,8 @@ public class ThongKe extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        
+        this.fillDataIntoTable();
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdo_ngayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_ngayActionPerformed
@@ -376,4 +392,69 @@ public class ThongKe extends javax.swing.JPanel {
     private javax.swing.JTextField txt_tongTienDV;
     private javax.swing.JTextField txt_tongTienPhong;
     // End of variables declaration//GEN-END:variables
+    private DefaultTableModel tableModel;
+    private ArrayList<HoaDon> dsHoaDon = new ArrayList<>();;
+    private ThongKe_dao dao = new ThongKe_dao();
+    
+    
+    private void fillDataIntoTable() {
+    	
+        
+    	dsHoaDon.clear();
+    	if (tableModel.getRowCount() > 0) {
+			for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
+				tableModel.removeRow(i);
+			}
+		}
+    	double tongsogiohat=0;
+    	double tongtiendichvu=0;
+    	double tongtienphong=0;
+    	int tonghoadon=0;
+    	double tongdoanhthu=0;
+    	double doanhthutb=0;
+    	dsHoaDon = dao.getAllThongKeHoaDonTheoKhachHang("%%");
+    	for(HoaDon hd: dsHoaDon)
+    	{
+    		double tiendichvu=0;
+            
+            ArrayList<ChiTietDichVu> ctdvList =  hd.getChitietdichvu();
+    		for(ChiTietDichVu ctdv: ctdvList) {
+    			tiendichvu+= ctdv.getSoLuongSanPham()*ctdv.getDichvu().getGia();
+    			
+    		}
+
+    		int thoigianvao=0;
+    		int thoigianra=0;
+    		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()<=hd.getChiTietDatPhong().getThoiGianRa().getHours()) {			
+    		thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+    		thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+hd.getChiTietDatPhong().getThoiGianRa().getHours()*60;
+    		}
+    		if(hd.getChiTietDatPhong().getThoiGianVao().getHours()>hd.getChiTietDatPhong().getThoiGianRa().getHours()) {
+    			thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+    			thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+(24-hd.getChiTietDatPhong().getThoiGianVao().getHours()+hd.getChiTietDatPhong().getThoiGianRa().getHours())*60;
+
+    		}
+    		int thoigiandatphong = thoigianra-thoigianvao;
+    		double tienphong= (hd.getPhong().getGiaPhong()/60)*thoigiandatphong;
+    		double tongtien= tienphong+tiendichvu; 
+			String[] rowData = { hd.getKhachhang().getMaKhachHang(),hd.getNgayLapHoaDon()+"",hd.getKhachhang().getTenKhachHang(),hd.getKhachhang().getSdt(),hd.getNhanvien().getTenNhanVien(),tongtien+""};
+			tableModel.addRow(rowData);
+			tongsogiohat+=thoigiandatphong;
+			tongtiendichvu+=tiendichvu;
+			tongtienphong+=tienphong;
+			tonghoadon++;
+			tongdoanhthu+=tongtien;
+
+    	}
+    	doanhthutb=tongdoanhthu/tonghoadon;
+    	txt_tongGioHat.setText((tongsogiohat/60)+"");
+    	txt_tongTienDV.setText(tongtiendichvu+"");
+    	txt_tongTienPhong.setText(tongtienphong+"");
+    	txt_tongHoaDion.setText(tonghoadon+"");
+    	txt_tongDoanhThu.setText(tongdoanhthu+"");
+    	txt_doanhThuTB.setText(doanhthutb+"");
+    	jTable1.setModel(tableModel);
+    }
 }
+
+

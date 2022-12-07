@@ -497,6 +497,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     	if(select == -1) {
         	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
         }
+    	else if(Integer.parseInt(txt_SoLuong.getText())<0) {JOptionPane.showMessageDialog(this,"Số lượng không được âm !!!");}
     	else if (txt_SoLuong.getText()=="") {JOptionPane.showMessageDialog(this,"Chưa nhập số lượng !!!");}
     	else {
         	DichVu dv =dsDichVu.get(select);
@@ -526,21 +527,26 @@ public class CapNhatDichVu extends javax.swing.JFrame {
             			else if(dv.getSoLuong()<Integer.parseInt(txt_SoLuong.getText())) {
             				JOptionPane.showMessageDialog(this,"Số lượng quá lớn !!!");
             			}
+ 
             	}
+            		//
+            	          		          		
+            	
+ //           	
+            }
             	if(f==0) {
-            		if(dv.getSoLuong()>=Integer.parseInt(txt_SoLuong.getText())) {
+            		if(dv.getSoLuong()<Integer.parseInt(txt_SoLuong.getText())) {
+        				JOptionPane.showMessageDialog(this,"Số lượng quá lớn !!!");
+        			}
+        			//(dv.getSoLuong()>=Integer.parseInt(txt_SoLuong.getText())) 
+            		else {
             			dsDichVu1.add(dv);            	
                 		int soluong= Integer.parseInt(txt_SoLuong.getText()) ;
                 		dao.ThemChiTietDichVu(dv, maPhong, soluong);
-                		dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()-Integer.parseInt(txt_SoLuong.getText()));
+                   		dao.UpdateDichVuSauKhiThemBot(dv, dv.getSoLuong()-Integer.parseInt(txt_SoLuong.getText()));
             		}
-            		else if(dv.getSoLuong()<Integer.parseInt(txt_SoLuong.getText())) {
-        				JOptionPane.showMessageDialog(this,"Số lượng quá lớn !!!");
-        			}
-            		
-            	}
-            	
-            }
+        			
+        		} 
         	
         	}
     	}
@@ -555,6 +561,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
     	if(select == -1) {
         	JOptionPane.showMessageDialog(this, "Vui lòng chọn dịch vụ !");
         }
+    	else if(Integer.parseInt(txt_SoLuong.getText())<0) {JOptionPane.showMessageDialog(this,"Số lượng không được âm !!!");}
     	else if (txt_SoLuong.getText()=="") {JOptionPane.showMessageDialog(this,"Chưa nhập số lượng !!!");}
         else {
         	DichVu dv1 =dsDichVu1.get(select);
@@ -583,14 +590,7 @@ public class CapNhatDichVu extends javax.swing.JFrame {
         	 if(f==0) {
         		 dao.Them(dv1);
         	 }
-//        	 if(soluong==0) {
-//        		dao.deleteChiTietDichVu(dv1.getMaDichVu(),maPhong);
-//        		dao.UpdateDichVuSauKhiThemBot(dv1, soluongbot);
-//        	}
-//        	else {
-//        		dao.UpdateBotChiTietDichVu(dv1, maPhong, soluong);
-//        		dao.UpdateDichVuSauKhiThemBot(dv1, soluongbot);
-//        	}
+//        	 
         }
         }
     }

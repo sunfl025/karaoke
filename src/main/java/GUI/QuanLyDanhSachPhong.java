@@ -5,43 +5,73 @@
 package GUI;
 
 import java.awt.Button;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
+import javax.swing.border.Border;
 import javax.swing.event.ChangeListener;
 
+import DAO.ChiTietDatPhong_Dao;
+import DAO.ChiTietTinhTien_dao;
+import DAO.DatTruocPhong_dao;
 import DAO.Phong_dao;
+import Enitity.Authentication;
+import Enitity.ChiTietDatPhong;
+import Enitity.DatTruocPhong;
 import Enitity.Phong;
 
 /**
  *
  * @author vanng
  */
-public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionListener{
+public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionListener,MouseListener{
 
     /**
      * Creates new form QuanLyDanhSachPhong
      */
-	CapNhatDichVu capnhatdichvu = new CapNhatDichVu();
 	Phong_dao ph_dao = new Phong_dao();
+	ChiTietDatPhong_Dao dp_dao = new ChiTietDatPhong_Dao();
+	CapNhatDichVu capnhatdichvu = new CapNhatDichVu();
 	//Tao icon
-	Icon iconPhongCho = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongcho.png");
-	Icon iconPhongTrong = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrong.png");
-	Icon iconPhongDSD = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongdangsudung.png");
-    Icon iconPhongChomini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongchomini.png");
-	Icon iconPhongTrongmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongtrongmini.png");
-	Icon iconPhongDSDmini = new ImageIcon("D:\\HocHanh\\HK1-2022-2023\\BTLon\\backup2\\src\\img\\phongdangsudungmini.png");
+	Icon iconPhongCho = new ImageIcon("img//phongcho.png");
+	Icon iconPhongTrong = new ImageIcon("img//phongtrong.png");
+	Icon iconPhongDSD = new ImageIcon("img//phongdangsudung.png");
+    Icon iconPhongChomini = new ImageIcon("img//phongchomini.png");
+	Icon iconPhongTrongmini = new ImageIcon("img//phongtrongmini.png");
+	Icon iconPhongDSDmini = new ImageIcon("img//phongdangsudungmini.png");
+	private ButtonGroup btnGroup;
 	//Tạo groupButton    ///
-    public QuanLyDanhSachPhong() {
+    public QuanLyDanhSachPhong(Authentication authentication) {
         initComponents();
+        auth = authentication;
     }
+    public QuanLyDanhSachPhong() {
+		// TODO Auto-generated constructor stub
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,54 +108,54 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel16 = new javax.swing.JPanel();
         pnl_p1 = new javax.swing.JPanel();
-        btn_iPhong1 = new javax.swing.JButton();
+        btn_iPhong1 = new javax.swing.JToggleButton();
         btn_iPhong1.setActionCommand("123");
-        btn_phong1 = new javax.swing.JButton();
+        btn_phong1 = new javax.swing.JToggleButton();
         pnl_p2 = new javax.swing.JPanel();
-        btn_iPhong2 = new javax.swing.JButton();
-        btn_phong2 = new javax.swing.JButton();
+        btn_iPhong2 = new JToggleButton();
+        btn_phong2 = new javax.swing.JToggleButton();
         pnl_p3 = new javax.swing.JPanel();
-        btn_iPhong3 = new javax.swing.JButton();
-        btn_phong3 = new javax.swing.JButton();
+        btn_iPhong3 = new javax.swing.JToggleButton();
+        btn_phong3 = new javax.swing.JToggleButton();
         pnl_p4 = new javax.swing.JPanel();
-        btn_iPhong4 = new javax.swing.JButton();
-        btn_phong4 = new javax.swing.JButton();
+        btn_iPhong4 = new javax.swing.JToggleButton();
+        btn_phong4 = new javax.swing.JToggleButton();
         pnl_p5 = new javax.swing.JPanel();
-        btn_iPhong5 = new javax.swing.JButton();
-        btn_phong5 = new javax.swing.JButton();
+        btn_iPhong5 = new javax.swing.JToggleButton();
+        btn_phong5 = new javax.swing.JToggleButton();
         pnl_p6 = new javax.swing.JPanel();
-        btn_iPhong6 = new javax.swing.JButton();
-        btn_phong6 = new javax.swing.JButton();
+        btn_iPhong6 = new javax.swing.JToggleButton();
+        btn_phong6 = new javax.swing.JToggleButton();
         pnl_p7 = new javax.swing.JPanel();
-        btn_iPhong7 = new javax.swing.JButton();
-        btn_phong7 = new javax.swing.JButton();
+        btn_iPhong7 = new javax.swing.JToggleButton();
+        btn_phong7 = new javax.swing.JToggleButton();
         pnl_p8 = new javax.swing.JPanel();
-        btn_iPhong8 = new javax.swing.JButton();
-        btn_phong8 = new javax.swing.JButton();
+        btn_iPhong8 = new javax.swing.JToggleButton();
+        btn_phong8 = new javax.swing.JToggleButton();
         pnl_p9 = new javax.swing.JPanel();
-        btn_iPhong12 = new javax.swing.JButton();
-        btn_phong12 = new javax.swing.JButton();
+        btn_iPhong12 = new javax.swing.JToggleButton();
+        btn_phong12 = new javax.swing.JToggleButton();
         pnl_p10 = new javax.swing.JPanel();
-        btn_iPhong11 = new javax.swing.JButton();
-        btn_phong11 = new javax.swing.JButton();
+        btn_iPhong11 = new javax.swing.JToggleButton();
+        btn_phong11 = new javax.swing.JToggleButton();
         pnl_p11 = new javax.swing.JPanel();
-        btn_iPhong10 = new javax.swing.JButton();
-        btn_phong10 = new javax.swing.JButton();
+        btn_iPhong10 = new javax.swing.JToggleButton();
+        btn_phong10 = new javax.swing.JToggleButton();
         pnl_p12 = new javax.swing.JPanel();
-        btn_iPhong9 = new javax.swing.JButton();
-        btn_phong9 = new javax.swing.JButton();
+        btn_iPhong9 = new javax.swing.JToggleButton();
+        btn_phong9 = new javax.swing.JToggleButton();
         pnl_p13 = new javax.swing.JPanel();
-        btn_iPhong13 = new javax.swing.JButton();
-        btn_phong13 = new javax.swing.JButton();
+        btn_iPhong13 = new javax.swing.JToggleButton();
+        btn_phong13 = new javax.swing.JToggleButton();
         pnl_p14 = new javax.swing.JPanel();
-        btn_iPhong16 = new javax.swing.JButton();
-        btn_phong16 = new javax.swing.JButton();
+        btn_iPhong16 = new javax.swing.JToggleButton();
+        btn_phong16 = new javax.swing.JToggleButton();
         pnl_p15 = new javax.swing.JPanel();
-        btn_iPhong15 = new javax.swing.JButton();
-        btn_phong15 = new javax.swing.JButton();
+        btn_iPhong15 = new javax.swing.JToggleButton();
+        btn_phong15 = new javax.swing.JToggleButton();
         pnl_p16 = new javax.swing.JPanel();
-        btn_iPhong14 = new javax.swing.JButton();
-        btn_phong14 = new javax.swing.JButton();
+        btn_iPhong14 = new javax.swing.JToggleButton();
+        btn_phong14 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
         btn_iconCho = new javax.swing.JButton();
         btn_iconCho.setIcon(iconPhongChomini);
@@ -148,7 +178,12 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
         btn_datPhongCho.setEnabled(false);
         btn_datPhongCho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_datPhongChoActionPerformed(evt);
+                try {
+					btn_datPhongChoActionPerformed(evt);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -268,6 +303,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
 
         buttonGroup1.add(rdo_phongThuong);
         rdo_phongThuong.setText("Phòng thường");
+        rdo_phongThuong.setActionCommand("Phòng thường");
         rdo_phongThuong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_phongThuongActionPerformed(evt);
@@ -276,6 +312,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
 
         buttonGroup1.add(rdo_phongVIP);
         rdo_phongVIP.setText("Phòng VIP");
+        rdo_phongVIP.setActionCommand("Phòng VIP");
         rdo_phongVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_phongVIPActionPerformed(evt);
@@ -306,7 +343,8 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Trạng thái"));
 
         buttonGroup2.add(rdo_dangSD);
-        rdo_dangSD.setText("Đang sử dụng");
+        rdo_dangSD.setText("Phòng đang sử dụng");
+        rdo_dangSD.setActionCommand("Đang sử dụng");
         rdo_dangSD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_dangSDActionPerformed(evt);
@@ -315,6 +353,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
 
         buttonGroup2.add(rdo_phongCho);
         rdo_phongCho.setText("Phòng chờ");
+        rdo_phongCho.setActionCommand("Phòng chờ");
         rdo_phongCho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_phongChoActionPerformed(evt);
@@ -323,6 +362,7 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
 
         buttonGroup2.add(rdo_phongTrong);
         rdo_phongTrong.setText("Phòng trống");
+        rdo_phongTrong.setActionCommand("Phòng trống");
         rdo_phongTrong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdo_phongTrongActionPerformed(evt);
@@ -1349,262 +1389,346 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
+            
         );
+     	
+    	btn_phong1.setEnabled(false);
+     	btn_phong2.setEnabled(false);
+     	btn_phong3.setEnabled(false);
+     	btn_phong4.setEnabled(false);
+     	btn_phong5.setEnabled(false);
+     	btn_phong6.setEnabled(false);
+     	btn_phong7.setEnabled(false);
+     	btn_phong8.setEnabled(false);
+     	btn_phong9.setEnabled(false);
+     	btn_phong10.setEnabled(false);
+     	btn_phong11.setEnabled(false);
+     	btn_phong12.setEnabled(false);
+     	btn_phong13.setEnabled(false);
+     	btn_phong14.setEnabled(false);
+     	btn_phong15.setEnabled(false);
+     	btn_phong16.setEnabled(false);
+    	
+    	btn_iPhong1.setActionCommand("PH0001");
+    	btn_iPhong2.setActionCommand("PH0002");
+    	btn_iPhong3.setActionCommand("PH0003");
+    	btn_iPhong4.setActionCommand("PH0004");
+    	btn_iPhong5.setActionCommand("PH0005");
+    	btn_iPhong6.setActionCommand("PH0006");
+    	btn_iPhong7.setActionCommand("PH0007");
+    	btn_iPhong8.setActionCommand("PH0008");
+    	btn_iPhong9.setActionCommand("PH0009");
+    	btn_iPhong10.setActionCommand("PH0010");
+    	btn_iPhong11.setActionCommand("PH0011");
+    	btn_iPhong12.setActionCommand("PH0012");
+    	btn_iPhong13.setActionCommand("PH0013");
+    	btn_iPhong14.setActionCommand("PH0014");
+    	btn_iPhong15.setActionCommand("PH0015");
+    	btn_iPhong16.setActionCommand("PH0016");
+    	
+    	btnGroup = new ButtonGroup();
+    	
+    	btnGroup.add(btn_iPhong1);
+    	btnGroup.add(btn_iPhong2);
+    	btnGroup.add(btn_iPhong3);
+    	btnGroup.add(btn_iPhong4);
+    	btnGroup.add(btn_iPhong5);
+    	btnGroup.add(btn_iPhong6);
+    	btnGroup.add(btn_iPhong7);
+    	btnGroup.add(btn_iPhong8);
+    	btnGroup.add(btn_iPhong9);
+    	btnGroup.add(btn_iPhong10);
+    	btnGroup.add(btn_iPhong11);
+    	btnGroup.add(btn_iPhong12);
+    	btnGroup.add(btn_iPhong13);
+    	btnGroup.add(btn_iPhong14);
+    	btnGroup.add(btn_iPhong15);
+    	btnGroup.add(btn_iPhong16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timKiemActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_timKiemActionPerformed
 
     private void btn_huyPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_huyPhongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_huyPhongActionPerformed
+    	String ma = btnGroup.getSelection().getActionCommand();
+    	Phong p = ph_dao.findbyId(ma);
+    	String trangThai = "Phòng trống";
+    	Phong up = new Phong(p.getMaPhong(), trangThai);
+    	ph_dao.updateTrangThaiPhong(up);
+    	setEnabledbyId(up.getMaPhong());
+    	setIcon(up.getMaPhong());
+    }
 
     private void btn_datPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datPhong1ActionPerformed
-    	
+    	DatPhong dp = new DatPhong();
+    	dp.setVisible(true);
+    	dp.getValues(btnGroup.getSelection().getActionCommand());
+    	dp.setMa(btnGroup.getSelection().getActionCommand());	
+		
     }//GEN-LAST:event_btn_datPhong1ActionPerformed
-
+    
+    
     private void btn_nhanPhongChoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nhanPhongChoActionPerformed
-        // TODO add your handling code here:
+    	NhanPhongCho npc = new NhanPhongCho(auth);
+    	npc.getValues(btnGroup.getSelection().getActionCommand());
+    	npc.setVisible(true);
+    	npc.setMa(btnGroup.getSelection().getActionCommand());
     }//GEN-LAST:event_btn_nhanPhongChoActionPerformed
+   
+    private void btn_datPhongChoActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {//GEN-FIRST:event_btn_datPhongChoActionPerformed
+    	
+    	DatPhongTruoc dpt = new DatPhongTruoc();
+    	dpt.setMa(btnGroup.getSelection().getActionCommand());
+    	dpt.getValues(btnGroup.getSelection().getActionCommand());
+    	dpt.setVisible(true);
+    	
 
-    private void btn_datPhongChoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datPhongChoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_datPhongChoActionPerformed
+    }
 
     private void btn_phong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong1ActionPerformed
       setEnabledbyId("PH0001");
-      id="PH0001";
     }
 
     private void btn_iPhong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong1ActionPerformed
     	setEnabledbyId("PH0001");
-    	id="PH0001";
     }//GEN-LAST:event_btn_iPhong1ActionPerformed
 
     private void btn_iPhong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong3ActionPerformed
     	setEnabledbyId("PH0003");
-    	id="PH0003";
     }//GEN-LAST:event_btn_iPhong3ActionPerformed
 
     private void btn_iPhong15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong15ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0015");
-    	id="PH0015";
     }//GEN-LAST:event_btn_iPhong15ActionPerformed
 
     private void btn_iPhong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong2ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0002");
-    	id="PH0002";
     }//GEN-LAST:event_btn_iPhong2ActionPerformed
 
     private void btn_phong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong2ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0002");
-    	id="PH0002";
-    	
     }//GEN-LAST:event_btn_phong2ActionPerformed
 
     private void btn_phong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong3ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0003");
-    	id="PH0003";
     }//GEN-LAST:event_btn_phong3ActionPerformed
 
     private void btn_iPhong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong4ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0004");
-    	id="PH0004";
     }//GEN-LAST:event_btn_iPhong4ActionPerformed
 
     private void btn_phong4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong4ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0004");
-    	id="PH0004";
     }//GEN-LAST:event_btn_phong4ActionPerformed
 
     private void btn_iPhong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong5ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0005");
-    	id="PH0005";
     }//GEN-LAST:event_btn_iPhong5ActionPerformed
 
     private void btn_phong5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong5ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0005");
-    	id="PH0005";
     }//GEN-LAST:event_btn_phong5ActionPerformed
 
     private void btn_iPhong6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong6ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0006");
-    	id="PH0006";
     }//GEN-LAST:event_btn_iPhong6ActionPerformed
 
     private void btn_phong6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong6ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0006");
-    	id="PH0006";
     }//GEN-LAST:event_btn_phong6ActionPerformed
 
     private void btn_iPhong7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong7ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0007");
-    	id="PH0007";
     }//GEN-LAST:event_btn_iPhong7ActionPerformed
 
     private void btn_phong7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong7ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0007");
-    	id="PH0007";
     }//GEN-LAST:event_btn_phong7ActionPerformed
 
     private void btn_iPhong8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong8ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0008");
-    	id="PH0008";
     }//GEN-LAST:event_btn_iPhong8ActionPerformed
 
     private void btn_phong8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong8ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0008");
-    	id="PH0008";
     }//GEN-LAST:event_btn_phong8ActionPerformed
 
     private void btn_iPhong12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong12ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0012");
-    	id="PH0012";
     }//GEN-LAST:event_btn_iPhong12ActionPerformed
 
     private void btn_phong12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong12ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0012");
-    	id="PH0012";
     }//GEN-LAST:event_btn_phong12ActionPerformed
 
     private void btn_iPhong11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong11ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0011");
-    	id="PH0011";
     }//GEN-LAST:event_btn_iPhong11ActionPerformed
 
     private void btn_phong11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong11ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0011");
-    	id="PH0011";
     }//GEN-LAST:event_btn_phong11ActionPerformed
 
     private void btn_iPhong10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong10ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0010");
-    	id="PH0010";
     }//GEN-LAST:event_btn_iPhong10ActionPerformed
 
     private void btn_phong10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong10ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0010");
-    	id="PH0010";
     }//GEN-LAST:event_btn_phong10ActionPerformed
 
     private void btn_iPhong9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong9ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0009");
-    	id="PH0009";
     }//GEN-LAST:event_btn_iPhong9ActionPerformed
 
     private void btn_phong9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong9ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0009");
-    	id="PH0009";
     }//GEN-LAST:event_btn_phong9ActionPerformed
 
     private void btn_iPhong13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong13ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0013");
-    	id="PH0013";
     }//GEN-LAST:event_btn_iPhong13ActionPerformed
 
     private void btn_phong13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong13ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0013");
-    	id="PH0013";
     }//GEN-LAST:event_btn_phong13ActionPerformed
 
     private void btn_iPhong16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong16ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0016");
-    	id="PH0016";
     }//GEN-LAST:event_btn_iPhong16ActionPerformed
 
     private void btn_phong16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong16ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0016");
-    	id="PH0016";
     }//GEN-LAST:event_btn_phong16ActionPerformed
 
     private void btn_phong15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong15ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0015");
-    	id="PH0015";
     }//GEN-LAST:event_btn_phong15ActionPerformed
 
     private void btn_iPhong14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iPhong14ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0014");
-    	id="PH0014";
     }//GEN-LAST:event_btn_iPhong14ActionPerformed
 
     private void btn_phong14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_phong14ActionPerformed
         // TODO add your handling code here:
     	setEnabledbyId("PH0014");
-    	id="PH0014";
     }//GEN-LAST:event_btn_phong14ActionPerformed
 
     private void btn_xemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xemPhongActionPerformed
-        // TODO add your handling code here:
+       ChiTietPhong ctp = new ChiTietPhong();
+       ctp.setVisible(true);
+       ctp.setValues(btnGroup.getSelection().getActionCommand());
+       ctp.setMa(btnGroup.getSelection().getActionCommand());
     }//GEN-LAST:event_btn_xemPhongActionPerformed
-    
-/// đẩy id vào set ID
-    private void btn_dichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dichVuActionPerformed
 
-    	capnhatdichvu.setId(id);
-        capnhatdichvu.setVisible(true);
+    private void btn_dichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dichVuActionPerformed
+       capnhatdichvu.setVisible(true);
+       capnhatdichvu.setId(btnGroup.getSelection().getActionCommand());
+       
     }//GEN-LAST:event_btn_dichVuActionPerformed
-///
+
+	private void getPhongByTrangThai(String trangThai) {
+		List<Phong> dsp = Phong_dao.findPhongByTrangThai(trangThai);
+		for (Phong p : dsp) {
+			for (Enumeration<AbstractButton> btn = btnGroup.getElements(); btn.hasMoreElements();) {
+				AbstractButton button = btn.nextElement();
+				if (button.getActionCommand().equals(p.getMaPhong())) {
+					Border border = BorderFactory.createLineBorder(Color.BLUE);
+					button.setBorder(border);
+				}
+			}
+		}
+	}
+	
     private void btn_tinhTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tinhTienActionPerformed
-        // TODO add your handling code here:
+        DatPhong datPhong = new DatPhong();
+    	ChiTietTinhTien cttt = new ChiTietTinhTien(auth);
+        cttt.setVisible(true);
+   	 	cttt.setValues(btnGroup.getSelection().getActionCommand());
+   	 	cttt.setMa(btnGroup.getSelection().getActionCommand());
+
+        if(loai.equals("DP"))
+        {
+             ChiTietDatPhong dp = ChiTietDatPhong_Dao.findMaDatPByMaPhong(btnGroup.getSelection().getActionCommand());
+             ChiTietTinhTien_dao.updateThoiGianRa(dp);
+        }else if(loai.equals("DPT")) {
+       	 	cttt.setValues(btnGroup.getSelection().getActionCommand());
+       	 	DatTruocPhong dtp = ChiTietTinhTien_dao.findDTP(btnGroup.getSelection().getActionCommand(), Date.valueOf(LocalDate.now()));
+       	 	DatTruocPhong_dao.updateGioNhanPhong(dtp);
+        }
     }//GEN-LAST:event_btn_tinhTienActionPerformed
 
     private void rdo_phongThuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongThuongActionPerformed
-        // TODO add your handling code here:
+    	
     }//GEN-LAST:event_rdo_phongThuongActionPerformed
 
     private void rdo_phongVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongVIPActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_rdo_phongVIPActionPerformed
 
     private void rdo_dangSDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_dangSDActionPerformed
-        // TODO add your handling code here:
+    	
+    	getPhongByTrangThai(buttonGroup2.getSelection().getActionCommand());
     }//GEN-LAST:event_rdo_dangSDActionPerformed
 
     private void rdo_phongChoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongChoActionPerformed
-        // TODO add your handling code here:
+    	getPhongByTrangThai(buttonGroup2.getSelection().getActionCommand());
     }//GEN-LAST:event_rdo_phongChoActionPerformed
 
     private void rdo_phongTrongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_phongTrongActionPerformed
-        // TODO add your handling code here:
+    	getPhongByTrangThai(buttonGroup2.getSelection().getActionCommand());
     }//GEN-LAST:event_rdo_phongTrongActionPerformed
 
     private void btn_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timKiemActionPerformed
-        // TODO add your handling code here:
+    	String input = txt_timKiem.getText();
+        Phong p = Phong_dao.findIdByTen(input);
+        for(Enumeration<AbstractButton>btn = btnGroup.getElements();btn.hasMoreElements();) {
+			AbstractButton button = btn.nextElement();
+			if(button.getActionCommand().equals(p.getMaPhong())) {
+				button.setSelected(true);
+			}
+		}
     }//GEN-LAST:event_btn_timKiemActionPerformed
 
     private void btn_lamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lamMoiActionPerformed
-        // TODO add your handling code here:
+    	setIcon(btnGroup.getSelection().getActionCommand());
+        setEnabledbyId(btnGroup.getSelection().getActionCommand());
     }//GEN-LAST:event_btn_lamMoiActionPerformed
-    public void listSetEnabled() {
+  
+    public void lamMoi(String maPhong) {
+    	setEnabledbyId(maPhong);
+    	setIcon(maPhong);
+    }
+	public void listSetEnabled() {
     	ArrayList<Phong> listPhong = ph_dao.getAllPhong();
     	for(Phong p : listPhong) {
     		setEnabledbyId(p.getMaPhong());
@@ -1642,45 +1766,71 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
     		btn_tinhTien.setEnabled(false);
     	}
     }
+    //Lay ActionCommand
+    public String getSelected(ButtonGroup btnGroup) {
+		for(Enumeration<AbstractButton>btn = btnGroup.getElements();btn.hasMoreElements();) {
+			AbstractButton button = btn.nextElement();
+			if(button.getActionCommand().equals("Phòng 1")) {
+				button.setSelected(true);
+			}
+		}
+		return null;
+	}
+    public void setIcon(String maPhong) {
+    	  Phong p = ph_dao.findbyId(maPhong);	
+    	  for(Enumeration<AbstractButton>btn = btnGroup.getElements();btn.hasMoreElements();) {
+  			AbstractButton button = btn.nextElement();
+  			if(button.getActionCommand().equals(maPhong)) {
+  				if(p.getTrangThai().equals("Phòng trống"))
+  		    		button.setIcon(iconPhongTrong);
+  		    	else if(p.getTrangThai().equals("Phòng đang sử dụng"))
+  		    		button.setIcon(iconPhongDSD);
+  		    	else if(p.getTrangThai().equals("Phòng chờ")) 
+  		    		button.setIcon(iconPhongCho);
+  			}
+    	  }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_datPhong1;
     private javax.swing.JButton btn_datPhongCho;
     private javax.swing.JButton btn_dichVu;
     private javax.swing.JButton btn_huyPhong;
-    private javax.swing.JButton btn_iPhong1;
-    private javax.swing.JButton btn_iPhong10;
-    private javax.swing.JButton btn_iPhong11;
-    private javax.swing.JButton btn_iPhong12;
-    private javax.swing.JButton btn_iPhong13;
-    private javax.swing.JButton btn_iPhong14;
-    private javax.swing.JButton btn_iPhong15;
-    private javax.swing.JButton btn_iPhong16;
-    private javax.swing.JButton btn_iPhong2;
-    private javax.swing.JButton btn_iPhong3;
-    private javax.swing.JButton btn_iPhong4;
-    private javax.swing.JButton btn_iPhong5;
-    private javax.swing.JButton btn_iPhong6;
-    private javax.swing.JButton btn_iPhong7;
-    private javax.swing.JButton btn_iPhong8;
-    private javax.swing.JButton btn_iPhong9;
+    
+    
+    private JToggleButton btn_iPhong1;
+    private JToggleButton btn_iPhong10;
+    private JToggleButton btn_iPhong11;
+    private JToggleButton btn_iPhong12;
+    private JToggleButton btn_iPhong13;
+    private JToggleButton btn_iPhong14;
+    private JToggleButton btn_iPhong15;
+    private JToggleButton btn_iPhong16;
+    private JToggleButton btn_iPhong2;
+    private JToggleButton btn_iPhong3;
+    private JToggleButton btn_iPhong4;
+    private JToggleButton btn_iPhong5;
+    private JToggleButton btn_iPhong6;
+    private JToggleButton btn_iPhong7;
+    private JToggleButton btn_iPhong8;
+    private JToggleButton btn_iPhong9;
     private javax.swing.JButton btn_lamMoi;
     private javax.swing.JButton btn_nhanPhongCho;
-    private javax.swing.JButton btn_phong1;
-    private javax.swing.JButton btn_phong10;
-    private javax.swing.JButton btn_phong11;
-    private javax.swing.JButton btn_phong12;
-    private javax.swing.JButton btn_phong13;
-    private javax.swing.JButton btn_phong14;
-    private javax.swing.JButton btn_phong15;
-    private javax.swing.JButton btn_phong16;
-    private javax.swing.JButton btn_phong2;
-    private javax.swing.JButton btn_phong3;
-    private javax.swing.JButton btn_phong4;
-    private javax.swing.JButton btn_phong5;
-    private javax.swing.JButton btn_phong6;
-    private javax.swing.JButton btn_phong7;
-    private javax.swing.JButton btn_phong8;
-    private javax.swing.JButton btn_phong9;
+    private JToggleButton btn_phong1;
+    private JToggleButton btn_phong10;
+    private JToggleButton btn_phong11;
+    private JToggleButton btn_phong12;
+    private JToggleButton btn_phong13;
+    private JToggleButton btn_phong14;
+    private JToggleButton btn_phong15;
+    private JToggleButton btn_phong16;
+    private JToggleButton btn_phong2;
+    private JToggleButton btn_phong3;
+    private JToggleButton btn_phong4;
+    private JToggleButton btn_phong5;
+    private JToggleButton btn_phong6;
+    private JToggleButton btn_phong7;
+    private JToggleButton btn_phong8;
+    private JToggleButton btn_phong9;
     private javax.swing.JButton btn_timKiem;
     private javax.swing.JButton btn_tinhTien;
     private javax.swing.JButton btn_xemPhong;
@@ -1724,14 +1874,53 @@ public class QuanLyDanhSachPhong extends javax.swing.JPanel implements ActionLis
     private javax.swing.JRadioButton rdo_phongTrong;
     private javax.swing.JRadioButton rdo_phongVIP;
     private javax.swing.JTextPane txt_timKiem;
-    private String id;
+    private static String loai;
     
+	public static String getLoai() {
+		return loai;
+	}
+	public static void setLoai(String loai) {
+		QuanLyDanhSachPhong.loai = loai;
+	}
+	private static Authentication auth;
+
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object o = e.getSource();
-        
+		
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
     
     // End of variables declaration//GEN-END:variables

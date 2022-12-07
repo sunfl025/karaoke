@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import javax.swing.ImageIcon;
+
 import Enitity.Authentication;
 
 /**
@@ -42,9 +44,10 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPaneMenuMain = new javax.swing.JTabbedPane();
+        panel_trangchu = new javax.swing.JPanel();
+        lbl_img = new javax.swing.JLabel();
         jMenuBarMain = new javax.swing.JMenuBar();
         jMenu_hethong = new javax.swing.JMenu();
-        jMenuItem_trangchu = new javax.swing.JMenuItem();
         jMenuItem_taikhoan = new javax.swing.JMenuItem();
         jMenuItem_trogiup = new javax.swing.JMenuItem();
         jMenuItem_dangxuat = new javax.swing.JMenuItem();
@@ -63,27 +66,57 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem_tkKhachhang = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Quán karaoke");
+        setTitle("Quán karaoke KOKO");
+        setBackground(new java.awt.Color(204, 204, 255));
         setLocation(new java.awt.Point(300, 120));
 
-        jMenuBarMain.setBackground(new java.awt.Color(204, 204, 204));
+        jTabbedPaneMenuMain.setBackground(new java.awt.Color(204, 204, 204));
 
+        panel_trangchu.setBackground(new java.awt.Color(0, 0, 0));
+
+        lbl_img.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_img.setIcon(new javax.swing.ImageIcon("img/background-quan-karaoke_091206757.jpg")); // NOI18N
+        lbl_img.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout panel_trangchuLayout = new javax.swing.GroupLayout(panel_trangchu);
+        panel_trangchu.setLayout(panel_trangchuLayout);
+        panel_trangchuLayout.setHorizontalGroup(
+            panel_trangchuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_trangchuLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(lbl_img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(61, 61, 61))
+        );
+        panel_trangchuLayout.setVerticalGroup(
+            panel_trangchuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_trangchuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_img, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        
+        ImageIcon icon_trangchu = new ImageIcon("img/home2.png");
+        jTabbedPaneMenuMain.addTab("Trang chủ",icon_trangchu, panel_trangchu,"Trang chủ");
+
+        jMenuBarMain.setBackground(new java.awt.Color(153, 153, 255));
+        jMenuBarMain.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jMenu_hethong.setIcon(new javax.swing.ImageIcon("img/parts-maintenance-32.png")); // NOI18N
         jMenu_hethong.setText("Hệ thống");
 
-        jMenuItem_trangchu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem_trangchu.setText("Trang chủ");
-        jMenuItem_trangchu.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_taikhoan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_taikhoan.setIcon(new javax.swing.ImageIcon("img/account-center-1-32.png")); // NOI18N
+        jMenuItem_taikhoan.setText("Tài khoản");
+        jMenuItem_taikhoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_trangchuActionPerformed(evt);
+                jMenuItem_taikhoanActionPerformed(evt);
             }
         });
-        jMenu_hethong.add(jMenuItem_trangchu);
-
-        jMenuItem_taikhoan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem_taikhoan.setText("Tài khoản");
         jMenu_hethong.add(jMenuItem_taikhoan);
 
         jMenuItem_trogiup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_trogiup.setIcon(new javax.swing.ImageIcon("img/Actions-help-about-icon-32.png")); // NOI18N
         jMenuItem_trogiup.setText("Trợ giúp");
         jMenuItem_trogiup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +126,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu_hethong.add(jMenuItem_trogiup);
 
         jMenuItem_dangxuat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_dangxuat.setIcon(new javax.swing.ImageIcon("img/logout-icon-32.png")); // NOI18N
         jMenuItem_dangxuat.setText("Đăng xuất");
         jMenuItem_dangxuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +136,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu_hethong.add(jMenuItem_dangxuat);
 
         jMenuItem_thoat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem_thoat.setIcon(new javax.swing.ImageIcon("img/exit-8-32.png")); // NOI18N
         jMenuItem_thoat.setText("Thoát");
         jMenuItem_thoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +147,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBarMain.add(jMenu_hethong);
 
+        jMenu_danhmuc.setIcon(new javax.swing.ImageIcon("img/List.png")); // NOI18N
         jMenu_danhmuc.setText("Danh mục");
 
+        jMenuItem_hoadon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_hoadon.setIcon(new javax.swing.ImageIcon("img/bill-5-32.png")); // NOI18N
         jMenuItem_hoadon.setText("Hóa đơn");
         jMenuItem_hoadon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +160,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu_danhmuc.add(jMenuItem_hoadon);
 
+        jMenuItem_khachhang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_khachhang.setIcon(new javax.swing.ImageIcon("img/customer-47-32.png")); // NOI18N
         jMenuItem_khachhang.setText("Khách hàng");
         jMenuItem_khachhang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +170,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu_danhmuc.add(jMenuItem_khachhang);
 
-        jMenuItem_nhanvien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_nhanvien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_nhanvien.setIcon(new javax.swing.ImageIcon("img/customer-service-81-32.png")); // NOI18N
         jMenuItem_nhanvien.setText("Nhân viên");
         jMenuItem_nhanvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +180,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu_danhmuc.add(jMenuItem_nhanvien);
 
+        jMenuItem_dichvu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_dichvu.setIcon(new javax.swing.ImageIcon("img/service-76-32.png")); // NOI18N
         jMenuItem_dichvu.setText("Dịch vụ");
         jMenuItem_dichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,8 +192,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBarMain.add(jMenu_danhmuc);
 
+        jMenu_xuli.setIcon(new javax.swing.ImageIcon("img/Actions-document-edit-icon-32.png")); // NOI18N
         jMenu_xuli.setText("Xử lí");
 
+        jMenuItem_dsphong.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_dsphong.setIcon(new javax.swing.ImageIcon("img/karaoke-32.png")); // NOI18N
         jMenuItem_dsphong.setText("Đặt phòng hát");
         jMenuItem_dsphong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,8 +207,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBarMain.add(jMenu_xuli);
 
+        jMenu_timkiem.setIcon(new javax.swing.ImageIcon("img/search-icon-32.png")); // NOI18N
         jMenu_timkiem.setText("Tìm kiếm");
 
+        jMenuItem_phieudatphong.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_phieudatphong.setIcon(new javax.swing.ImageIcon("img/bill-of-lading-32.png")); // NOI18N
         jMenuItem_phieudatphong.setText("phiếu đặt phòng");
         jMenuItem_phieudatphong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,8 +222,12 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBarMain.add(jMenu_timkiem);
 
+        jMenu_thongke.setIcon(new javax.swing.ImageIcon("img/Statistics.png")); // NOI18N
         jMenu_thongke.setText("Thống kê");
 
+        jMenuItem_doanhthu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem_doanhthu.setBackground(new java.awt.Color(204, 204, 255));
+        jMenuItem_doanhthu.setIcon(new javax.swing.ImageIcon("img/wallet-45-32.png")); // NOI18N
         jMenuItem_doanhthu.setText("Doanh thu");
         jMenuItem_doanhthu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +236,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu_thongke.add(jMenuItem_doanhthu);
 
+        jMenuItem_tkKhachhang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem_tkKhachhang.setIcon(new javax.swing.ImageIcon("img/cooperation-32.png")); // NOI18N
         jMenuItem_tkKhachhang.setText("Khách hàng");
         jMenuItem_tkKhachhang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,11 +254,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMenuMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
+            .addComponent(jTabbedPaneMenuMain)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMenuMain, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+            .addComponent(jTabbedPaneMenuMain, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -213,57 +268,59 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem_trogiupActionPerformed
 
-    private void jMenuItem_hoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_hoadonActionPerformed
-        if(panelquanlihoadon == null)
-        {
-            panelquanlihoadon = new QuanLyHoaDon();
-            jTabbedPaneMenuMain.addTab("Quản lí hóa đơn",panelquanlihoadon);
-        }
-        jTabbedPaneMenuMain.setSelectedComponent(panelquanlihoadon);
-    }//GEN-LAST:event_jMenuItem_hoadonActionPerformed
-
-    private void jMenuItem_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nhanvienActionPerformed
-       if(panelquanlinhanvien == null)
-       {
-           panelquanlinhanvien = new QuanLyNhanVien(taikhoandangnhap);
-            jTabbedPaneMenuMain.addTab("Quản lí nhân viên", panelquanlinhanvien);
-           
-       }
-        jTabbedPaneMenuMain.setSelectedComponent(panelquanlinhanvien);
-    }//GEN-LAST:event_jMenuItem_nhanvienActionPerformed
+  
+   
 
     private void jMenuItem_thoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_thoatActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem_thoatActionPerformed
 
-    private void jMenuItem_trangchuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_trangchuActionPerformed
-       
-    }//GEN-LAST:event_jMenuItem_trangchuActionPerformed
-
     private void jMenuItem_dangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_dangxuatActionPerformed
         Dangnhap logout = new Dangnhap();
+        this.setVisible(false);
         logout.setVisible(true);
         
         
         
+        
     }//GEN-LAST:event_jMenuItem_dangxuatActionPerformed
-
+    private void jMenuItem_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nhanvienActionPerformed
+        if(panelquanlinhanvien == null)
+        {
+            panelquanlinhanvien = new QuanLyNhanVien(taikhoandangnhap);
+            ImageIcon icon_nv = new ImageIcon("img/customer-service-81-32.png");
+             jTabbedPaneMenuMain.addTab("Quản lí nhân viên",icon_nv, panelquanlinhanvien,"Quản lí nhân viên");
+            
+        }
+         jTabbedPaneMenuMain.setSelectedComponent(panelquanlinhanvien);
+     }//GEN-LAST:event_jMenuItem_nhanvienActionPerformed
     private void jMenuItem_dichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_dichvuActionPerformed
         if(panelquanlidichvu == null)
         {
             panelquanlidichvu  = new QuanLyDichVu();
-            jTabbedPaneMenuMain.addTab("Quản lí dịch vụ", panelquanlidichvu);
+            ImageIcon icon_dv = new ImageIcon("img/service-76-32.png");
+            jTabbedPaneMenuMain.addTab("Quản lí dịch vụ",icon_dv, panelquanlidichvu,"Quản lí dịch vụ");
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelquanlidichvu );
         
         
     }//GEN-LAST:event_jMenuItem_dichvuActionPerformed
+    private void jMenuItem_hoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_hoadonActionPerformed
+        if(panelquanlihoadon == null)
+        {
+            panelquanlihoadon = new QuanLyHoaDon();
+            ImageIcon icon_hd = new ImageIcon("img/bill-5-32.png");
+            jTabbedPaneMenuMain.addTab("Quản lí hóa đơn", icon_hd,panelquanlihoadon,"Quản lí hóa đơn");
+        }
+        jTabbedPaneMenuMain.setSelectedComponent(panelquanlihoadon);
+    }//GEN-LAST:event_jMenuItem_hoadonActionPerformed
 
     private void jMenuItem_khachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_khachhangActionPerformed
        if(panelquanlikhachhang== null)
         {
             panelquanlikhachhang  = new QuanLyKhachHang();
-            jTabbedPaneMenuMain.addTab("Quản lí khách hàng", panelquanlikhachhang);
+            ImageIcon icon_kh = new ImageIcon("img/customer-47-32.png");
+            jTabbedPaneMenuMain.addTab("Quản lí khách hàng",icon_kh, panelquanlikhachhang,"Quản lí khách hàng");
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelquanlikhachhang );
         
@@ -272,8 +329,10 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem_dsphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_dsphongActionPerformed
         if(panelquanlidsphong == null)
         {
-            panelquanlidsphong = new QuanLyDanhSachPhong();
-            jTabbedPaneMenuMain.addTab("Quản lí danh sách phòng", panelquanlidsphong);
+        	///New
+            panelquanlidsphong = new QuanLyDanhSachPhong(auth);
+            ImageIcon icon_dsphong = new ImageIcon("img/karaoke-32.png");
+            jTabbedPaneMenuMain.addTab("Quản lí danh sách phòng",icon_dsphong, panelquanlidsphong,"Quản lí danh sách phòng");
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelquanlidsphong);
     }//GEN-LAST:event_jMenuItem_dsphongActionPerformed
@@ -282,7 +341,8 @@ public class Menu extends javax.swing.JFrame {
          if(panelthongkedoanhthu == null)
         {
             panelthongkedoanhthu = new ThongKe();
-            jTabbedPaneMenuMain.addTab("Thống kê doanh thu", panelthongkedoanhthu); 
+            ImageIcon icon_dt = new ImageIcon("img/wallet-45-32.png");
+            jTabbedPaneMenuMain.addTab("Thống kê doanh thu",icon_dt, panelthongkedoanhthu,"Thống kê doanh thu"); 
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelthongkedoanhthu);
     }//GEN-LAST:event_jMenuItem_doanhthuActionPerformed
@@ -291,7 +351,8 @@ public class Menu extends javax.swing.JFrame {
         if(panelthongkekhachhang == null)
         {
             panelthongkekhachhang = new ThongKeKhachHang();
-            jTabbedPaneMenuMain.addTab("Thống kê khách hàng", panelthongkekhachhang);
+            ImageIcon icon_tkkh = new ImageIcon("img/cooperation-32.png");
+            jTabbedPaneMenuMain.addTab("Thống kê khách hàng",icon_tkkh, panelthongkekhachhang,"Thống kê khách hàng");
         }
         jTabbedPaneMenuMain.setSelectedComponent(panelthongkekhachhang);
     }//GEN-LAST:event_jMenuItem_tkKhachhangActionPerformed
@@ -300,10 +361,16 @@ public class Menu extends javax.swing.JFrame {
         if(paneltimkiem == null)
         {
             paneltimkiem = new QuanLyTimKiem();
-            jTabbedPaneMenuMain.addTab("Tìm phiếu đặt phòng", paneltimkiem);
+            ImageIcon icon_tkiem = new ImageIcon("img/bill-of-lading-32.png");
+            jTabbedPaneMenuMain.addTab("Tìm phiếu đặt phòng",icon_tkiem, paneltimkiem,"Tìm phiếu đặt phòng");
         }
         jTabbedPaneMenuMain.setSelectedComponent(paneltimkiem);
     }//GEN-LAST:event_jMenuItem_phieudatphongActionPerformed
+
+    private void jMenuItem_taikhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_taikhoanActionPerformed
+        Taikhoan taikhoan = new Taikhoan(auth);
+        taikhoan.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_taikhoanActionPerformed
      
     /**
      * @param args the command line arguments
@@ -354,7 +421,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_taikhoan;
     private javax.swing.JMenuItem jMenuItem_thoat;
     private javax.swing.JMenuItem jMenuItem_tkKhachhang;
-    private javax.swing.JMenuItem jMenuItem_trangchu;
     private javax.swing.JMenuItem jMenuItem_trogiup;
     private javax.swing.JMenu jMenu_danhmuc;
     private javax.swing.JMenu jMenu_hethong;
@@ -362,7 +428,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_timkiem;
     private javax.swing.JMenu jMenu_xuli;
     private javax.swing.JTabbedPane jTabbedPaneMenuMain;
+    private javax.swing.JLabel lbl_img;
+    private javax.swing.JPanel panel_trangchu;
+    // End of variables declaration//GEN-END:variables
+
 	private Authentication taikhoandangnhap = null;
 	private static Authentication auth = null;
-    // End of variables declaration//GEN-END:variables
 }

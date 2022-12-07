@@ -47,11 +47,9 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         txt_SDT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         rdo_Nam = new javax.swing.JRadioButton();
         rdo_Nu = new javax.swing.JRadioButton();
         cbo_ChucVu = new javax.swing.JComboBox<>();
-        txt_Luong = new javax.swing.JTextField();
         btn_Huy = new javax.swing.JButton();
         btn_Them = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
@@ -83,8 +81,6 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
 
         jLabel2.setText("Chức vụ :");
 
-        jLabel3.setText("Lương :");
-
         buttonGroup1.add(rdo_Nam);
         rdo_Nam.setSelected(true);
         rdo_Nam.setText("Nam");
@@ -102,13 +98,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
             }
         });
 
-        cbo_ChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên tiếp tân", "Quảng trị viên", "Quản trị hệ thống" }));
-
-        txt_Luong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_LuongActionPerformed(evt);
-            }
-        });
+        cbo_ChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên tiếp tân", "Quản trị viên", "Quản trị hệ thống" }));
 
         btn_Huy.setIcon(new javax.swing.ImageIcon("D:\\PTUD\\karaoke\\img\\Delete.png")); // NOI18N
         btn_Huy.setText("Hủy");
@@ -146,8 +136,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
                             .addComponent(lbl_manv)
                             .addComponent(lbl_tennv, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -156,8 +145,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
                                 .addComponent(rdo_Nu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txt_TenNhanVien)
                             .addComponent(txt_SDT)
-                            .addComponent(cbo_ChucVu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_Luong)))
+                            .addComponent(cbo_ChucVu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btn_Huy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(112, 112, 112)
@@ -186,11 +174,7 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cbo_ChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_Luong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Huy)
                     .addComponent(btn_Them)
@@ -250,13 +234,12 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
 		
 		String sdt = txt_SDT.getText();
 		String chucVu = cbo_ChucVu.getSelectedItem().toString();
-		double luong = Double.parseDouble(txt_Luong.getText());
 	    TaiKhoan taikhoan = new TaiKhoan(auth.getTaikhoan().getTenDangNhap());
-		NhanVien nhanvien = new NhanVien(maNhanVien, tenNhanVien, gioiTinh, sdt, chucVu, luong,taikhoan );
+		NhanVien nhanvien = new NhanVien(maNhanVien, tenNhanVien, gioiTinh, sdt, chucVu, taikhoan );
 		
 		
 		if (maNhanVien.equalsIgnoreCase("") || tenNhanVien.equalsIgnoreCase("") || gioiTinh.equalsIgnoreCase("")
-				|| sdt.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ){
+				|| sdt.equalsIgnoreCase("") ||chucVu.equalsIgnoreCase("") ){
 			JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ thông tin");
 			return;
 		} else {
@@ -276,14 +259,9 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdo_NuActionPerformed
 
-    private void txt_LuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LuongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_LuongActionPerformed
-
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
         txt_TenNhanVien.setText("");
         txt_SDT.setText("");
-        txt_Luong.setText("");
     	
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
@@ -353,7 +331,6 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbo_ChucVu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_manv;
@@ -361,10 +338,8 @@ public class ThemThongTinNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_themnhanvien;
     private javax.swing.JRadioButton rdo_Nam;
     private javax.swing.JRadioButton rdo_Nu;
-    private javax.swing.JTextField txt_Luong;
     private javax.swing.JTextField txt_SDT;
     private javax.swing.JTextField txt_TenNhanVien;
     private static Authentication auth = null ;
-    
     // End of variables declaration//GEN-END:variables
 }

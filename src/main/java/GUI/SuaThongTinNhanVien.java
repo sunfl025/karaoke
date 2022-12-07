@@ -7,9 +7,12 @@ package GUI;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.html.HTMLEditorKit.Parser;
 
+import DAO.KhachHang_dao;
 import DAO.NhanVien_dao;
 import Enitity.Authentication;
+import Enitity.KhachHang;
 import Enitity.NhanVien;
 import Enitity.TaiKhoan;
 
@@ -48,13 +51,11 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
         txt_SDT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         rdo_Nam = new javax.swing.JRadioButton();
         rdo_Nu = new javax.swing.JRadioButton();
         cbo_ChucVu = new javax.swing.JComboBox<>();
-        txt_Luong = new javax.swing.JTextField();
         btn_Huy = new javax.swing.JButton();
-        btn_capNhat = new javax.swing.JButton();
+        btn_Them = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txt_maNhanVien = new javax.swing.JTextField();
@@ -86,8 +87,6 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
 
         jLabel2.setText("Chức vụ :");
 
-        jLabel3.setText("Lương :");
-
         buttonGroup1.add(rdo_Nam);
         rdo_Nam.setSelected(true);
         rdo_Nam.setText("Nam");
@@ -105,13 +104,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
             }
         });
 
-        cbo_ChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên tiếp tân", "Quảng trị viên", "Quản trị hệ thống" }));
-
-        txt_Luong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_LuongActionPerformed(evt);
-            }
-        });
+        cbo_ChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên tiếp tân", "Quản trị viên", "Quản trị hệ thống" }));
 
         btn_Huy.setText("Hủy");
         btn_Huy.addActionListener(new java.awt.event.ActionListener() {
@@ -120,10 +113,10 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
             }
         });
 
-        btn_capNhat.setText("Cập nhật");
-        btn_capNhat.addActionListener(new java.awt.event.ActionListener() {
+        btn_Them.setText("Cập nhật");
+        btn_Them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_capNhatActionPerformed(evt);
+                btn_ThemActionPerformed(evt);
             }
         });
 
@@ -156,8 +149,7 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lbl_manv)
                                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(13, 13, 13))
                                     .addComponent(lbl_tennv, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,14 +165,13 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
                                             .addComponent(txt_TenNhanVien)
                                             .addComponent(txt_SDT)
                                             .addComponent(cbo_ChucVu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txt_Luong)
                                             .addComponent(txt_maNhanVien)))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btn_Huy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(112, 112, 112)
                                 .addComponent(btn_LamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_capNhat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(btn_Them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(31, 31, 31))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,14 +198,10 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cbo_ChucVu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Luong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(32, 32, 32)
+                .addGap(85, 85, 85)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Huy)
-                    .addComponent(btn_capNhat)
+                    .addComponent(btn_Them)
                     .addComponent(btn_LamMoi))
                 .addGap(24, 24, 24))
         );
@@ -267,20 +254,20 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdo_NuActionPerformed
 
-    private void txt_LuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LuongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_LuongActionPerformed
-
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-        // TODO add your handling code here:
+        txt_maNhanVien.setText("");
+        txt_SDT.setText("");
+        txt_TenNhanVien.setText("");
+      
+       
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
-    private void btn_capNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capNhatActionPerformed
-    	
+    private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capNhatActionPerformed
+    	sua();
     }//GEN-LAST:event_btn_capNhatActionPerformed
 
     private void btn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_HuyActionPerformed
-        // TODO add your handling code here:
+    	this.dispose();
     }//GEN-LAST:event_btn_HuyActionPerformed
 
     /**
@@ -329,12 +316,11 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Huy;
     private javax.swing.JButton btn_LamMoi;
-    private javax.swing.JButton btn_capNhat;
+    private javax.swing.JButton btn_Them;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbo_ChucVu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -343,11 +329,11 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_themnhanvien;
     private javax.swing.JRadioButton rdo_Nam;
     private javax.swing.JRadioButton rdo_Nu;
-    private javax.swing.JTextField txt_Luong;
     private javax.swing.JTextField txt_SDT;
     private javax.swing.JTextField txt_TenNhanVien;
     private javax.swing.JTextField txt_maNhanVien;
     // End of variables declaration//GEN-END:variables
+    
 	public void setEditData(NhanVien nhanVien) {
 		txt_maNhanVien.setText(nhanVien.getMaNhanVien());
 		txt_TenNhanVien.setText(nhanVien.getTenNhanVien());
@@ -359,7 +345,33 @@ public class SuaThongTinNhanVien extends javax.swing.JFrame {
 			rdo_Nam.setSelected(true);
 		
 		cbo_ChucVu.setSelectedItem(nhanVien.getChucVu());
-		Double luong = nhanVien.getLuong();
-		txt_Luong.setText(String.valueOf(luong));
+		
+		
+	}
+	
+	private void sua() {
+		String manv= txt_maNhanVien.getText();
+		String tennv = txt_TenNhanVien.getText();
+		String sdt = txt_SDT.getText();
+		String gioiTinh;
+		if(rdo_Nam.isSelected())
+			gioiTinh = rdo_Nam.getText().toString();
+		else
+			gioiTinh = rdo_Nu.getText().toString();
+		String chucvu = cbo_ChucVu.getSelectedItem().toString();
+		
+		TaiKhoan taikhoan = new TaiKhoan(auth.getTaikhoan().getTenDangNhap());
+		NhanVien nv = new NhanVien(manv,tennv , gioiTinh, sdt, chucvu,taikhoan);
+		int select = JOptionPane.showConfirmDialog(this, "Bạn muốn cập nhật ?");
+		if(select == JOptionPane.YES_OPTION)
+			{
+				NhanVien_dao.update(nv, manv);
+				JOptionPane.showMessageDialog(this, "Cập nhật thành công !");
+				this.dispose();
+			}
+		else {
+			JOptionPane.showMessageDialog(this, "Cập nhật không thành công");
+		}
+		
 	}
 }

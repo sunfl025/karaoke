@@ -10,22 +10,36 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import DAO.AutoId;
+
 import DAO.KhachHang_dao;
+import DAO.Phong_dao;
+import Enitity.DatTruocPhong;
 import Enitity.KhachHang;
 import Enitity.NhanVien;
+import Enitity.Phong;
 
 /**
  *
  * @author Admin
  */
 public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionListener{
+	private String ma;
+	
+    public String getMa() {
+		return ma;
+	}
 
-    /**
+	public void setMa(String ma) {
+		this.ma = ma;
+	}
+
+	/**
      * Creates new form ThemThongTinKhachHang
      */
     public ThemThongTinKhachHang() {
         initComponents();
+        setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        this.setResizable(false);
     }
    
     /**
@@ -238,7 +252,18 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
     private javax.swing.JTextField txt_DiaChi;
     private javax.swing.JTextField txt_SDT;
     private javax.swing.JTextField txt_TenKhachHang;
-    // End of variables declaration//GEN-END:variables
+    private String loai;
+    
+
+	public String getLoai() {
+		return loai;
+	}
+
+	public void setLoai(String loai) {
+		this.loai = loai;
+	}
+
+	// End of variables declaration//GEN-END:variables
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object o = e.getSource();
@@ -254,6 +279,7 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
 					them();
 					JOptionPane.showMessageDialog(this, "Thêm thành công");
 					this.dispose();
+					
 				}
 			else {
 				JOptionPane.showMessageDialog(this, "Thêm không thành công !");
@@ -261,7 +287,7 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
 		}
 	}
 	
-	private void them() {
+	public void them() {
 		ArrayList<KhachHang> dskh = new ArrayList<KhachHang>();
 		String ex ="KH";
 		int min = 9999;
@@ -277,8 +303,34 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
 		String sdt = txt_SDT.getText();
 		String diaChi = txt_DiaChi.getText();
 		KhachHang kh = new KhachHang(maKhachHang,tenKhachHang, gioiTinh, sdt, diaChi);
-		KhachHang_dao.them(kh);
-		lamTrong();
+		if(tenKhachHang.equalsIgnoreCase("") || sdt.equalsIgnoreCase("")) {
+			JOptionPane.showMessageDialog(this, "Vui nhập đầy đủ thông tin !");
+			txt_TenKhachHang.setFocusable(true);
+		}
+		else {
+			KhachHang_dao.them(kh);	
+			System.out.println(getLoai());
+			lamTrong();
+			if(loai.equals("Đặt phòng")) {	
+				DatPhong dp = new DatPhong();
+				KhachHang k = KhachHang_dao.findByPhone(kh.getSdt());
+				dp.getValuesKh(k);
+				dp.setVisible(true);
+				//System.out.println(ma);
+				dp.getValues(ma);
+				dp.setMa(ma);
+			}else {
+				DatPhongTruoc dtp = new DatPhongTruoc();
+				KhachHang k = KhachHang_dao.findByPhone(kh.getSdt());
+				dtp.getValuesKh(k);
+				dtp.setVisible(true);
+				dtp.getValues(ma);
+				dtp.setMa(ma);
+			}
+		
+			
+			
+		}
 	}
 	private void lamTrong() {
 		txt_TenKhachHang.setText("");
@@ -286,4 +338,6 @@ public class ThemThongTinKhachHang extends javax.swing.JFrame implements ActionL
 		txt_DiaChi.setText("");
 		rdo_Nam.isSelected();
 	}
+
+	
 }

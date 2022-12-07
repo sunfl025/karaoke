@@ -18,6 +18,18 @@ public class KhachHang {
 		this.diaChi = diaChi;
 	}
 	
+	
+
+	
+	public KhachHang(String maKhachHang, String tenKhachHang, String sdt) {
+		super();
+		this.maKhachHang = maKhachHang;
+		this.tenKhachHang = tenKhachHang;
+		this.sdt = sdt;
+	}
+	
+	///
+	
 	public KhachHang(String tenKhachHang, String gioiTinh, String sdt, String diaChi) {
 		super();
 		this.tenKhachHang = tenKhachHang;
@@ -25,6 +37,22 @@ public class KhachHang {
 		this.sdt = sdt;
 		this.diaChi = diaChi;
 	}
+	//Moi
+	
+	//////////
+	public KhachHang(String tenKhachHang, String sdt) {
+		super();
+		this.tenKhachHang = tenKhachHang;
+		this.sdt = sdt;
+	}
+	
+	public KhachHang(String maKhachHang) {
+		super();
+		this.maKhachHang = maKhachHang;
+	}
+	
+	
+	
 	public String getMaKhachHang() {
 		return maKhachHang;
 	}

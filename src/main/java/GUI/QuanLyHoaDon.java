@@ -4,17 +4,30 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+import DAO.HoaDon_Dao;
+import DAO.NhanVien_dao;
+import Enitity.ChiTietDichVu;
+import Enitity.HoaDon;
+import Enitity.NhanVien;
+
 /**
  *
  * @author Admin
  */
 public class QuanLyHoaDon extends javax.swing.JPanel {
 
-    /**
+    private DefaultTableModel tableModel;
+	/**
      * Creates new form QuanLyHoaDon
      */
     public QuanLyHoaDon() {
         initComponents();
+        tableModel = (DefaultTableModel) table.getModel();
+        fillDataIntoTable();
     }
     
    
@@ -221,7 +234,56 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
                 .addGap(9, 9, 9))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+//    private void fillDataIntoTable() {
+// 
+//		list_hd = HoaDon_Dao.getAll();
+//
+//		tableModel.setRowCount(0);
+//		for(HoaDon hd : list_hd) {
+//
+//			tableModel.addRow(new Object[] {
+//					hd.getMaHoaDon(),
+//					hd.getNgayLapHoaDon(),
+//					hd.getKhachhang().getTenKhachHang(),
+//					hd.getKhachhang().getSdt(),
+//					hd.getNhanvien().getTenNhanVien()
+//					
+//					
+//			});
+//		}
+//	}
+    private void fillDataIntoTable() {
+    	Double thanhtien = 0.0;
+		Double tongtien = 0.0;
+		double tienphong =0;
+//		list_hd = HoaDon_Dao.getAll2();
+		list_hd = HoaDon_Dao.getAllThongKeHoaDonTheoKhachHang();
 
+		tableModel.setRowCount(0);
+		for(HoaDon hd : list_hd) {
+//			thanhtien = hd.getDichvu().getSoLuong() * hd.getDichvu().getGia();
+			ArrayList<ChiTietDichVu> list_ctdv = hd.getChitietdichvu();
+			for(ChiTietDichVu ctdv: list_ctdv) {
+				thanhtien+=ctdv.getSoLuongSanPham()*ctdv.getDichvu().getGia();
+			}
+			int thoigianvao = (hd.getChiTietDatPhong().getThoiGianVao().getMinutes()+hd.getChiTietDatPhong().getThoiGianVao().getHours()*60);
+    		int thoigianra= hd.getChiTietDatPhong().getThoiGianRa().getMinutes()+hd.getChiTietDatPhong().getThoiGianRa().getHours()*60;
+    		int thoigiandatphong = thoigianra-thoigianvao;
+			tienphong = hd.getPhong().getGiaPhong()*(thoigiandatphong/60);
+			tongtien = thanhtien+tienphong;
+			tableModel.addRow(new Object[] {
+					hd.getMaHoaDon(),
+					hd.getNgayLapHoaDon(),
+					hd.getKhachhang().getTenKhachHang(),
+					hd.getKhachhang().getSdt(),
+					hd.getNhanvien().getTenNhanVien(),
+					tongtien
+					
+					
+			});
+		}
+	}
     private void txt_TenKhachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TenKhachActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_TenKhachActionPerformed
@@ -231,16 +293,70 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_SDTKhachActionPerformed
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-        // TODO add your handling code here:
+    	fillDataIntoTable();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void btn_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemActionPerformed
-        // TODO add your handling code here:
+    	String mahd = txt_MaHoaDon.getText();
+    	String tenkh = txt_TenKhach.getText();
+    	String sdt = txt_SDTKhach.getText();
+    	if(mahd.length()>0) {
+    		list_hd = HoaDon_Dao.searchMaHD(mahd);
+    		tableModel.setRowCount(0);
+    		for(HoaDon hd : list_hd) {
+    			tableModel.addRow(new Object[] {
+    					hd.getMaHoaDon(),
+    					hd.getNgayLapHoaDon(),
+    					hd.getKhachhang().getTenKhachHang(),
+    					hd.getKhachhang().getSdt(),
+    					hd.getNhanvien().getTenNhanVien()
+    			});
+    		}
+    	}
+    	if(tenkh.length()>0) {
+    
+    		list_hd = HoaDon_Dao.searchTenKh(tenkh);
+    		tableModel.setRowCount(0);
+    		for(HoaDon hd : list_hd) {
+    			
+    			tableModel.addRow(new Object[] {
+    					hd.getMaHoaDon(),
+    					hd.getNgayLapHoaDon(),
+    					hd.getKhachhang().getTenKhachHang(),
+    					hd.getKhachhang().getSdt(),
+    					hd.getNhanvien().getTenNhanVien(),
+    					
+    			});
+    		}
+    	}
+    	
+    	if(sdt.length()>0) {
+    	    
+    		list_hd = HoaDon_Dao.searchSDT(sdt);
+    		tableModel.setRowCount(0);
+    		for(HoaDon hd : list_hd) {
+    			
+    			tableModel.addRow(new Object[] {
+    					hd.getMaHoaDon(),
+    					hd.getNgayLapHoaDon(),
+    					hd.getKhachhang().getTenKhachHang(),
+    					hd.getKhachhang().getSdt(),
+    					hd.getNhanvien().getTenNhanVien(),
+    					
+    			});
+    		}
+    	}
+    	
     }//GEN-LAST:event_btn_TimKiemActionPerformed
 
     private void btn_ChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChiTietActionPerformed
-        ChiTietHoaDon framecthd = new ChiTietHoaDon();
-        framecthd.setVisible(true);
+    	int row = table.getSelectedRow();
+		if (row >= 0) {
+			String mahoadon = list_hd.get(row).getMaHoaDon();
+	    	ChiTietHoaDon framecthd = new ChiTietHoaDon(mahoadon);
+	        framecthd.setVisible(true);
+		}
+
         
     }//GEN-LAST:event_btn_ChiTietActionPerformed
 
@@ -266,5 +382,9 @@ public class QuanLyHoaDon extends javax.swing.JPanel {
     private javax.swing.JTextField txt_MaHoaDon;
     private javax.swing.JTextField txt_SDTKhach;
     private javax.swing.JTextField txt_TenKhach;
+	private ArrayList<HoaDon> list_hd = new ArrayList<>();
+
     // End of variables declaration//GEN-END:variables
+    
+    
 }

@@ -226,12 +226,15 @@ public class ThemDichVu extends javax.swing.JFrame {
 		int soLuong = Integer.parseInt(txt_SoLuong.getText());
 		Double gia = Double.parseDouble(txt_Gia.getText());
 		DichVu dv= new DichVu(maDichVu, loaiDichVu, tenDichVu, soLuong, gia);
-		if(dv!=null) {
+		if(soLuong<=0) {JOptionPane.showMessageDialog(this,"Số lượng phải lớn hơn 0 !!!");}
+		else if(gia <=0) {JOptionPane.showMessageDialog(this,"Giá tiền phải lớn hơn 0 !!!");}
+		else if(dv!=null) {
 			dao.Them(dv);
 			if(dao.Them(dv)==true) {
 		        JOptionPane.showMessageDialog(this,"Thêm thành công");}
-		else {JOptionPane.showMessageDialog(this,"Thêm thất bại");}
-		}else {JOptionPane.showMessageDialog(this,"Thêm thất bại");}
+			else if(dao.Them(dv)==false) {JOptionPane.showMessageDialog(this,"Thêm thất bại");}
+		}
+		
 		
 	}
 }

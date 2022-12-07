@@ -4,17 +4,31 @@
  */
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+
+import DAO.PhieuDatPhong_dao;
+import Enitity.DatTruocPhong;
+
 /**
  *
  * @author Lenovo
  */
-public class QuanLyTimKiem extends javax.swing.JPanel {
+public class QuanLyTimKiem extends javax.swing.JPanel implements ActionListener {
 
-    /**
+    private DefaultTableModel tableModel;
+	/**
      * Creates new form quanlitimkiem
      */
     public QuanLyTimKiem() {
         initComponents();
+        tableModel = (DefaultTableModel) table_timphong.getModel();
+        fillDataIntoTable();
+        
     }
 
     /**
@@ -106,7 +120,7 @@ public class QuanLyTimKiem extends javax.swing.JPanel {
         jLabel6.setText("Mã phiếu đặt : ");
 
         btn_tim.setText("Tìm kiếm");
-
+        btn_tim.addActionListener(this);
         table_timphong.setBackground(new java.awt.Color(199, 199, 231));
         table_timphong.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +179,25 @@ public class QuanLyTimKiem extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fillDataIntoTable() {
+    	
+		list_dt = PhieuDatPhong_dao.getAll();
+
+		tableModel.setRowCount(0);
+		for(DatTruocPhong dt : list_dt) {
+			
+			tableModel.addRow(new Object[] {
+					dt.getMaDatTruocPhong(),
+					dt.getMaPhong().getMaPhong(),
+					dt.getMaKhachHang().getSdt(),
+					dt.getNgayDatPhong() + " " + dt.getGioDatPhong() ,
+					dt.getGioNhanPhong()
+					
+					
+			});
+		}
+	}
+                                     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_tim;
@@ -181,5 +214,56 @@ public class QuanLyTimKiem extends javax.swing.JPanel {
     private javax.swing.JTable table_timphong;
     private javax.swing.JTextField txt_maphieudat;
     private javax.swing.JTextField txt_sdt;
+    private ArrayList<DatTruocPhong> list_dt = new ArrayList<>();
     // End of variables declaration//GEN-END:variables
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if(o.equals(btn_tim))
+		{
+			String maPhieuDat = txt_maphieudat.getText();
+			String sdt = txt_sdt.getText();
+			if(maPhieuDat.length() > 0)
+			{
+				list_dt = PhieuDatPhong_dao.getMaDTP(maPhieuDat);
+				tableModel.setRowCount(0);
+				for(DatTruocPhong dt : list_dt)
+				{
+					tableModel.addRow(new Object[] {
+							dt.getMaDatTruocPhong(),
+							dt.getMaPhong().getMaPhong(),
+							dt.getMaKhachHang().getSdt(),
+							dt.getNgayDatPhong() + " " + dt.getGioDatPhong() ,
+							dt.getGioNhanPhong()
+							
+							
+					});
+				}
+			}
+			else if(sdt.length() > 0)
+			{
+				list_dt = PhieuDatPhong_dao.getSDT(sdt);
+				tableModel.setRowCount(0);
+				for(DatTruocPhong dt : list_dt)
+				{
+					tableModel.addRow(new Object[] {
+							dt.getMaDatTruocPhong(),
+							dt.getMaPhong().getMaPhong(),
+							dt.getMaKhachHang().getSdt(),
+							dt.getNgayDatPhong() + " " + dt.getGioDatPhong() ,
+							dt.getGioNhanPhong()
+							
+							
+					});
+				}
+			}
+			else
+			{
+				fillDataIntoTable();
+			}
+				
+		}
+		
+	}
+    
 }
